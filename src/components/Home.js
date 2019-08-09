@@ -26,9 +26,7 @@ class Home extends Component{
 render(){
   return (
     <div>
-  <h1>we are at home  </h1>
-  <h1><Button>Click</Button></h1>
-  </div>
+    </div>
   );
 
 }
