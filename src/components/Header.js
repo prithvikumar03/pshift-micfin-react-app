@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Container,Navbar, Nav, NavLink,NavbarLink,Button } from 'styled-bootstrap-components';
-
+import { Navbar, Nav, NavbarLink,Button } from 'styled-bootstrap-components';
+  
 
 class Header extends Component {
   render() {
     return (
-      <Container fluid>
+      
         <Navbar expandSm dark>
           <Nav start>
+            {/* <LogoRenderer>hello</LogoRenderer> */}
             <NavbarLink dark brand active href="#">MICFIN</NavbarLink>
             <NavbarLink dark active href="#">MicroFinancing Dealer Platform</NavbarLink>
             <Nav end>
@@ -31,7 +32,7 @@ class Header extends Component {
         </Navbar>
 
 
-      </Container>
+      
     );
   }
 

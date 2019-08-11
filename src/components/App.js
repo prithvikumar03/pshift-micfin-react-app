@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import Header from './Header';
+//import SideNavBar from './SideNavBar';
 import Main from './Main';
+import { Container } from 'styled-container-component';
+//import {Table ,TableRow,TableBody,TableCell,TableHead }from '@kiwicom/orbit-components';
+
+
+
 class App extends Component {
 
-  componentWillMount(){
+  componentWillMount() {
   }
 
   render() {
 
     return (
-      <div> 
-         <Header />
-          <Main />
-      </div>
+      <Container fluid>
+            <div><Header></Header></div>
+          <div>
+            {/* <div><SideNavBar></SideNavBar></div> */}
+            <div><Main></Main></div>
+          </div>
+
+      </Container>
+
     );
   }
 }
