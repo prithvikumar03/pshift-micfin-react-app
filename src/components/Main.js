@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Navbar, Nav, NavbarLink } from 'styled-bootstrap-components';
 import {Switch, Link } from 'react-router-dom';
-import MFIRegistration from './mfi/MFIRegistration';
+import MFIRegistrationInputForm from './mfi/MFIRegistrationInputForm';
 import LoginInputForm from './login/LoginInputForm';
 
 class Main extends Component {
@@ -22,7 +22,7 @@ class Main extends Component {
         </Navbar>
         
         <Switch>
-              <Route path="/mfi" component={MFIRegistration} />
+              <Route path="/mfi" component={MFIRegistrationInputForm} />
               <Route path="/login" component={LoginInputForm} />
         </Switch>
 
