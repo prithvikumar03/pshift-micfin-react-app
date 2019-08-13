@@ -3,7 +3,14 @@ import { Formik } from 'formik';
 import MFIRegistration from './MFIRegistration';
 import axios from 'axios'
 //import Button from "@material-ui/core/Button";
-//import * as Yup from 'yup'
+import * as Yup from 'yup'
+
+
+const validationSchema = Yup.object({
+    firstName: Yup.string("")
+    .min(8, "firstName must contain at least 8 characters")
+    .required("Enter your firstName")
+});
 
 export default class LoginInputForm extends Component {
 
@@ -32,6 +39,7 @@ export default class LoginInputForm extends Component {
                 <div>
                     <Formik
                         initialValues={{ firstName: '' }}
+                        validationSchema={validationSchema} 
                         onSubmit={(values, { setSubmitting }) => {
                             this.registerMFI(values);
                         }}

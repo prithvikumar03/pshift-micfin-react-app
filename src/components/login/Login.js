@@ -9,28 +9,28 @@ export default class Login extends Component{
         super(props);
         this.state = {};
       }
-     
-
-    componentDidMount(){
-       
-    }
-
-    onSubmit = ()=>{
-        this.props.handleSubmitParent();
-    }
-
+   
     render(){
+
+        const {
+            values,
+            touched,
+            errors,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          } = this.props;
        
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={handleSubmit}>
                               <Container maxWidth="lg">
                               <h1>Login</h1>
                               <div>
-                              <TextField id="email" type="email" name="email" label="Email" />
+                              <TextField id="email" type="email" name="email" label="Email" variant="outlined" value={values.name} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''} />
                               </div>
                               <div>
-                              <TextField id="password" type="password" name="password" label="Password" />
+                              <TextField id="password" type="password" name="password" label="Password" variant="outlined" value={values.name} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''}/>
                               </div>
                               <div></div>
                               <div>

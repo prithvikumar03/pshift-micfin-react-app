@@ -37,8 +37,8 @@ class LoginInputForm extends Component {
         this.state = {};
     }
 
-    handleSubmitParent = () => {
-        alert('handle submit in parent class ! Hurray');
+    login = (values) => {
+        alert('handle submit in parent class ! Hurray'+JSON.stringify(values));
         
     }
 
@@ -48,16 +48,19 @@ class LoginInputForm extends Component {
         return (
             <React.Fragment>
                 <div>
+                
                     <Formik
                     initialValues={values}
-                    validationSchema={validationSchema}
+                    validationSchema={validationSchema} 
+                    onSubmit={(values, { setSubmitting }) => {
+                        this.login(values);
+                    }}
+                    /* send the props of formik to the underlying Components Ex- handleSubmit
+                        submitting the form should trigger 'Formik's onSubmit method
+                     */
                     render={
-                        props => <Login handleSubmitParent={this.handleSubmitParent} {...props}/>}
+                        props => <Login handleSubmit={this.props.handleSubmit} {...props}/>}
                     /> 
-                   
-                    {/* <div>
-                        <Login handleSubmitParent={this.handleSubmitParent}></Login>
-                    </div>                       */}
 
                 </div>
             </React.Fragment>
