@@ -69,6 +69,7 @@ class MFIRegistration extends Component {
             <Typography variant="h6" noWrap>
               MFI Registration
           </Typography>
+          <Divider/>
           </div>
           <div></div>
           <div>

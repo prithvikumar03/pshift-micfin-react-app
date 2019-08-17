@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/styles/withStyles';
 import { withRouter } from 'react-router-dom';
 import SideNavBar from './SideNavBar';
+import Footer from './Footer';
+
 
 const styles = theme => ({
   root: {
@@ -85,12 +86,11 @@ const styles = theme => ({
 
 class Main extends Component {
   render() {
-    const { classes } = this.props;
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header/> 
         <SideNavBar></SideNavBar>
+        <Footer></Footer>
       </React.Fragment>
       );
   }

@@ -7,7 +7,9 @@ import * as Yup from 'yup'
 import SideNavBar from './../SideNavBar';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchMFI } from './../../actions/MFIActions';
 
 
 const styles = theme => ({
@@ -44,19 +46,27 @@ class MFIRegistrationInputForm extends Component {
 
     //invokes rest API
     registerMFI = (values) => {
-        alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
+
+         alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
         var payload = JSON.stringify(values)
         axios.post('http://localhost:8081/mfi', payload).then((response) => {
             console.log(response);
         })
             .catch((error) => {
                 alert(error)
-            })
+            }) 
     }
 
     render() {
         const currentPath = this.props.location.pathname
         const { classes } = this.props;
+        const {
+            fetchMFI,
+            isLoading,
+            error,
+            whiskies
+          } = this.props;
+      
         return (
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
@@ -68,9 +78,12 @@ class MFIRegistrationInputForm extends Component {
                                     <Formik
                                         initialValues={{ firstName: '' }}
                                        /*  validationSchema={validationSchema} */
-                                        onSubmit={(values, { setSubmitting }) => {
+                                       /*  onSubmit={(values, { setSubmitting }) => {
                                             this.registerMFI(values);
-                                        }}
+                                            
+                                        }} */
+                                         onSubmit={fetchMFI} 
+
                                         render={
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
@@ -87,4 +100,12 @@ class MFIRegistrationInputForm extends Component {
 
 }
 
-export default withStyles(styles)(MFIRegistrationInputForm);
+const mapStateToProps = state => ({ ...state });
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        fetchMFI
+    }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MFIRegistrationInputForm));
+
