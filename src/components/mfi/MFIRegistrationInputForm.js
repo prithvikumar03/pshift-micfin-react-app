@@ -67,7 +67,7 @@ class MFIRegistrationInputForm extends Component {
                                 <Grid item xs={12}>
                                     <Formik
                                         initialValues={{ firstName: '' }}
-                                        validationSchema={validationSchema}
+                                       /*  validationSchema={validationSchema} */
                                         onSubmit={(values, { setSubmitting }) => {
                                             this.registerMFI(values);
                                         }}
