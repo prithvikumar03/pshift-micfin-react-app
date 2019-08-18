@@ -1,18 +1,19 @@
-/* import {
-    FETCH_MFI,
+
+import {
+    FETCH_ALL_MFIS,
     FETCH_MFI_FAILURE,
     FETCH_MFI_SUCCESS
 } from './../actions/MFIActions';
 
 const initialState = {
-    MFI: [],
+    MFIs: [],
     isLoading: false,
     error: null
 };
 
-export default function rootReducer(state = initialState, action) {
+export default function mfiReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_MFI:
+        case FETCH_ALL_MFIS:
             return {
                 ...state,
                 // whenever we want to fetch the MFI, set isLoading to true to show a spinner
@@ -21,14 +22,14 @@ export default function rootReducer(state = initialState, action) {
             };
         case FETCH_MFI_SUCCESS:
             return {
-                MFI: [...action.payload],
+                MFI: action.payload,
                 // whenever the fetching finishes, we stop showing the spinner and then show the data
                 isLoading: false,
                 error: null
             };
         case FETCH_MFI_FAILURE:
             return {
-                MFI: [],
+                MFI: null,
                 isLoading: false,
                 // same as FETCH_MFI_SUCCESS, but instead of data we will show an error message
                 error: action.payload
@@ -36,4 +37,4 @@ export default function rootReducer(state = initialState, action) {
         default:
             return state;
     }
-} */
+}

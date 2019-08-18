@@ -64,7 +64,6 @@ class MFIRegistrationInputForm extends Component {
             fetchMFI,
             isLoading,
             error,
-            whiskies
           } = this.props;
       
         return (

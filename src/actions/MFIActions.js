@@ -1,9 +1,9 @@
-export const FETCH_MFI = 'FETCH_MFI';
+export const FETCH_ALL_MFIS = 'FETCH_ALL_MFIS';
 export const FETCH_MFI_SUCCESS = 'FETCH_MFI_SUCCESS';
 export const FETCH_MFI_FAILURE = 'FETCH_MFI_FAILURE';
 
 export const fetchMFI = () => ({
-    type: FETCH_MFI,
+    type: FETCH_ALL_MFIS,
 });
 
 export const fetchMFISuccess = (MFI) => ({
