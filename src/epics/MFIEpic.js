@@ -8,7 +8,10 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import {
     FETCH_ALL_MFIS,
     fetchMFIFailure,
-    fetchMFISuccess
+    fetchMFISuccess,
+    REGISTER_MFI,
+    registerMFISuccess,
+    registerMFIFailure
 } from "./../actions/MFIActions";
 
 
@@ -30,3 +33,32 @@ export default function mfiEpic(action$) {
 }
 
 
+const saveMFIUrl = 'http://localhost:8081/micfin/api/mfi'; 
+export function registerMFIEpic(action$) { 
+     return action$
+        .ofType(REGISTER_MFI) 
+          .switchMap((action) => {
+            return ajax
+                .post(saveMFIUrl,action.payload, { 'Content-Type': 'application/json' }) // getJSON simply sends a GET request with Content-Type application/json
+                .map(data => data) // get the data and extract only the results
+        }) 
+        .map(payload => {
+            console.log('payload ------------------>'+payload);
+            return registerMFISuccess(payload)})  
+        
+        .catch(error => Observable.of(registerMFIFailure(error.message))) 
+
+
+     /*    return action$
+        .ofType(FETCH_ALL_MFIS) 
+          .switchMap(() => {
+            return ajax
+                .getJSON(url) // getJSON simply sends a GET request with Content-Type application/json
+                .map(data => data) // get the data and extract only the results
+        }) 
+        .map(payload => {
+            console.log('payload ------------------>'+payload);
+            return fetchMFISuccess(payload)})  
+        
+        .catch(error => Observable.of(fetchMFIFailure(error.message))) */
+}

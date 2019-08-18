@@ -2,7 +2,10 @@
 import {
     FETCH_ALL_MFIS,
     FETCH_MFI_FAILURE,
-    FETCH_MFI_SUCCESS
+    FETCH_MFI_SUCCESS,
+    REGISTER_MFI,
+    REGISTER_MFI_SUCCESS,
+    REGISTER_MFI_FAILURE
 } from './../actions/MFIActions';
 
 const initialState = {
@@ -38,3 +41,32 @@ export default function mfiReducer(state = initialState, action) {
             return state;
     }
 }
+
+
+export function registerMFIReducer(state = initialState, action) {
+    alert('inside reducer '+action);
+    console.log('Inside registerMFIReducer with action '+action);
+    switch (action.type) {
+        case REGISTER_MFI:
+            return {
+                ...state,
+                isLoading: true,
+                error: null
+            };
+        case REGISTER_MFI_SUCCESS:
+            return {
+                MFI: action.payload,
+                isLoading: false,
+                error: null
+            };
+        case REGISTER_MFI_FAILURE:
+            return {
+                MFI: null,
+                isLoading: false,
+                error: action.payload
+            };
+        default:
+            return state;
+    }
+}
+

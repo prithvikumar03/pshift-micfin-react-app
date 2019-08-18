@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMFI } from './../../actions/MFIActions';
+import { registerMFI } from './../../actions/MFIActions';
 
 
 const styles = theme => ({
@@ -61,7 +61,7 @@ class MFIRegistrationInputForm extends Component {
         const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
-            fetchMFI,
+            registerMFI,
             isLoading,
             error,
           } = this.props;
@@ -81,7 +81,7 @@ class MFIRegistrationInputForm extends Component {
                                             this.registerMFI(values);
                                             
                                         }} */
-                                         onSubmit={fetchMFI} 
+                                         onSubmit={registerMFI} 
 
                                         render={
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
@@ -103,7 +103,7 @@ const mapStateToProps = state => ({ ...state });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        fetchMFI
+        registerMFI
     }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MFIRegistrationInputForm));
