@@ -31,9 +31,10 @@ const styles = theme => ({
 
 
 const validationSchema = Yup.object({
-    firstName: Yup.string("")
-        .min(8, "firstName must contain at least 8 characters")
-        .required("Enter your firstName")
+    companyName: Yup.string("")
+        .min(8, "Company Name must contain at least 8 characters"),
+    directorName: Yup.string("")
+        .min(8, "Director Name must contain at least 8 characters"),    
 });
 
 class MFIRegistrationInputForm extends Component {
@@ -76,12 +77,12 @@ class MFIRegistrationInputForm extends Component {
                                 <Grid item xs={12}>
                                     <Formik
                                         initialValues={{ firstName: '' }}
-                                       /*  validationSchema={validationSchema} */
-                                       /*  onSubmit={(values, { setSubmitting }) => {
+                                         validationSchema={validationSchema} 
+                                         onSubmit={(values, { setSubmitting }) => {
                                             this.registerMFI(values);
                                             
-                                        }} */
-                                         onSubmit={registerMFI} 
+                                        }} 
+                                         /* onSubmit={registerMFI}  */
 
                                         render={
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}

@@ -44,7 +44,7 @@ export default function mfiReducer(state = initialState, action) {
 
 
 export function registerMFIReducer(state = initialState, action) {
-    alert('inside reducer '+action);
+    //alert('inside reducer '+action);
     console.log('Inside registerMFIReducer with action '+action);
     switch (action.type) {
         case REGISTER_MFI:

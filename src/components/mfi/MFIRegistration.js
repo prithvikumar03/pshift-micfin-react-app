@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-//import {Form}  from 'react';
 import { TextField } from '@material-ui/core';
-import { Container } from '@material-ui/core'
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
 import Button from "@material-ui/core/Button";
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/styles/withStyles';
 import MenuItem from '@material-ui/core/MenuItem';
+import { ErrorMessage } from 'formik';
 
-const options = [
+const yesNoOptions = [
   {
     value: 'YES',
     label: 'YES',
@@ -32,6 +29,7 @@ const styles = theme => ({
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     minWidth:300,
+    padding: 3,
   },
   dense: {
     marginTop: 16,
@@ -39,6 +37,12 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
+  error: {
+    color: 'red',
+    /* height: 48,
+    padding: '0 30px', */
+  }
+
 })
 
 
@@ -73,7 +77,7 @@ class MFIRegistration extends Component {
           </div>
           <div></div>
           <div>
-            <TextField id="mfiId" type="text" name="mfiId" label="MFI Id"  value={values.name} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled  value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
                />
           </div>
@@ -81,26 +85,27 @@ class MFIRegistration extends Component {
           <tr></tr>
 
           <div>
-            <TextField id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField}  value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField required id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField}  value={values.companyName} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
               />
-          </div>
+              <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
+              </div>
           <tr></tr>
 
           <div>
-            <TextField id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField required id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.directorName} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
              />
           </div>
           <tr></tr>
           <div>
-            <TextField id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField required id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
                />
           </div>
           <tr></tr>
           <div>
-            <TextField id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField}  value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField required id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField}  value={values.registrationDate} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
               InputLabelProps={{
                 shrink: true,
@@ -108,14 +113,14 @@ class MFIRegistration extends Component {
           </div>
           <tr></tr>
           <div>
-            <TextField id="netFundsOwned" type="text" name="netFundsOwned" label="Net Funds Owned" className={classes.textField}  value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField id="netFundsOwned" type="text" name="netFundsOwned" label="Net Funds Owned" className={classes.textField}  value={values.netFundsOwned} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
                />
           </div>
 
           <tr></tr>
           <div>
-            <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.options} onChange={handleChange('currency')} margin="dense"
+            <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
         variant="outlined" InputLabelProps={{
               shrink: true,
             }} SelectProps={{
@@ -124,7 +129,7 @@ class MFIRegistration extends Component {
               },
             }} 
             >
-              {options.map(option => (
+              {yesNoOptions.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
@@ -135,7 +140,7 @@ class MFIRegistration extends Component {
           
 
           <div>
-            <TextField id="filled-select-yesNoOption" select label="Any Pending Case in Court" className={classes.textField} value={values.options} onChange={handleChange('currency')} margin="dense"
+            <TextField id="filled-select-yesNoOption" select label="Any Pending Case in Court" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
         variant="outlined" InputLabelProps={{
               shrink: true,
             }} SelectProps={{
@@ -144,7 +149,7 @@ class MFIRegistration extends Component {
               },
             }} 
             >
-              {options.map(option => (
+              {yesNoOptions.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
@@ -154,13 +159,14 @@ class MFIRegistration extends Component {
           <tr></tr>
 
           <div>
-            <TextField id="reasonForApplication" type="text" name="reasonForApplication" label="Reason For Application" className={classes.textField}  value={values.name} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField id="reasonForApplication" type="text" name="reasonForApplication" label="Reason For Application" className={classes.textField}  value={values.reasonForApplication} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
               InputLabelProps={{
                 shrink: true,
               }} />
           </div>
 
+          <div>    
           <Button
             type="submit"
             variant="contained"
@@ -169,6 +175,16 @@ class MFIRegistration extends Component {
           >
             Register
           </Button>
+
+          &nbsp;&nbsp;
+          <Button
+            variant="contained"
+            color="primary"
+            margin="dense"
+          >
+            Reset
+          </Button>
+          </div>    
 
         </form>
       </Box>
