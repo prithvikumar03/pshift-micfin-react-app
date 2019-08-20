@@ -37,6 +37,12 @@ const validationSchema = Yup.object({
         .min(8, "Director Name must contain at least 8 characters"),    
 });
 
+const initialState = {
+    mfiId: '',
+    companyName: "ABC Unlimited",
+    directorName: "ABC User"
+}
+
 class MFIRegistrationInputForm extends Component {
 
     constructor(props) {
@@ -45,7 +51,7 @@ class MFIRegistrationInputForm extends Component {
     }
 
 
-    //invokes rest API
+   /*  //invokes rest API
     registerMFI = (values) => {
 
          alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
@@ -57,7 +63,7 @@ class MFIRegistrationInputForm extends Component {
                 alert(error)
             }) 
     }
-
+ */
     render() {
         const currentPath = this.props.location.pathname
         const { classes } = this.props;
@@ -76,13 +82,13 @@ class MFIRegistrationInputForm extends Component {
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                 <Grid item xs={12}>
                                     <Formik
-                                        initialValues={{ firstName: '' }}
+                                        initialValues={initialState}
                                          validationSchema={validationSchema} 
-                                         onSubmit={(values, { setSubmitting }) => {
+                                         /* onSubmit={(values, { setSubmitting }) => {
                                             this.registerMFI(values);
                                             
-                                        }} 
-                                         /* onSubmit={registerMFI}  */
+                                        }}  */
+                                        onSubmit={registerMFI}  
 
                                         render={
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
@@ -106,6 +112,8 @@ const mapDispatchToProps = dispatch =>
     bindActionCreators({
         registerMFI
     }, dispatch);
+    
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MFIRegistrationInputForm));
 

@@ -99,13 +99,13 @@ class MFIRegistration extends Component {
           </div>
           <tr></tr>
           <div>
-            <TextField required id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
                />
           </div>
           <tr></tr>
           <div>
-            <TextField required id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField}  value={values.registrationDate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+            <TextField  id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField}  value={values.registrationDate} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
               InputLabelProps={{
                 shrink: true,
