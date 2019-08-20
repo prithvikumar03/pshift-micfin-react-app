@@ -42,7 +42,7 @@ export function registerMFIEpic(action$) {
           /*   return ajax
                 .post(saveMFIUrl,action.payload, { 'Content-Type': 'application/json' }) // getJSON simply sends a GET request with Content-Type application/json
                 .map(data => data) // get the data and extract only the results */
-                return(Observable.of(fake.fakeRegisterMFIResponse));
+                return(Observable.of(fake.registerMFIResponse));
         }) 
         .map(payload => {
             console.log('payload in registerMFIEpic  ------------------>'+JSON.stringify(payload));
