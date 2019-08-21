@@ -11,6 +11,10 @@ const Menu = [
     label: "Search MicroEntrepreneurs",
     pathname: "/searchMEs"
   },
+  {
+    label: "MicroEntrepreneur",
+    pathname: "/microEntrepreneur"
+  }
 ];
 
 export default Menu;
