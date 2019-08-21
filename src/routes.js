@@ -4,6 +4,7 @@ import Main from './components/Main'
 import MFIRegistrationInputForm from './components/mfi/MFIRegistrationInputForm'
 import ScrollToTop from './components/ScrollTop'
 import Home from './components/mfi/Home';
+import SearchMEntrepreneurs from './components/microentrepreneur/SearchMEntrepreneurs';
 
 export default props => (
     <HashRouter>
@@ -13,6 +14,7 @@ export default props => (
           <Route exact path='/' component={ Main } />
           <Route exact path='/home' component={ Home } />
           <Route exact path='/mfi' component={ MFIRegistrationInputForm } />
+          <Route exact path='/searchMEs' component={ SearchMEntrepreneurs } />
         </Switch>
         </ScrollToTop>
     </HashRouter>
