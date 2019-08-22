@@ -1,21 +1,44 @@
 import {
     REGISTER_ME,
     REGISTER_ME_SUCCESS,
-    REGISTER_ME_FAILURE
+    REGISTER_ME_FAILURE,
+    FETCH_ALL_ENTREPRENEURS,
+    FETCH_ALL_ENTREPRENEURS_SUCCESS,
+    FETCH_ALL_ENTREPRENEURS_FAILURE
 } from './../actions/MEActions';
 
 const initialState ={
-    microentrepreneur: null,
+    microentrepreneur: {
+        meId:''
+    },
+    microentrepreneurs:[],
     isLoading: false,
     error: null
 };
 
-
-
-export function registerMEReducer(state = initialState, action) {
-    //alert('inside reducer '+action);
-    console.log('Inside registerMEReducer with action '+action);
+export function microEntrepreneurReducer(state = initialState, action) {
+    console.log('Inside registerMEReducer with action '+action.type);
     switch (action.type) {
+        case FETCH_ALL_ENTREPRENEURS:
+            return {
+                ...state,
+                isLoading: true,
+                error: null
+            };
+        case FETCH_ALL_ENTREPRENEURS_SUCCESS:
+            return {
+                ...state,
+                microentrepreneurs: action.payload,
+                isLoading: false,
+                error: null
+            };
+        case FETCH_ALL_ENTREPRENEURS_FAILURE:
+            return {
+                ...state,
+                microentrepreneurs: null,
+                isLoading: false,
+                error: action.payload
+            };
         case REGISTER_ME:
             return {
                 ...state,

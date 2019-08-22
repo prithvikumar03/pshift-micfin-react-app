@@ -9,7 +9,7 @@ const Menu = [
   },
   {
     label: "Search MicroEntrepreneurs",
-    pathname: "/searchMEs"
+    pathname: "/searchEntrepreneurs"
   },
   {
     label: "MicroEntrepreneur",
