@@ -11,13 +11,10 @@ import { rootEpic } from './epics/index';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const epicMiddleware = createEpicMiddleware();
-const enhancers = compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
 //const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 const store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware()));
-//epicMiddleware.run(rootEpic);
+    applyMiddleware(epicMiddleware)));
+epicMiddleware.run(rootEpic);
 
 ReactDOM.render(
     <Provider store={store}>

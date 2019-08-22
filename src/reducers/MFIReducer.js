@@ -9,6 +9,11 @@ import {
 } from './../actions/MFIActions';
 
 const initialState = {
+    mfi: {
+        mfiId: '',
+        companyName: "",
+        directorName: ""
+    },
     MFIs: [],
     isLoading: false,
     error: null
@@ -19,34 +24,23 @@ export default function mfiReducer(state = initialState, action) {
         case FETCH_ALL_MFIS:
             return {
                 ...state,
-                // whenever we want to fetch the MFI, set isLoading to true to show a spinner
                 isLoading: true,
                 error: null
             };
         case FETCH_MFI_SUCCESS:
             return {
-                MFI: action.payload,
-                // whenever the fetching finishes, we stop showing the spinner and then show the data
+                ...state,
+                mfi: action.payload,
                 isLoading: false,
                 error: null
             };
         case FETCH_MFI_FAILURE:
             return {
-                MFI: null,
+                ...state,
+                mfi: null,
                 isLoading: false,
-                // same as FETCH_MFI_SUCCESS, but instead of data we will show an error message
                 error: action.payload
             };
-        default:
-            return state;
-    }
-}
-
-
-export function registerMFIReducer(state = initialState, action) {
-    //alert('inside reducer '+action);
-    console.log('Inside registerMFIReducer with action '+action);
-    switch (action.type) {
         case REGISTER_MFI:
             return {
                 ...state,
@@ -55,13 +49,15 @@ export function registerMFIReducer(state = initialState, action) {
             };
         case REGISTER_MFI_SUCCESS:
             return {
-                MFI: action.payload,
+                ...state,
+                mfi: action.payload,
                 isLoading: false,
                 error: null
             };
         case REGISTER_MFI_FAILURE:
             return {
-                MFI: null,
+                ...state,
+                mfi: null,
                 isLoading: false,
                 error: action.payload
             };

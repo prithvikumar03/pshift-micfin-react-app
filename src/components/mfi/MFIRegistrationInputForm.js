@@ -14,33 +14,33 @@ import { registerMFI } from './../../actions/MFIActions';
 
 const styles = theme => ({
     root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.grey['A500'],
-      overflow: 'hidden',
-      /* background: `url(${backgroundShape}) no-repeat`, */
-      backgroundSize: 'cover',
-      backgroundPosition: '0 400px',
-      marginTop: 20,
-      padding: 20,
-      paddingBottom: 200
+        flexGrow: 1,
+        backgroundColor: theme.palette.grey['A500'],
+        overflow: 'hidden',
+        /* background: `url(${backgroundShape}) no-repeat`, */
+        backgroundSize: 'cover',
+        backgroundPosition: '0 400px',
+        marginTop: 20,
+        padding: 20,
+        paddingBottom: 200
     },
     grid: {
-      width: 1000
+        width: 1000
     }
-  })
+})
 
 
 const validationSchema = Yup.object({
     companyName: Yup.string("")
         .min(8, "Company Name must contain at least 8 characters"),
     directorName: Yup.string("")
-        .min(8, "Director Name must contain at least 8 characters"),    
+        .min(8, "Director Name must contain at least 8 characters"),
 });
 
 const initialState = {
-    mfiId: '',
-    companyName: "ABC Unlimited",
-    directorName: "ABC User"
+    mfiId: "",
+    companyName: "",
+    directorName: ""
 }
 
 class MFIRegistrationInputForm extends Component {
@@ -51,28 +51,29 @@ class MFIRegistrationInputForm extends Component {
     }
 
 
-   /*  //invokes rest API
-    registerMFI = (values) => {
-
-         alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
-        var payload = JSON.stringify(values)
-        axios.post('http://localhost:8081/mfi', payload).then((response) => {
-            console.log(response);
-        })
-            .catch((error) => {
-                alert(error)
-            }) 
-    }
- */
+    /*  //invokes rest API
+     registerMFI = (values) => {
+ 
+          alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
+         var payload = JSON.stringify(values)
+         axios.post('http://localhost:8081/mfi', payload).then((response) => {
+             console.log(response);
+         })
+             .catch((error) => {
+                 alert(error)
+             }) 
+     }
+  */
     render() {
         const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
+            mfi,
             registerMFI,
             isLoading,
             error,
-          } = this.props;
-      
+        } = this.props;
+
         return (
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
@@ -82,13 +83,14 @@ class MFIRegistrationInputForm extends Component {
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                 <Grid item xs={12}>
                                     <Formik
-                                        initialValues={initialState}
-                                         validationSchema={validationSchema} 
-                                         /* onSubmit={(values, { setSubmitting }) => {
-                                            this.registerMFI(values);
-                                            
-                                        }}  */
-                                        onSubmit={registerMFI}  
+                                        initialValues={mfi}
+                                        enableReinitialize
+                                        validationSchema={validationSchema}
+                                        /* onSubmit={(values, { setSubmitting }) => {
+                                           this.registerMFI(values);
+                                           
+                                       }}  */
+                                        onSubmit={registerMFI}
 
                                         render={
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
@@ -106,13 +108,18 @@ class MFIRegistrationInputForm extends Component {
 
 }
 
-const mapStateToProps = state => ({ ...state });
+const mapStateToProps = state => ({
+    mfi: state.mfi.mfi,
+    isLoading: state.mfi.isLoading,
+    error: state.mfi.error
+
+});
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         registerMFI
     }, dispatch);
-    
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MFIRegistrationInputForm));

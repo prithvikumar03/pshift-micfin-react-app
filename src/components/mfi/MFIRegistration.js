@@ -96,6 +96,7 @@ class MFIRegistration extends Component {
             <TextField required id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.directorName} onChange={handleChange} onBlur={handleBlur} margin="dense"
         variant="outlined"
              />
+             <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
           </div>
           <tr></tr>
           <div>
