@@ -23,10 +23,13 @@ import ListItemLink from './ListItemLink';
 import { Link as MaterialLink } from '@material-ui/core'
 import { useStyles } from '../styles/index';
 import Header from './Header';
-import {LogoIcon,HomeIcon} from './../styles/icons';
+import { getIcon, LogoIcon, HomeIcon } from './../styles/icons';
 import Badge from '@material-ui/core/Badge';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 
 
 export default function SideNavBar() {
@@ -40,6 +43,48 @@ export default function SideNavBar() {
 
     function handleDrawerClose() {
         setOpen(false);
+    }
+
+    function handleClick() {
+        setOpen(!open);
+    }
+
+    function getListItem(item, index, isNested) {
+        if (item.header === null) {
+            return (
+                <ListItem className={isNested ? classes.nested : ''} component={item.external ? MaterialLink : Link} href={item.external ? item.pathname : null} to={item.pathname} button key={item.label}>
+                    <ListItemIcon>
+                        {getIcon(item.label, classes.icon)}
+                    </ListItemIcon>
+                    <ListItemText primary={item.label} />
+                </ListItem>
+            );
+        }
+        else {
+            let children = item.children;
+            return (
+                <div>
+                    <ListItem button onClick={handleClick}>
+                        <ListItemIcon>
+                            {getIcon(item.label, classes.icon)}
+                        </ListItemIcon>
+                        <ListItemText primary={item.label} />
+                        {open ? <ExpandLess /> : <ExpandMore />}
+                    </ListItem>
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            {
+                                children.map((subItem, subIndex) => (
+                                    getListItem(subItem, subIndex, true)))
+                            }
+
+                        </List>
+                    </Collapse>
+                </div>
+
+            )
+
+        }
     }
 
 
@@ -66,12 +111,12 @@ export default function SideNavBar() {
                         <MenuIcon />
                     </IconButton>
 
-                    <LogoIcon/>
-                    <div className={classes.spacer}></div>        
+                    <LogoIcon />
+                    <div className={classes.spacer}></div>
                     <Typography variant="h5" noWrap>
                         MICFIN
                     </Typography>
-                    <div className={classes.spacer}></div>        
+                    <div className={classes.spacer}></div>
                     <Typography variant="h6" noWrap alignRight colorSecondary>
                         MicroFinancing Dealer Platform
                     </Typography>
@@ -83,26 +128,26 @@ export default function SideNavBar() {
                     <div className={classes.sectionDesktop} >
                         <IconButton color="inherit">
                             <Badge color="secondary">
-                                <HomeIcon className={classes.icon} color="secondary"/>
+                                <HomeIcon className={classes.icon} color="secondary" />
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={4}>
-                                <MailIcon className={classes.icon} color="secondary"/>
+                                <MailIcon className={classes.icon} color="secondary" />
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={17}>
-                                <NotificationsIcon className={classes.icon} color="secondary"/>
+                                <NotificationsIcon className={classes.icon} color="secondary" />
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="secondary">
-                                <ExitToAppIcon className={classes.icon} color="secondary"/>
+                                <ExitToAppIcon className={classes.icon} color="secondary" />
                             </Badge>
                         </IconButton>
 
-                    </div>    
+                    </div>
 
 
 
@@ -132,9 +177,7 @@ export default function SideNavBar() {
 
 
                     {Menu.map((item, index) => (
-                        <ListItem component={item.external ? MaterialLink : Link} href={item.external ? item.pathname : null} to={item.pathname} button key={item.label}>
-                            <ListItemText primary={item.label} />
-                        </ListItem>
+                        getListItem(item, index, false)
                     ))}
 
                 </List>

@@ -78,3 +78,26 @@ export function RegistrationIcon(props) {
         </SvgIcon>
     );
 }
+
+
+export function getIcon(label,className) {
+
+    switch (label) {
+        case 'Home':
+            return (<HomeIcon className={className} color="secondary"/>);
+        case 'MFI':
+            return(<MFIIcon className={className} color="secondary"/>);
+        case 'MicroEntrepreneur':
+            return(<MicroEntrepreneursIcon className={className} color="secondary"/>);
+        case 'Loan Repayment':
+            return(<LoanRepaymentIcon className={className} color="secondary"/>);
+        case 'Training':
+            return(<TrainingGuideIcon className={className} color="secondary"/>);
+        case 'Search Entrepreneurs':
+            return(<SearchEntrepreneursIcon className={className} color="secondary" />);
+        case 'Registration':
+            return(<RegistrationIcon className={className} color="secondary" />);
+        default:
+            return (<div></div>);          
+        }
+}

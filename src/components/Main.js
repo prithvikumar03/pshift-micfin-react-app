@@ -90,7 +90,6 @@ class Main extends Component {
       <React.Fragment>
         <CssBaseline />
         <SideNavBar></SideNavBar>
-        <Footer></Footer>
       </React.Fragment>
       );
   }

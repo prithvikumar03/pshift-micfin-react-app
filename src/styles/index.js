@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-const drawerWidth = 240;
+import { red} from '@material-ui/core/colors'
+const drawerWidth = 260;
 
 export const useStyles = makeStyles(theme => ({
     root: {
@@ -67,4 +68,16 @@ export const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    nested: {
+        paddingLeft: theme.spacing(4),
+    },
+    icon: {
+        margin: theme.spacing(2),
+      },
+      iconHover: {
+        margin: theme.spacing(2),
+        '&:hover': {
+          color: red[800],
+        },
+      },
 }));
