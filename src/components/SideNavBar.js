@@ -30,6 +30,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 
 export default function SideNavBar() {
@@ -48,6 +49,11 @@ export default function SideNavBar() {
     function handleClick() {
         setOpen(!open);
     }
+
+    function handleProfileMenuOpen(){
+
+    }
+    
 
     function getListItem(item, index, isNested) {
         if (item.header === null) {
@@ -108,7 +114,7 @@ export default function SideNavBar() {
                             [classes.hide]: open,
                         })}
                     >
-                        <MenuIcon />
+                    <MenuIcon />
                     </IconButton>
 
                     <LogoIcon />
@@ -168,6 +174,18 @@ export default function SideNavBar() {
                 open={open}
             >
                 <div className={classes.toolbar}>
+                    <div>
+                        Welcome User !
+                        <IconButton
+                            edge="end"
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
+                        >
+                            <AccountCircle />
+                        </IconButton>
+                    </div>
+
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>

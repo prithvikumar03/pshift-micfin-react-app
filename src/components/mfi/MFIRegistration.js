@@ -7,6 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/styles/withStyles';
 import MenuItem from '@material-ui/core/MenuItem';
 import { ErrorMessage } from 'formik';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import IconButton from '@material-ui/core/IconButton';
+import Avatar from '@material-ui/core/Avatar';
+import { RegistrationIcon } from './../../styles/icons';
 
 const yesNoOptions = [
   {
@@ -28,7 +34,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
-    minWidth:300,
+    minWidth: 300,
     padding: 3,
   },
   dense: {
@@ -54,6 +60,13 @@ class MFIRegistration extends Component {
     this.props.handleSubmit();
   }
 
+  getTitle = () => {
+    return (
+      <Typography variant="h6" color="textSecondary" component="p">
+        MFI Registration
+      </Typography>
+    );
+  }
 
   render() {
     const {
@@ -67,127 +80,143 @@ class MFIRegistration extends Component {
 
     const { classes } = this.props;
     return (
-      <Box bgcolor="text.hint" color="text.primary" component="span" m={2}>
-        <form onSubmit={handleSubmit}>
+      <Box bgcolor="background.main" p={8} m={4}>
+        <Card className={classes.card}>
           <div>
-            <Typography variant="h6" noWrap>
+            <Typography variant="h6">
+              <IconButton>
+                <RegistrationIcon />
+              </IconButton>
+
               MFI Registration
-          </Typography>
-          <Divider/>
-          </div>
-          <div></div>
-          <div>
-            <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled  value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-               />
+              </Typography>
+            <Divider />
           </div>
 
-          <tr></tr>
-
-          <div>
-            <TextField required id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField}  value={values.companyName} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-              />
-              <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
+          <CardContent>
+            <form onSubmit={handleSubmit}>
+              {/* <div>
+                <Typography variant="h6" noWrap>
+                  MFI Registration
+                </Typography>
+                <Divider />
               </div>
-          <tr></tr>
+              <div></div> */}
 
-          <div>
-            <TextField required id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.directorName} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-             />
-             <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
-          </div>
-          <tr></tr>
-          <div>
-            <TextField id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-               />
-          </div>
-          <tr></tr>
-          <div>
-            <TextField  id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField}  value={values.registrationDate} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }} />
-          </div>
-          <tr></tr>
-          <div>
-            <TextField id="netFundsOwned" type="text" name="netFundsOwned" label="Net Funds Owned" className={classes.textField}  value={values.netFundsOwned} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-               />
-          </div>
+              <div>
+                <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                />
+              </div>
 
-          <tr></tr>
-          <div>
-            <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
-        variant="outlined" InputLabelProps={{
-              shrink: true,
-            }} SelectProps={{
-              MenuProps: {
-                className: classes.menu,
-              },
-            }} 
-            >
-              {yesNoOptions.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
-          <tr></tr>
-          
+              <tr></tr>
 
-          <div>
-            <TextField id="filled-select-yesNoOption" select label="Any Pending Case in Court" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
-        variant="outlined" InputLabelProps={{
-              shrink: true,
-            }} SelectProps={{
-              MenuProps: {
-                className: classes.menu,
-              },
-            }} 
-            >
-              {yesNoOptions.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
-          <tr></tr>
+              <div>
+                <TextField required id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField} value={values.companyName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                />
+                <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
+              </div>
+              <tr></tr>
 
-          <div>
-            <TextField id="reasonForApplication" type="text" name="reasonForApplication" label="Reason For Application" className={classes.textField}  value={values.reasonForApplication} onChange={handleChange} onBlur={handleBlur} margin="dense"
-        variant="outlined"
-              InputLabelProps={{
-                shrink: true,
-              }} />
-          </div>
+              <div>
+                <TextField required id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.directorName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                />
+                <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
+              </div>
+              <tr></tr>
+              <div>
+                <TextField id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                />
+              </div>
+              <tr></tr>
+              <div>
+                <TextField id="registrationDate" type="date" name="registrationDate" label="Registration Date" className={classes.textField} value={values.registrationDate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                  InputLabelProps={{
+                    shrink: true,
+                  }} />
+              </div>
+              <tr></tr>
+              <div>
+                <TextField id="netFundsOwned" type="text" name="netFundsOwned" label="Net Funds Owned" className={classes.textField} value={values.netFundsOwned} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                />
+              </div>
 
-          <div>    
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            margin="dense"
-          >
-            Register
+              <tr></tr>
+              <div>
+                <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }} SelectProps={{
+                    MenuProps: {
+                      className: classes.menu,
+                    },
+                  }}
+                >
+                  {yesNoOptions.map(option => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </div>
+              <tr></tr>
+
+
+              <div>
+                <TextField id="filled-select-yesNoOption" select label="Any Pending Case in Court" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }} SelectProps={{
+                    MenuProps: {
+                      className: classes.menu,
+                    },
+                  }}
+                >
+                  {yesNoOptions.map(option => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </div>
+              <tr></tr>
+
+              <div>
+                <TextField id="reasonForApplication" type="text" name="reasonForApplication" label="Reason For Application" className={classes.textField} value={values.reasonForApplication} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined"
+                  InputLabelProps={{
+                    shrink: true,
+                  }} />
+              </div>
+
+              <div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  margin="dense"
+                >
+                  Register
           </Button>
 
-          &nbsp;&nbsp;
+                &nbsp;&nbsp;
           <Button
-            variant="contained"
-            color="primary"
-            margin="dense"
-          >
-            Reset
+                  variant="contained"
+                  color="primary"
+                  margin="dense"
+                >
+                  Reset
           </Button>
-          </div>    
+              </div>
 
-        </form>
+            </form>
+          </CardContent>
+        </Card>
       </Box>
     );
   }

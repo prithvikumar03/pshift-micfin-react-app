@@ -11,14 +11,22 @@ const theme = createMuiTheme({
     },
     primary: {
       main: "#b2ebf2"
+    },
+    background: {
+      main: grey[200]
     }
   },
   typography: {
     // Use the system font instead of the default Roboto font.
-    fontFamily: [
+    /* fontFamily: [
       '"Lato"',
       'sans-serif'
-    ].join(',')
+    ].join(',') */
+   fontFamily: [
+      '"Arial"',
+      'sans-serif'
+    ].join(',') 
+
   }
 });
 

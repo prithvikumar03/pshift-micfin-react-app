@@ -3,15 +3,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/styles/withStyles';
 import { withRouter } from 'react-router-dom';
 import SideNavBar from './SideNavBar';
-import Footer from './Footer';
-
 
 const styles = theme => ({
+});
+/* const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.grey['100'],
     overflow: 'hidden',
-    /* background: `url(${backgroundShape}) no-repeat`, */
     backgroundSize: 'cover',
     backgroundPosition: '0 400px',
     paddingBottom: 200
@@ -82,7 +81,7 @@ const styles = theme => ({
     left: '40%'
   }
 });
-
+ */
 
 class Main extends Component {
   render() {

@@ -1,10 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { red} from '@material-ui/core/colors'
+import { red } from '@material-ui/core/colors'
 const drawerWidth = 260;
 
 export const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
     },
     grow: {
         flexGrow: 1,
@@ -72,12 +74,24 @@ export const useStyles = makeStyles(theme => ({
         paddingLeft: theme.spacing(4),
     },
     icon: {
-        margin: theme.spacing(2),
-      },
-      iconHover: {
+        margin: theme.spacing(0),
+    },
+    iconHover: {
         margin: theme.spacing(2),
         '&:hover': {
-          color: red[800],
+            color: red[800],
         },
-      },
+    },
+    card: {
+        maxWidth: 345,
+    },
+    media: {
+        height: 140,
+    },
+    box: {
+        bgcolor: "text.hint",
+        color: "background.paper",
+        p: 2,
+        m: 1,
+    }
 }));

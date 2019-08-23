@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Formik } from 'formik';
 import SideNavBar from '../SideNavBar';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
@@ -7,6 +6,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchAllEntrepreneurs } from '../../actions/MEActions';
 import MUIDataTable from 'mui-datatables';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import Box from '@material-ui/core/Box';
+//import { useStyles } from '../styles/index';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
     root: {
@@ -58,7 +63,6 @@ const columns = [
             sort: false,
         }
     },
-    /* ,
     {
         name: "businessStartYear",
         label: "Business Start Year",
@@ -85,12 +89,12 @@ const columns = [
     },
     {
         name: "householExp",
-        label: "household Expenses",
+        label: "Household Expenses",
         options: {
             filter: true,
             sort: false,
         }
-    } */
+    }
 ];
 
 const options = {
@@ -116,20 +120,32 @@ class SearchEntrepreneurs extends Component {
             isLoading,
             error,
         } = this.props;
-
-        console.log('props ->' + JSON.stringify(this.props));
-        
         console.log('microentrepreneurs ->' + JSON.stringify(microentrepreneurs));
-        alert ('microentrepreneurs ->' + JSON.stringify(microentrepreneurs));
+
         return (
-            <div>
-                <MUIDataTable
-                                        title={"Microentrepreneurs List"}
-                                        data={microentrepreneurs}
-                                        columns={columns}
-                                        options={options}
-                                    />
-            </div>
+            <React.Fragment>
+                <SideNavBar currentPath={currentPath} />
+                <div>
+                    <Grid container justify="center">
+                        <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                            
+                            <Typography component="div" variant="body1">    
+                            <Box bgcolor="background.main" p={6} m={2}>
+                               
+                                           {  <MUIDataTable
+                                                title={"Microentrepreneurs List"}
+                                                data={microentrepreneurs}
+                                                columns={columns}
+                                                options={options}
+                                            /> 
+                                            }
+                                
+                             </Box>   
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </div>
+            </React.Fragment>
 
         );
     }
