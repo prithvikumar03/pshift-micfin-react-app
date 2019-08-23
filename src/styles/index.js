@@ -62,8 +62,11 @@ export const useStyles = makeStyles(theme => ({
     toolbar: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
+        justifyContent: 'flex-center',
+       // width: drawerWidth,
+        //padding: '3 1px',
+        padding: '2',
+        background: theme.palette.primary,
         ...theme.mixins.toolbar,
     },
     content: {

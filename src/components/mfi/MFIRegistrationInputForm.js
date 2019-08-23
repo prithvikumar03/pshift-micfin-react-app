@@ -81,7 +81,7 @@ class MFIRegistrationInputForm extends Component {
                     <div className={classes.root}>
                         <Grid container justify="center">
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                                <Grid item xs={12}>
+                                 <Grid item xs={12}> 
                                     <Formik
                                         initialValues={mfi}
                                         enableReinitialize
@@ -96,7 +96,7 @@ class MFIRegistrationInputForm extends Component {
                                             props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
-                                </Grid>
+                                </Grid> 
                             </Grid>
                         </Grid>
                     </div>

@@ -31,6 +31,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Box from '@material-ui/core/Box';
 
 
 export default function SideNavBar() {
@@ -50,10 +51,10 @@ export default function SideNavBar() {
         setOpen(!open);
     }
 
-    function handleProfileMenuOpen(){
+    function handleProfileMenuOpen() {
 
     }
-    
+
 
     function getListItem(item, index, isNested) {
         if (item.header === null) {
@@ -114,7 +115,7 @@ export default function SideNavBar() {
                             [classes.hide]: open,
                         })}
                     >
-                    <MenuIcon />
+                        <MenuIcon />
                     </IconButton>
 
                     <LogoIcon />
@@ -173,27 +174,28 @@ export default function SideNavBar() {
                 }}
                 open={open}
             >
-                <div className={classes.toolbar}>
-                    <div>
-                        Welcome User !
-                        <IconButton
-                            edge="end"
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
+                <div>
+                {/* <div className={classes.toolbar}> */}
+                    <Box bgcolor="primary.main" p={1} m={0} border-bottom-color="#000000de" border-image-width={1} border-image-repeat="stretch">
+                        <Typography variant="subtitle2" noWrap>
+                            Welcome!
+                            <IconButton
+                                edge="end"
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                         </IconButton>
-                    </div>
-
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
+                        </Typography>   
+                    </Box>
                 </div>
-                <Divider />
+                <Divider /> 
                 <List>
-
-
                     {Menu.map((item, index) => (
                         getListItem(item, index, false)
                     ))}
