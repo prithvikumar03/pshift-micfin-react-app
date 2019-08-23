@@ -4,10 +4,10 @@ import { Link, withRouter } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -21,69 +21,13 @@ import MailIcon from '@material-ui/icons/Mail';
 import Menu from './Menu';
 import ListItemLink from './ListItemLink';
 import { Link as MaterialLink } from '@material-ui/core'
+import { useStyles } from '../styles/index';
+import Header from './Header';
+import {LogoIcon,HomeIcon} from './../styles/icons';
+import Badge from '@material-ui/core/Badge';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
-const drawerWidth = 240;
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginRight: 36,
-    },
-    hide: {
-        display: 'none',
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: 'nowrap',
-    },
-    drawerOpen: {
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    drawerClose: {
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        overflowX: 'hidden',
-        width: theme.spacing(7) + 1,
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9) + 1,
-        },
-    },
-    toolbar: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        ...theme.mixins.toolbar,
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-    },
-}));
 
 export default function SideNavBar() {
     const classes = useStyles();
@@ -108,6 +52,7 @@ export default function SideNavBar() {
                     [classes.appBarShift]: open,
                 })}
             >
+
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -120,9 +65,47 @@ export default function SideNavBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        MICFIN - MicroFinancing Dealer Platform
-          </Typography>
+
+                    <LogoIcon/>
+                    <div className={classes.spacer}></div>        
+                    <Typography variant="h5" noWrap>
+                        MICFIN
+                    </Typography>
+                    <div className={classes.spacer}></div>        
+                    <Typography variant="h6" noWrap alignRight colorSecondary>
+                        MicroFinancing Dealer Platform
+                    </Typography>
+
+
+                    {/* Right Section of Tool Bar */}
+
+                    <div className={classes.grow} />
+                    <div className={classes.sectionDesktop} >
+                        <IconButton color="inherit">
+                            <Badge color="secondary">
+                                <HomeIcon className={classes.icon} color="secondary"/>
+                            </Badge>
+                        </IconButton>
+                        <IconButton color="inherit">
+                            <Badge color="error" badgeContent={4}>
+                                <MailIcon className={classes.icon} color="secondary"/>
+                            </Badge>
+                        </IconButton>
+                        <IconButton color="inherit">
+                            <Badge color="error" badgeContent={17}>
+                                <NotificationsIcon className={classes.icon} color="secondary"/>
+                            </Badge>
+                        </IconButton>
+                        <IconButton color="inherit">
+                            <Badge color="secondary">
+                                <ExitToAppIcon className={classes.icon} color="secondary"/>
+                            </Badge>
+                        </IconButton>
+
+                    </div>    
+
+
+
                 </Toolbar>
             </AppBar>
             <Drawer

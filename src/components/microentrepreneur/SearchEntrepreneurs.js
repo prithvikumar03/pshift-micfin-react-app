@@ -94,8 +94,7 @@ const columns = [
 ];
 
 const options = {
-    filterType: 'checkbox',
-    selectableRows: 'single'
+    filterType: 'checkbox'
 };
 
 class SearchEntrepreneurs extends Component {
@@ -118,28 +117,20 @@ class SearchEntrepreneurs extends Component {
             error,
         } = this.props;
 
+        console.log('props ->' + JSON.stringify(this.props));
+        
         console.log('microentrepreneurs ->' + JSON.stringify(microentrepreneurs));
         alert ('microentrepreneurs ->' + JSON.stringify(microentrepreneurs));
         return (
-            <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
-                <div>
-                    <div className={classes.root}>
-                        <Grid container justify="center">
-                            <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
-                                <Grid item xs={12}>
-                                    <MUIDataTable
-                                        title={"Microentrepreneurs"}
+            <div>
+                <MUIDataTable
+                                        title={"Microentrepreneurs List"}
                                         data={microentrepreneurs}
                                         columns={columns}
                                         options={options}
                                     />
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </div>
-                </div>
-            </React.Fragment>
+            </div>
+
         );
     }
 
@@ -147,7 +138,7 @@ class SearchEntrepreneurs extends Component {
 }
 
 const mapStateToProps = state => ({
-    microentrepreneurs: state.me.microentrepreurs,
+    microentrepreneurs: state.me.microentrepreneurs,
     isLoading: state.me.isLoading,
     error: state.me.error
 });
