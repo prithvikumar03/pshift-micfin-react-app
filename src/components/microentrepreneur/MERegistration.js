@@ -1,92 +1,129 @@
 import React, { Component } from 'react';
-import SideNavBar from '../SideNavBar';
-import Grid from '@material-ui/core/Grid';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { TextField } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import Divider from '@material-ui/core/Divider';
-import {registerME} from './../../actions/MEActions';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import withStyles from '@material-ui/styles/withStyles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import IconButton from '@material-ui/core/IconButton';
+import { RegistrationIcon } from './../../styles/icons';
+import Address from './Address';
+import BusinessInfo from './BusinessInfo';
+import PersonalDetails from './PersonalDetails';
+import { useStyles } from './../../styles/index';
+import Grid from '@material-ui/core/Grid';
+
+const yesNoOptions = [
+  {
+    value: 'YES',
+    label: 'YES',
+  },
+  {
+    value: 'NO',
+    label: 'NO',
+  },
+];
+
+
+const styles = theme => ({
+})
 
 class MERegistration extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            microentrepreneur : null
-        };
-    }
 
-    componentWillMount(){
-        /* this.props.registerME(null); */
-    }
+  onSubmitClick = (values) => {
+    alert('handle submit in parent class ! Hurray');
+    this.props.handleSubmit();
+  }
 
-    onSubmit = () =>
-    {
-        alert ('Button clicked');
-        this.props.registerME(null);
+  getTitle = () => {
+    return (
+      <Typography variant="h6" color="textSecondary" component="p">
+        MFI Registration
+      </Typography>
+    );
+  }
 
-    }
+  render() {
+    const {
+      values,
+      touched,
+      errors,
+      handleChange,
+      handleBlur,
+      handleSubmit,
+    } = this.props;
 
-    render() {
-        const currentPath = this.props.location.pathname
-        const { classes } = this.props;
-        const {
-            microentrepreneur,
-            isLoading,
-            error,
-        } = this.props;
-        alert ('ME '+JSON.stringify(microentrepreneur));
-        return (
-            <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
-                <div>
-                <Grid container justify="center">
-                                <div>
-                                        <TextField id="meId" type="text" name="meId" label="ME Id"  value="hello"  margin="dense"
-                                            variant="outlined"
-                                        />
-                                    </div>
+    const { classes } = this.props;
+    return (
+      <Box bgcolor="background.main" p={8} m={4}>
+        <Card className={classes.card}>
+          <div>
+            <Typography variant="h6">
+              <IconButton>
+                <RegistrationIcon />
+              </IconButton>
+              Microentrepreneur Registration
+              </Typography>
+            <Divider />
+          </div>
 
-                                    <tr></tr>
+          <CardContent>
+            <form onSubmit={handleSubmit}>
 
-                               
-                                    <div>
-                                    <Button
-                                        type="submit"
-                                        variant="contained"
-                                        color="primary"
-                                        margin="dense"
-                                        onClick={this.onSubmit} 
-                                    >
-                                        Submit
-                                    </Button>
-                                    </div>
-                          </Grid>      
-                </div>
-            </React.Fragment>
-        );
-    }
+              <Grid container spacing={1} justify="center">
+                <Grid xs={12} spacing={3} alignItems="center" container>
+                  <Grid item xs={6}>
 
+                    <PersonalDetails {...this.props} />
+                  </Grid>
+                </Grid>
+                <Grid xs={12} spacing={3} alignItems="center" container>
+                  <Grid item xs={6}>
+                    <BusinessInfo {...this.props} />
+                  </Grid>
+                </Grid>
+              </Grid>
+
+
+
+              {/* 
+              <div>
+                <Address {...this.props} />
+              </div>
+ */}
+
+
+              <div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  margin="dense"
+                >
+                  Register
+              </Button>
+
+                &nbsp;&nbsp;
+          <Button
+                  variant="contained"
+                  color="primary"
+                  margin="dense"
+                >
+                  Reset
+          </Button>
+              </div>
+
+            </form>
+          </CardContent>
+        </Card>
+      </Box>
+    );
+  }
 
 }
 
- /* const mapStateToProps = state => ({ 
-    microentrepreneur : state.microentrepreneur,
-    isLoading: state.isLoading
- }); 
- */
-
-  const mapStateToProps = state => ({ 
-   ...state
- });
- 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators({
-        registerME
-    }, dispatch);
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MERegistration);
-
+export default withStyles(styles)(MERegistration);

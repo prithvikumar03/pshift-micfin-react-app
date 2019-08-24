@@ -91,6 +91,7 @@ export const useStyles = makeStyles(theme => ({
     },
     card: {
         maxWidth: 345,
+        padding: theme.spacing(1),
     },
     media: {
         height: 140,
@@ -100,5 +101,24 @@ export const useStyles = makeStyles(theme => ({
         color: "background.paper",
         p: 2,
         m: 1,
-    }
+    },
+    textField: {
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+        minWidth: 300,
+        padding: 3,
+    },
+    dense: {
+        marginTop: 16,
+    },
+    error: {
+        color: 'red',
+        /* height: 48,
+        padding: '0 30px', */
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    
 }));

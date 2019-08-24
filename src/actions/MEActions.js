@@ -8,13 +8,9 @@ export const FETCH_ALL_ENTREPRENEURS_FAILURE = 'FETCH_ALL_ENTREPRENEURS_FAILURE'
 
 
 
-export const registerME = (mfi) => ({
+export const registerME = (microentrepreneur) => ({
     type: REGISTER_ME,
-    payload: {
-        
-            "meId": "Gayathri G"
-    }
-      
+    payload: microentrepreneur      
 });
 
 export const registerMESuccess = (microentrepreneur) => ({

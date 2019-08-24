@@ -9,8 +9,39 @@ import {
 
 const initialState ={
     microentrepreneur: {
-        meId:''
+    "aadhar": "",
+    "address": {
+      "city": "",
+      "country": "",
+      "pinCode": "",
+      "streetName": "",
+      "unitNo": ""
     },
+    "businessExp": "",
+    "businessRegistered": false,
+    "businessStartYear": "",
+    "distBusinessToHome": "",
+    "dob": "",
+    "drinker": false,
+    "emiMonthly": "",
+    "firstName": "",
+    "formalSavingsAccount": "",
+    "gender": "",
+    "highestEducation": "",
+    "householExp": "",
+    "householdIncome": "",
+    "id": "",
+    "incomeFromOtherSources": "",
+    "lastName": "",
+    "maritialStatus": "",
+    "mfiId": "",
+    "noOfEmployees": "",
+    "noOfNonEarningMembers": "",
+    "phoneBusiness": "",
+    "phoneHome": "",
+    "rent": "",
+    "smoker": false,
+    "totalAssests": ""},
     microentrepreneurs:[],
     isLoading: false,
     error: null
@@ -43,7 +74,6 @@ export function microEntrepreneurReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: true,
-                microentrepreneur: action.payload,
                 error: null
             };
         case REGISTER_ME_SUCCESS:

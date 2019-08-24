@@ -4,6 +4,43 @@ export const registerMFIResponse ={
     directorName : 'XYZ Director'
 }
 
+export const registerMEResponse =
+{
+    "aadhar": "P7H999",
+    "address": {
+      "city": "string",
+      "country": "string",
+      "pinCode": "string",
+      "streetName": "string",
+      "unitNo": "string"
+    },
+    "businessExp": 0,
+    "businessRegistered": true,
+    "businessStartYear": "2019-08-20T23:21:53.123Z",
+    "distBusinessToHome": 0,
+    "dob": "2019-08-20T23:21:53.124Z",
+    "drinker": true,
+    "emiMonthly": 0,
+    "firstName": "Bryan",
+    "formalSavingsAccount": "string",
+    "gender": "string",
+    "highestEducation": "string",
+    "householExp": 10000,
+    "householdIncome": 12000,
+    "id": "string",
+    "incomeFromOtherSources": 0,
+    "lastName": "Tan",
+    "maritialStatus": "string",
+    "mfiId": "string",
+    "noOfEmployees": 10,
+    "noOfNonEarningMembers": 0,
+    "phoneBusiness": "string",
+    "phoneHome": "string",
+    "rent": 0,
+    "smoker": true,
+    "totalAssests": 0
+  }
+
 export const getAllMicroEntrepreneursResponse =
 [
     {
