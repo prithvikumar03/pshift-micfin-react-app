@@ -11,6 +11,9 @@ export const useStyles = makeStyles(theme => ({
     grow: {
         flexGrow: 1,
     },
+    grid: {
+        width: 1000
+    },
     spacer: {
         padding: 8,
         marginRight: 8

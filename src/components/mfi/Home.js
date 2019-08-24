@@ -3,25 +3,24 @@ import SideNavBar from './../SideNavBar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
-
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.grey['A500'],
-      overflow: 'hidden',
-      /* background: `url(${backgroundShape}) no-repeat`, */
-      backgroundSize: 'cover',
-      backgroundPosition: '0 400px',
-      marginTop: 20,
-      padding: 20,
-      paddingBottom: 200
-    },
-    grid: {
-      width: 1000
-    }
-  })
+  grid: {
+    width: 1000
+},
+card: {
+  maxWidth: 1000,
+},
+media: {
+  height: 500,
+},
+})
 
 class Home extends Component {
 
@@ -33,17 +32,41 @@ class Home extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
           <div>
-            <div className={classes.root}>
-              <Grid container justify="center">
-                <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                  <Grid item xs={12}>
-                    <Typography variant="h6" noWrap>
-                      Welcome to MFI Home Page!
-                         </Typography>
-                  </Grid>
+            {/* <div className={classes.root}> */}
+            <Grid container justify="center">
+              <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                <Grid item xs={12}>
+                  <Card className={classes.card}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={classes.media}
+                        image={require('./../../images/Microfinancing.jpg')}
+                        /* title="" */
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h6" component="h2"> 
+                        
+                            <Typography gutterBottom variant="body" component="h2">
+                              MICFIN - Digitalizing microfinancing in developing nations!
+                           </Typography>
+                        </Typography>
+                         
+                        <Typography variant="body2" component="p">
+                          Creating digital engagement that empowers customers to get the banking services they need
+                          while doing good for the environment and society.
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Button size="small" color="secondary">
+                        Learn More
+                      </Button>
+                    </CardActions>
+                  </Card>
                 </Grid>
               </Grid>
-            </div>
+            </Grid>
+            {/* </div> */}
           </div>
         </React.Fragment>
       </div>
