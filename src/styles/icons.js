@@ -1,5 +1,10 @@
 import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import BusinessIcon from '@material-ui/icons/Business';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 export function HomeIcon(props) {
     return (
@@ -63,7 +68,7 @@ export function MicroEntrepreneursIcon(props) {
     );
 }
 
-export function SearchEntrepreneursIcon(props) {
+export function SearchIcon(props) {
     return (
         <SvgIcon {...props} >
             <path d="M15.5,12C18,12 20,14 20,16.5C20,17.38 19.75,18.21 19.31,18.9L22.39,22L21,23.39L17.88,20.32C17.19,20.75 16.37,21 15.5,21C13,21 11,19 11,16.5C11,14 13,12 15.5,12M15.5,14A2.5,2.5 0 0,0 13,16.5A2.5,2.5 0 0,0 15.5,19A2.5,2.5 0 0,0 18,16.5A2.5,2.5 0 0,0 15.5,14M10,4A4,4 0 0,1 14,8C14,8.91 13.69,9.75 13.18,10.43C12.32,10.75 11.55,11.26 10.91,11.9L10,12A4,4 0 0,1 6,8A4,4 0 0,1 10,4M2,20V18C2,15.88 5.31,14.14 9.5,14C9.18,14.78 9,15.62 9,16.5C9,17.79 9.38,19 10,20H2Z" />
@@ -92,11 +97,21 @@ export function getIcon(label,className) {
         case 'Loan Repayment':
             return(<LoanRepaymentIcon className={className} color="secondary"/>);
         case 'Training':
-            return(<TrainingGuideIcon className={className} color="secondary"/>);
+            return(<LibraryBooksIcon className={className} color="secondary"/>);
         case 'Search Entrepreneurs':
-            return(<SearchEntrepreneursIcon className={className} color="secondary" />);
+            return(<SearchIcon className={className} color="secondary" />);
+        case 'Search':
+            return(<SearchIcon className={className} color="secondary" />);
         case 'Registration':
             return(<RegistrationIcon className={className} color="secondary" />);
+        case 'DBS':
+            return(<BusinessIcon className={className} color="secondary" />);
+        case 'Approve MFI':
+            return(<CheckCircleIcon className={className} color="secondary" />);
+        case 'Transactions':
+            return(<ReceiptIcon className={className} color="secondary" />);
+        case 'Support':
+            return(<ContactSupportIcon className={className} color="secondary" />);    
         default:
             return (<div></div>);          
         }

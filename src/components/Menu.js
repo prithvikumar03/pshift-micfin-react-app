@@ -5,6 +5,27 @@ const Menu = [
     pathname: "/home"
   },
   {
+    header: "DBS",
+    label: "DBS",
+    children: [
+      {
+        header: null,
+        label: "Approve MFI",
+        pathname: "/approveMFI"
+      },
+      {
+        header: null,
+        label: "Search",
+        pathname: "/search"
+      },
+      {
+        header: null,
+        label: "Transactions",
+        pathname: "/transactions"
+      },
+    ],
+  },
+  {
     header: "MFI",
     label: "MFI",
     children: [
@@ -23,17 +44,38 @@ const Menu = [
         label: "Loan Repayment",
         pathname: "/loanRepayment"
       },
+      {
+        header: null,
+        label: "Transactions",
+        pathname: "/transactions"
+      },
     ],
   },
   {
-    header: null,
+    header: "MicroEntrepreneur",
     label: "MicroEntrepreneur",
-    pathname: "/microEntrepreneur"
+    children: [
+      {
+        header: null,
+        label: "Registration",
+        pathname: "/microEntrepreneur"
+      },
+      {
+        header: null,
+        label: "Transactions",
+        pathname: "/transactions"
+      },
+    ],
   },
   {
     header: null,
     label: "Training",
     pathname: "/training"
+  },
+  {
+    header: null,
+    label: "Support",
+    pathname: "/support"
   }
 
 ];

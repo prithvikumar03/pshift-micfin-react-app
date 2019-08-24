@@ -77,8 +77,7 @@ class MFIRegistrationInputForm extends Component {
         return (
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
-                <div>
-                    <div className={classes.root}>
+                {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
@@ -99,8 +98,8 @@ class MFIRegistrationInputForm extends Component {
                                 </Grid> 
                             </Grid>
                         </Grid>
-                    </div>
-                </div>
+                    
+                {/* </div> */}
             </React.Fragment>
         );
     }
