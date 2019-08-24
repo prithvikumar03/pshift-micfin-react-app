@@ -63,13 +63,13 @@ export default function Address(props) {
                     </div>
 
 
-                    <div>
+                   {/*  <div>
                         <TextField id="pinCode" type="text" name="pinCode" label="PinCode" className={classes.textField} value={values.address.pinCode} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,
                             }} />
-                    </div>
+                    </div> */}
 
                 </div>
             </CardContent>

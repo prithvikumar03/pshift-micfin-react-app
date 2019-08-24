@@ -65,10 +65,10 @@ export default function BusinessInfo(props) {
 
 
                     <div>
-                        <TextField id="filled-select-yesNoOption" select label="Is Business Registered" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
+                        <TextField id="filled-select-yesNoOption" select label="Is Business Registered?" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
                             variant="outlined" InputLabelProps={{
                                 shrink: true,
-                            }} SelectProps={{
+                            }} SelectProps={{   
                                 MenuProps: {
                                     className: classes.menu,
                                 },

@@ -48,10 +48,10 @@ class MERegistrationInputForm extends Component {
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
                 {/*     <div className={classes.root}> */}
-                        <Grid container justify="center">
-                            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                        <Grid container justify="center" alignItems="center" spacing={24}>
+                            {/* <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
-                                    <Formik
+                             */}        <Formik
                                         initialValues={microentrepreneur}
                                         enableReinitialize
                                         validationSchema={validationSchema}
@@ -61,8 +61,8 @@ class MERegistrationInputForm extends Component {
                                             props => <MERegistration handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
-                                </Grid> 
-                            </Grid>
+                            {/*     </Grid> 
+                            </Grid> */}
                         </Grid>
                     
                 {/* </div> */}

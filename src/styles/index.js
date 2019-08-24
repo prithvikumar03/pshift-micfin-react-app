@@ -5,6 +5,7 @@ const drawerWidth = 260;
 export const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
+        flexGrow: 1,
         /* justifyContent: 'center',
         alignItems: 'flex-end', */
     },
@@ -90,8 +91,10 @@ export const useStyles = makeStyles(theme => ({
         },
     },
     card: {
-        maxWidth: 345,
-        padding: theme.spacing(1),
+        //maxWidth: 345,
+        padding: theme.spacing(3),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
     },
     media: {
         height: 140,
@@ -120,5 +123,10 @@ export const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
-    
+    div:{
+        padding: theme.spacing(2),
+    },
+    extradiv:{
+        padding: theme.spacing(4),
+    }
 }));
