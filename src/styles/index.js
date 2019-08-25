@@ -82,7 +82,11 @@ export const useStyles = makeStyles(theme => ({
     },
     icon: {
         margin: theme.spacing(0),
-        color: grey[700],
+        color: theme.palette.secondary,
+    },
+    sideBar: {
+        margin: theme.spacing(0),
+        color: grey[600],
     },
     iconHover: {
         margin: theme.spacing(2),
@@ -110,6 +114,7 @@ export const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(0),
         minWidth: 300,
         padding: 3,
+        color: grey[900]
     },
     dense: {
         marginTop: 16,
@@ -128,5 +133,8 @@ export const useStyles = makeStyles(theme => ({
     },
     extradiv:{
         padding: theme.spacing(4),
+    },
+    typography:{
+        color: theme.palette.secondary,
     }
 }));

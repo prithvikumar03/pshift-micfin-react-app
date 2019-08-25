@@ -13,6 +13,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import { RegistrationIcon } from './../../styles/icons';
+import Grid from '@material-ui/core/Grid';
+import CustomInput from './../../utils/Dropzone';
+import {red, grey } from '@material-ui/core/colors'
 
 const yesNoOptions = [
   {
@@ -36,6 +39,7 @@ const styles = theme => ({
     marginRight: theme.spacing(0),
     minWidth: 300,
     padding: 3,
+    color: grey[900]
   },
   dense: {
     marginTop: 16,
@@ -102,10 +106,15 @@ class MFIRegistration extends Component {
                 <Divider />
               </div>
               <div></div> */}
-
+ <Grid container item xs={12} spacing={2} direction="row">
+                        <Grid item xs={6} >
               <div>
                 <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                   variant="outlined"
+                  InputLabelProps={{
+                    shrink: true,
+                    color: red[900]
+                  }}
                 />
               </div>
 
@@ -113,7 +122,10 @@ class MFIRegistration extends Component {
 
               <div>
                 <TextField required id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField} value={values.companyName} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                  variant="outlined"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                    color:red[900]
+                  }}
                 />
                 <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
               </div>
@@ -121,14 +133,18 @@ class MFIRegistration extends Component {
 
               <div>
                 <TextField required id="directorName" type="text" name="directorName" label="Director Name" className={classes.textField} value={values.directorName} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                  variant="outlined"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
                 <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
               </div>
               <tr></tr>
               <div>
                 <TextField id="govtRegistrationNumber" type="text" name="govtRegistrationNumber" label="Govt Registration Number" className={classes.textField} value={values.govtRegistrationNumber} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                  variant="outlined"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </div>
               <tr></tr>
@@ -142,10 +158,13 @@ class MFIRegistration extends Component {
               <tr></tr>
               <div>
                 <TextField id="netFundsOwned" type="text" name="netFundsOwned" label="Net Funds Owned" className={classes.textField} value={values.netFundsOwned} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                  variant="outlined"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </div>
-
+              </Grid>
+              <Grid item xs={6} >
               <tr></tr>
               <div>
                 <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
@@ -195,23 +214,38 @@ class MFIRegistration extends Component {
               </div>
 
               <div>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  margin="dense"
-                >
-                  Register
-          </Button>
+               <CustomInput /> 
+              </div>
 
-                &nbsp;&nbsp;
-          <Button
-                  variant="contained"
-                  color="primary"
-                  margin="dense"
-                >
-                  Reset
-          </Button>
+             
+              </Grid>
+              </Grid>
+
+              
+              <div className={classes.extradiv}>
+                <Grid container item xs={12} spacing={2} align="center" justify="center" direction="row">
+                  <Grid item xs={6}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      margin="dense"
+                    >
+                      Register
+                  </Button>
+                  </Grid>
+
+                  <Grid item xs={6}>
+
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      margin="dense"
+                    >
+                      Reset
+                  </Button>
+                  </Grid>
+                </Grid>
               </div>
 
             </form>

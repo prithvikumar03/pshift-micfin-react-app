@@ -73,7 +73,7 @@ export default function SideNavBar() {
                 <div>
                     <ListItem button onClick={handleClick}>
                         <ListItemIcon>
-                            {getIcon(item.label, classes.icon)}
+                            {getIcon(item.label, classes.sideBar)}
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         {open ? <ExpandLess /> : <ExpandMore />}
@@ -135,22 +135,22 @@ export default function SideNavBar() {
                     <div className={classes.sectionDesktop} >
                         <IconButton color="inherit">
                             <Badge color="secondary">
-                                <HomeIcon className={classes.icon} color="secondary" />
+                                <HomeIcon className={classes.icon}/>
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={4}>
-                                <MailIcon className={classes.icon} color="secondary" />
+                                <MailIcon className={classes.icon}/>
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={17}>
-                                <NotificationsIcon className={classes.icon} color="secondary" />
+                                <NotificationsIcon className={classes.icon} />
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="secondary">
-                                <ExitToAppIcon className={classes.icon} color="secondary" />
+                                <ExitToAppIcon className={classes.icon}/>
                             </Badge>
                         </IconButton>
 
@@ -177,7 +177,7 @@ export default function SideNavBar() {
                 <div>
                 {/* <div className={classes.toolbar}> */}
                     <Box bgcolor="primary.main" p={1} m={0} border-bottom-color="#000000de" border-image-width={1} border-image-repeat="stretch">
-                        <Typography variant="subtitle2" noWrap>
+                        <Typography variant="subtitle2" noWrap className={classes.typography}>
                             Welcome!
                             <IconButton
                                 edge="end"

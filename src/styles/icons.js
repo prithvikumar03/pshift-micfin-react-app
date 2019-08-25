@@ -89,29 +89,29 @@ export function getIcon(label,className) {
 
     switch (label) {
         case 'Home':
-            return (<HomeIcon className={className} color="secondary"/>);
+            return (<HomeIcon className={className} />);
         case 'MFI':
-            return(<MFIIcon className={className} color="secondary"/>);
+            return(<MFIIcon className={className} />);
         case 'MicroEntrepreneur':
-            return(<MicroEntrepreneursIcon className={className} color="secondary"/>);
+            return(<MicroEntrepreneursIcon className={className}/>);
         case 'Loan Repayment':
-            return(<LoanRepaymentIcon className={className} color="secondary"/>);
+            return(<LoanRepaymentIcon className={className}/>);
         case 'Training':
-            return(<LibraryBooksIcon className={className} color="secondary"/>);
+            return(<LibraryBooksIcon className={className} />);
         case 'Search Entrepreneurs':
-            return(<SearchIcon className={className} color="secondary" />);
+            return(<SearchIcon className={className} />);
         case 'Search':
-            return(<SearchIcon className={className} color="secondary" />);
+            return(<SearchIcon className={className} />);
         case 'Registration':
-            return(<RegistrationIcon className={className} color="secondary" />);
+            return(<RegistrationIcon className={className} />);
         case 'DBS':
-            return(<BusinessIcon className={className} color="secondary" />);
+            return(<BusinessIcon className={className} />);
         case 'Approve MFI':
-            return(<CheckCircleIcon className={className} color="secondary" />);
+            return(<CheckCircleIcon className={className} />);
         case 'Transactions':
-            return(<ReceiptIcon className={className} color="secondary" />);
+            return(<ReceiptIcon className={className} />);
         case 'Support':
-            return(<ContactSupportIcon className={className} color="secondary" />);    
+            return(<ContactSupportIcon className={className} />);    
         default:
             return (<div></div>);          
         }
