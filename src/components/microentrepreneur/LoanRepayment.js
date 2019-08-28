@@ -106,7 +106,7 @@ class LoanRepayment extends Component {
                                             </Grid>
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="meId" disabled type="text" name="meId" label="ME Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="meId" disabled type="text" name="meId" label="MicroEntrepreneur Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,

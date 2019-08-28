@@ -62,7 +62,7 @@ export default function Product(props) {
 
                     <Grid item xs={3} >
                     <div>
-                        <TextField id="tenure" disabled type="text" name="tenure" label="Tenure" className={classes.textField} value={values.product.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                        <TextField id="tenure" disabled type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.product.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,

@@ -141,7 +141,7 @@ export const getAllMicroEntrepreneursResponse =
   
   
 
-  export const saveLoanPayment =
+  export const saveLoanRepayment =
   {
     "loanId" :"L123",
      "mfiId" : "MFI345",
