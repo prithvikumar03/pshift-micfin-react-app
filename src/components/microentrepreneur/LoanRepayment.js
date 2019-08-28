@@ -16,28 +16,18 @@ import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import CustomInput from './../../utils/Dropzone';
 import { red, grey } from '@material-ui/core/colors'
-
-const yesNoOptions = [
-    {
-        value: 'YES',
-        label: 'YES',
-    },
-    {
-        value: 'NO',
-        label: 'NO',
-    },
-];
+import Product from './../product/Product';
 
 
 const styles = theme => ({
-    container: {
+    /* container: {
         display: 'flex',
         flexWrap: 'wrap',
     },
     textField: {
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
-        minWidth: 300,
+        minWidth: 250,
         padding: 3,
         color: grey[900]
     },
@@ -49,9 +39,9 @@ const styles = theme => ({
     },
     error: {
         color: 'red',
-        /* height: 48,
-        padding: '0 30px', */
-    }
+        height: 48,
+        padding: '0 30px', 
+    } */
 
 })
 
@@ -91,53 +81,122 @@ class LoanRepayment extends Component {
 
                     <CardContent>
                         <form onSubmit={handleSubmit}>
-
-                            <Grid container item xs={12} spacing={2} direction="row">
-                                <Grid item xs={6} >
-                                    <div>
-                                        <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                            variant="outlined"
-                                            InputLabelProps={{
-                                                shrink: true,
-                                                color: red[900]
-                                            }}
-                                        />
-                                    </div>
-
-                                    <tr></tr>
+                            {/* Remember values is sent by the Formik form */}
 
 
+                            {/* MainID Details*/}
+                            <div className={classes.div}>
+                                <Card className={classes.card}>
+                                    <CardContent>
+                                        <Typography className={classes.title} gutterBottom>
+                                            Identifiers
+                                        </Typography>
+                                        <Grid container item xs={12} spacing={2} direction="row">
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="mfiId" disabled type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                            color: red[900]
+                                                        }}
+                                                    />
+                                                </div>
 
+                                            </Grid>
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="meId" disabled type="text" name="meId" label="ME Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                            color: red[900]
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="loanId" disabled type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                            color: red[900]
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="date" required disabled type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                            color: red[900]
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
 
-                                </Grid>
-                            </Grid>
-
-
-                            <div className={classes.extradiv}>
-                                <Grid container item xs={12} spacing={2} align="center" justify="center" direction="row">
-                                    <Grid item xs={6}>
-                                        <Button
-                                            type="submit"
-                                            variant="contained"
-                                            color="primary"
-                                            margin="dense"
-                                        >
-                                            Register
-                  </Button>
-                                    </Grid>
-
-                                    <Grid item xs={6}>
-
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            margin="dense"
-                                        >
-                                            Reset
-                  </Button>
-                                    </Grid>
-                                </Grid>
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
                             </div>
+
+
+                            {/* Product Details*/}
+                            <Product {...this.props}></Product>
+
+
+
+                            {/* Loan  Amount */}
+                            <div className={classes.div}>
+                                <Card className={classes.card}>
+                                    <CardContent>
+                                        <Typography className={classes.title} gutterBottom>
+                                            Payment
+                                        </Typography>
+                                        <Grid container item xs={12} spacing={2} direction="row">
+                                            <Grid item xs={4} >
+                                                <div>
+                                                    <TextField id="amount" required type="text" name="amount" label="Amount ($)" value={values.amount} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                            color: red[900]
+                                                        }}
+                                                    />
+                                                </div>
+
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Button
+                                                    type="submit"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    margin="dense"
+                                                >
+                                                    Submit
+                                                </Button>
+                                            </Grid>
+
+                                            <Grid item xs={4}>
+
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    margin="dense"
+                                                >
+                                                    Reset
+                                                </Button>
+                                            </Grid>
+
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
+                            </div>
+
+                           
 
                         </form>
                     </CardContent>

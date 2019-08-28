@@ -140,3 +140,18 @@ export const getAllMicroEntrepreneursResponse =
   ]
   
   
+
+  export const saveLoanPayment =
+  {
+    "loanId" :"L123",
+     "mfiId" : "MFI345",
+     "meId" : "ME12",
+     "product" :{
+       "productId" :"P123",
+       "productName" : "P12F Fixed Interest 13%",
+       "interestRate" : "15",
+       "tenure" : "12",
+     },
+     "amount":"2322",
+     "date": ""
+  }
