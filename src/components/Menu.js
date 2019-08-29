@@ -47,7 +47,7 @@ const Menu = [
       {
         header: null,
         label: "Transactions",
-        pathname: "/transactions"
+        pathname: "/mfiTransactions"
       },
     ],
   },

@@ -7,6 +7,7 @@ import Home from './components/mfi/Home';
 import SearchEntrepreneurs from './components/microentrepreneur/SearchEntrepreneurs';
 import MERegistrationInputForm from './components/microentrepreneur/MERegistrationInputForm';
 import LoanRepaymentInputForm from './components/microentrepreneur/LoanRepaymentInputForm';
+import SearchTransactionsInputForm from './components/mfi/SearchTransactionsInputForm';
 
 export default props => (
     <HashRouter>
@@ -19,6 +20,7 @@ export default props => (
           <Route exact path='/searchEntrepreneurs' component={ SearchEntrepreneurs } />
           <Route exact path='/microEntrepreneur' component={ MERegistrationInputForm } />
           <Route exact path='/loanRepayment' component={ LoanRepaymentInputForm } />
+          <Route exact path='/mfiTransactions' component={ SearchTransactionsInputForm } />
           
         </Switch>
         </ScrollToTop>
