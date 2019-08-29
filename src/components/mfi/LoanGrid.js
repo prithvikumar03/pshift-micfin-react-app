@@ -9,16 +9,23 @@ import MUIDataTable from 'mui-datatables';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from './../../styles/index';
+//import { useStyles } from './../../styles/index';
 
 
-const options = {
-    filterType: 'checkbox'
-};
+export default class LoanGrid extends Component{
 
-export default function LoanGrid(props) {
+   
+    render(){
+    const { classes } = this.props;    
 
-    const classes = useStyles();
+        
+    const options = {
+        filterType: 'checkbox',
+        selectableRows:'single',
+        onRowClick:this.props.onRowClick,
+        onRowsSelect:this.props.onRowsSelect
+    };
+
     return (
         <React.Fragment>
             <div className={classes.div}>
@@ -27,9 +34,9 @@ export default function LoanGrid(props) {
                         <Typography component="div" variant="body1"> 
 
                             {<MUIDataTable
-                                title={props.title}
-                                data={props.data}
-                                columns={props.columns}
+                                title={this.props.title}
+                                data={this.props.data}
+                                columns={this.props.columns}
                                 options={options}
                             />
                             }
@@ -42,7 +49,7 @@ export default function LoanGrid(props) {
         </React.Fragment>
 
     );
-
+};
 
 
 }

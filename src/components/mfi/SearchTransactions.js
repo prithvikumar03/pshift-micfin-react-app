@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import LoanGrid from './LoanGrid';
+import SpanningTable from './SpanningTable';
 
 const styles = theme => ({
 
@@ -93,8 +94,29 @@ const columns = [
     },
    ];
 
+
+
+
 class SearchTransactions extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            displayLoanRepayments: false
+        };
+    }
+
+    onRowsSelect=(curRowSelected, allRowsSelected)=>{
+        let rowSelected=curRowSelected[0].index;
+        console.log('Loan Id'+ JSON.stringify(this.props.values.loanDisbursements[rowSelected].loanId));
+        this.setState({displayLoanRepayments: true, selectedLoanId:this.props.values.loanDisbursements[rowSelected].loanId});
+    }
+    
+    
+    onRowClick=()=>{
+        this.onRowsSelect();
+    }
 
     render() {
         const {
@@ -106,11 +128,15 @@ class SearchTransactions extends Component {
         } = this.props;
 
         const { classes } = this.props;
-        let displayloanDisbursements = <div></div>;
-
+        let renderloanDisbursements = <div></div>;
+        let renderLoanRepaymentHistory=<div></div>;
         //if(values.loanDisbursements && values.loanDisbursements.length>0){
-        if (values && values[0] && values[0].loanDisbursements) {
-            displayloanDisbursements =<LoanGrid data={values[0].loanDisbursements} columns={columns} title={"Loan Disbursement"} {...this.props} />;
+        if (values && values.loanDisbursements.length>0) {
+            renderloanDisbursements =<LoanGrid data={values.loanDisbursements} columns={columns} title={"Loan Disbursement"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
+        }
+
+        if(this.state.displayLoanRepayments){
+            renderLoanRepaymentHistory=<SpanningTable/>
         }
 
         return (
@@ -216,7 +242,15 @@ class SearchTransactions extends Component {
                             <div className={classes.div}>
                                 <Grid container item xs={12} spacing={2}>
                                     <Grid item xs={12}>
-                                        {displayloanDisbursements}
+                                        {renderloanDisbursements}
+                                    </Grid>
+                                </Grid>
+                            </div>
+
+                            <div className={classes.div}>
+                                <Grid container item xs={12} spacing={2}>
+                                    <Grid item xs={12}>
+                                        {renderLoanRepaymentHistory}
                                     </Grid>
                                 </Grid>
                             </div>

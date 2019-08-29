@@ -158,7 +158,6 @@ export const getAllMicroEntrepreneursResponse =
 
 
   export const fetchTransactions =
-  [
      {
       "mfiId" : "MFI123",
       "loanDisbursements" :[ {
@@ -213,6 +212,6 @@ export const getAllMicroEntrepreneursResponse =
            }
           }
          ]
-      },
+      }
       
-  ]
+  
