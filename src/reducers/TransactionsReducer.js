@@ -5,8 +5,10 @@ import {
 } from '../actions/TransactionsActions';
 
 const initialState ={
-    transactions:  {
-       
+    transactions:   {
+        "mfiId" : "",
+        "loanDisbursements" :[],
+        "loanRepayments" :[]
     },
     isLoading: false,
     error: null

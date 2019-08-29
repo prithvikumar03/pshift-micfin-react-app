@@ -5,30 +5,97 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/styles/withStyles';
-import MenuItem from '@material-ui/core/MenuItem';
-import { ErrorMessage } from 'formik';
+//import { ErrorMessage } from 'formik';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
-import Avatar from '@material-ui/core/Avatar';
 import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
-import CustomInput from './../../utils/Dropzone';
-import { red, grey } from '@material-ui/core/colors'
-import Product from './../product/Product';
-
+import LoanGrid from './LoanGrid';
 
 const styles = theme => ({
 
 })
 
 
+const columns = [
+    /* {
+     name: "mfiName",
+     label: "MFI Name",
+     options: {
+      filter: true,
+      sort: true,
+     }
+    },
+    {
+        name: "meId",
+        label: "ME Id",
+        options: {
+            filter: true,
+            sort: true,
+        }
+    }, */
+    {
+    name: "meName",
+    label: "ME Name",
+    options: {
+        filter: true,
+        sort: true,
+    }
+    },
+    {
+    name: "loanId",
+    label: "Loan Id",
+    options: {
+        filter: true,
+        sort: false,
+    }
+    },   
+    {
+     name: "loanAmount",
+     label: "Loan Amount ($)",
+     options: {
+      filter: true,
+      sort: false,
+     }
+    },
+    {
+     name: "Date",
+     label: "Date",
+     options: {
+      filter: true,
+      sort: false,
+     }
+    },
+    {
+        name: "productName",
+        label: "Product Name",
+        options: {
+         filter: true,
+         sort: false,
+        }
+    },
+    {
+     name: "interestRate",
+     label: "Interest Rate",
+     options: {
+      filter: true,
+      sort: false,
+     }
+    },
+     {
+        name: "tenure",
+        label: "Tenure",
+        options: {
+         filter: true,
+         sort: false,
+        }
+    },
+   ];
+
 class SearchTransactions extends Component {
 
-    componentWillMount() {
-        // alert('component mounted');
-    }
+
     render() {
         const {
             values,
@@ -39,6 +106,13 @@ class SearchTransactions extends Component {
         } = this.props;
 
         const { classes } = this.props;
+        let displayloanDisbursements = <div></div>;
+
+        //if(values.loanDisbursements && values.loanDisbursements.length>0){
+        if (values && values[0] && values[0].loanDisbursements) {
+            displayloanDisbursements =<LoanGrid data={values[0].loanDisbursements} columns={columns} title={"Loan Disbursement"} {...this.props} />;
+        }
+
         return (
             <Box bgcolor="background.main" p={8} m={4}>
                 <Card className={classes.card}>
@@ -58,7 +132,7 @@ class SearchTransactions extends Component {
                             {/* Remember values is sent by the Formik form */}
 
 
-                            {/* MainID Details*/}
+                            {/* Search Card*/}
                             <div className={classes.div}>
                                 <Card className={classes.card}>
                                     <CardContent>
@@ -106,7 +180,7 @@ class SearchTransactions extends Component {
                                                         }}
                                                     />
                                                 </div>
-                                            </Grid> 
+                                            </Grid>
                                         </Grid>
 
 
@@ -126,7 +200,6 @@ class SearchTransactions extends Component {
                                             </Grid>
                                             <Grid item xs={4}>
                                                 <Button
-                                                    type="submit"
                                                     variant="contained"
                                                     color="primary"
                                                     margin="dense"
@@ -140,7 +213,13 @@ class SearchTransactions extends Component {
                                 </Card>
                             </div>
 
-
+                            <div className={classes.div}>
+                                <Grid container item xs={12} spacing={2}>
+                                    <Grid item xs={12}>
+                                        {displayloanDisbursements}
+                                    </Grid>
+                                </Grid>
+                            </div>
                         </form>
                     </CardContent>
                 </Card>

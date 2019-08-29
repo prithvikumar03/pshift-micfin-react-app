@@ -11,11 +11,11 @@ import { fetchTransactions } from './../../actions/TransactionsActions';
 
 
 const styles = theme => ({
-    root: {
+    /* root: {
         flexGrow: 1,
         backgroundColor: theme.palette.grey['A500'],
         overflow: 'hidden',
-        /* background: `url(${backgroundShape}) no-repeat`, */
+        background: `url(${backgroundShape}) no-repeat`, 
         backgroundSize: 'cover',
         backgroundPosition: '0 400px',
         marginTop: 20,
@@ -24,7 +24,7 @@ const styles = theme => ({
     },
     grid: {
         width: 1000
-    }
+    } */
 })
 
 
@@ -61,9 +61,10 @@ class SearchTransactionsInputForm extends Component {
                 {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                                 <Grid item xs={12}> 
+                                 {/* <Grid item xs={12}>  */}
                                     <Formik
-                                        //initialValues={mfi}
+                                        //this is the crux.Never forget to initialise and enableReinitialize the formik form with the values!
+                                        initialValues={transactions}
                                         enableReinitialize
                                        // validationSchema={validationSchema}
                                         onSubmit={fetchTransactions}
@@ -72,7 +73,7 @@ class SearchTransactionsInputForm extends Component {
                                             props => <SearchTransactions handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
-                                </Grid> 
+                                {/* </Grid>  */}
                             </Grid>
                         </Grid>
                     

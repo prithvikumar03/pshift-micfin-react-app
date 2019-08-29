@@ -4,6 +4,7 @@ import { registerMFIEpic } from './MFIEpic';
 //import { microEntrepreneurEpic,registerMEEpic} from './MicroEntrepreneurEpic';
 import { microEntrepreneurEpic,registerMEEpic} from './MicroEntrepreneurEpic';
 import {saveLoanRepayment} from './LoanRepaymentEpic';
+import {fetchTransactionsEpic} from './TransactionsEpic';
 
 //export const rootEpic = combineEpics(mfiEpic,registerMFIEpic,microEntrepreneurEpic,registerMEEpic);
-export const rootEpic = combineEpics(microEntrepreneurEpic,registerMEEpic,saveLoanRepayment);
+export const rootEpic = combineEpics(microEntrepreneurEpic,registerMEEpic,saveLoanRepayment,fetchTransactionsEpic);

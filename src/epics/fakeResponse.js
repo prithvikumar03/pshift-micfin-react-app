@@ -155,3 +155,64 @@ export const getAllMicroEntrepreneursResponse =
      "amount":"2322",
      "date": ""
   }
+
+
+  export const fetchTransactions =
+  [
+     {
+      "mfiId" : "MFI123",
+      "loanDisbursements" :[ {
+         "mfiId": "MFI123",
+         "mfiName": "MFI-Grameen Institution",
+         "meId": "ME-GG",
+         "meName" :"Gayathri Gavarraju",
+         "loanId": "1",
+         "loanAmount": "10000",
+         "Date": "23/0/2009",
+         //product details
+        "productId" :"P123",
+        "productName" : "P123 Fixed Interest 13%",
+        "interestRate" : "15",
+        "tenure" : "12"
+        },
+        {
+          "mfiId": "MFI123",
+          "mfiName": "MFI-Grameen Institution",
+          "meId": "ME-PP",
+          "meName" :"Prithvi Kumar",
+          "loanId": "2",
+          "loanAmount": "2000000",
+          "Date": "23/0/2016",
+          //product details
+          "productId" :"P453",
+          "productName" : "P453 Floating SIBOR +5%",
+          "interestRate" : "5%",
+          "tenure" : "24"
+          
+         }
+        ],
+        "loanRepayments" :[ {
+          "meId": "ME-GG",
+          "loanAmount": "2000",
+          "Date": "23/0/2010",
+          "product" :{
+           "productId" :"P123",
+           "productName" : "P12F Fixed Interest 13%",
+           "interestRate" : "15",
+           "tenure" : "12"}
+         },
+         {
+           "meId": "ME-GG",
+           "loanAmount": "10000",
+           "Date": "23/0/2009",
+           "product" :{
+            "productId" :"P123",
+            "productName" : "P12F Fixed Interest 13%",
+            "interestRate" : "15",
+            "tenure" : "12"
+           }
+          }
+         ]
+      },
+      
+  ]
