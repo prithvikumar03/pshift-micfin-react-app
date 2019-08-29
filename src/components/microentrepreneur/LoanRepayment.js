@@ -97,8 +97,7 @@ class LoanRepayment extends Component {
                                                     <TextField id="mfiId" disabled type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
-                                                            shrink: true,
-                                                            color: red[900]
+                                                            shrink: true
                                                         }}
                                                     />
                                                 </div>
@@ -109,8 +108,7 @@ class LoanRepayment extends Component {
                                                     <TextField id="meId" disabled type="text" name="meId" label="MicroEntrepreneur Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
-                                                            shrink: true,
-                                                            color: red[900]
+                                                            shrink: true
                                                         }}
                                                     />
                                                 </div>
@@ -120,8 +118,7 @@ class LoanRepayment extends Component {
                                                     <TextField id="loanId" disabled type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
-                                                            shrink: true,
-                                                            color: red[900]
+                                                            shrink: true
                                                         }}
                                                     />
                                                 </div>
@@ -131,8 +128,7 @@ class LoanRepayment extends Component {
                                                     <TextField id="date" required disabled type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
-                                                            shrink: true,
-                                                            color: red[900]
+                                                            shrink: true
                                                         }}
                                                     />
                                                 </div>
@@ -162,8 +158,7 @@ class LoanRepayment extends Component {
                                                     <TextField id="amount" required type="text" name="amount" label="Amount ($)" value={values.amount} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
-                                                            shrink: true,
-                                                            color: red[900]
+                                                            shrink: true
                                                         }}
                                                     />
                                                 </div>
