@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.16",
     "@material-ui/styles": "^4.0.0",
+    "aws-amplify": "^1.1.36",
     "axios": "^0.19.0",
     "eslint": "^5.16.0",
     "formik": "^1.5.8",

@@ -136,7 +136,7 @@ class SearchTransactions extends Component {
         }
 
         if(this.state.displayLoanRepayments){
-            renderLoanRepaymentHistory=<SpanningTable/>
+            renderLoanRepaymentHistory=<SpanningTable {...values}/>
         }
 
         return (

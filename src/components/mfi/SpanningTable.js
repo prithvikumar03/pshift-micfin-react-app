@@ -28,62 +28,85 @@ function priceRow(qty, unit) {
   return qty * unit;
 }
 
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
+function createRow(productName, loanId,loanAmount,payment,interestRate,date) {
+  return {productName, loanId,loanAmount,payment,interestRate,date};
 }
+
+
+function avg(items) {
+  return items.map(({ interestRate }) => interestRate).reduce((sum, i) => sum + i, 0);
+}
+
 
 function subtotal(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
+  return items.map(({ payment }) => payment).reduce((sum, i) => sum + i, 0);
 }
 
-const rows = [
+/* const rows = [
   createRow('Paperclips (Box)', 100, 1.15),
   createRow('Paper (Case)', 10, 45.99),
   createRow('Waste Basket', 2, 17.99),
 ];
+ */
+const getRows=(data,header)=>{
+  var finalRows=[];
+  data.forEach(e => {
+    finalRows[0]=createRow(e.productName,e.loanId,e.loanAmount,e.payment,e.interestRate,e.date)
+    finalRows[1]=createRow(e.productName,e.loanId,e.loanAmount,e.payment,e.interestRate,e.date)
+    
+  });
+  alert('final rows'+ JSON.stringify(finalRows));
+  return finalRows;
+}
 
-const invoiceSubtotal = subtotal(rows);
+
+/* const invoiceSubtotal = subtotal(rows);
 const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal; */
 
-export default function SpanningTable() {
+export default function SpanningTable(props) {
   const classes = useStyles();
-
+  console.log('props'+JSON.stringify(props));
+  let trows=getRows(props.loanRepayments);
+  alert('trows'+trows);
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Desc</TableCell>
-            <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">@</TableCell>
-            <TableCell align="right">Price</TableCell>
+            <TableCell align="left">Product Name</TableCell>
+            <TableCell align="right">Loan Id</TableCell>
+            <TableCell align="right">Date</TableCell>
+            <TableCell align="right">Loan Amount</TableCell>
+            <TableCell align="right">Interest Rate</TableCell>
+            <TableCell align="right">Payment</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {trows.map(row => (
             <TableRow key={row.desc}>
-              <TableCell>{row.desc}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+              <TableCell align="left">{row.productName}</TableCell>
+              <TableCell align="right">{row.loanId}</TableCell>
+              <TableCell align="right">{row.date}</TableCell>
+               <TableCell align="right">{row.loanAmount}</TableCell>
+              <TableCell align="right">{row.interestRate}</TableCell>
+              <TableCell align="right">{row.payment}</TableCell>
             </TableRow>
           ))}
 
           <TableRow>
-            <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+            <TableCell rowSpan={2} />
+            <TableCell colSpan={3}>Effective Interest Rate</TableCell>
+            <TableCell align="right">{avg(trows)}</TableCell>
           </TableRow>
-          <TableRow>
+        {/*   <TableRow>
             <TableCell>Tax</TableCell>
             <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
             <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
+          </TableRow> */}
           <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+            <TableCell colSpan={3}>Total Payment</TableCell>
+            <TableCell align="right">{subtotal(trows)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

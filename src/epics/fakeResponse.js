@@ -192,24 +192,25 @@ export const getAllMicroEntrepreneursResponse =
         ],
         "loanRepayments" :[ {
           "meId": "ME-GG",
-          "loanAmount": "2000",
-          "Date": "23/0/2010",
-          "product" :{
-           "productId" :"P123",
-           "productName" : "P12F Fixed Interest 13%",
-           "interestRate" : "15",
-           "tenure" : "12"}
+          "loanId":"1",
+          "loanAmount": "10000",
+          "payment":"2000",
+          "date": "23/0/2010",
+          "productId" :"P123",
+          "productName" : "P12F Fixed Interest 13%",
+          "interestRate" : "15",
+          "tenure" : "12"
          },
          {
            "meId": "ME-GG",
+           "loanId":"1",
            "loanAmount": "10000",
-           "Date": "23/0/2009",
-           "product" :{
-            "productId" :"P123",
-            "productName" : "P12F Fixed Interest 13%",
-            "interestRate" : "15",
-            "tenure" : "12"
-           }
+           "payment":"1200",
+           "date": "23/0/2011",
+           "productId" :"P123",
+           "productName" : "P12F Fixed Interest 13%",
+           "interestRate" : "15",
+           "tenure" : "12"
           }
          ]
       }
