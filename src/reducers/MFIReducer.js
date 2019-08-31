@@ -8,6 +8,12 @@ import {
     REGISTER_MFI_FAILURE
 } from './../actions/MFIActions';
 
+import {
+    NOTIFICATION_ON,
+    NOTIFICATION_OFF,
+} from './../actions/NotificationActions';
+
+
 const initialState = {
     mfi: {
         mfiId: '',
@@ -52,7 +58,9 @@ export default function mfiReducer(state = initialState, action) {
                 ...state,
                 mfi: action.payload,
                 isLoading: false,
-                error: null
+                error: null,
+                message:action.message,
+                open:true
             };
         case REGISTER_MFI_FAILURE:
             return {
@@ -61,6 +69,17 @@ export default function mfiReducer(state = initialState, action) {
                 isLoading: false,
                 error: action.payload
             };
+        case NOTIFICATION_ON:
+                return {
+                    ...state,
+                    open:true
+                };
+        case NOTIFICATION_OFF:
+                return {
+                    ...state,
+                    error: "",
+                    open:false
+                };      
         default:
             return state;
     }

@@ -10,8 +10,8 @@ const theme = createMuiTheme({
       //main: "#b2ebf2" //teal theme 1
       //main: "#007bff" //blue theme 2
      // main: "#3b5998" //facebook theme 2
-     // main: cyan[800] // theme 4
-        main: "#311b92"
+     main: cyan[800] // theme 4
+     //  main: "#311b92"
      
       
       //main: red[700] //red theme 3

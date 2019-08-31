@@ -10,6 +10,9 @@ import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { registerMFI } from './../../actions/MFIActions';
+import {notificationOff} from '../../actions/NotificationActions';
+//import Snackbar from '@material-ui/core/Snackbar';
+import CustomizedSnackbars from './../../utils/SnackBar';
 
 
 const styles = theme => ({
@@ -50,6 +53,10 @@ class MFIRegistrationInputForm extends Component {
         this.state = {};
     }
 
+    
+    handleClose=()=>{
+        this.props.notificationOff();
+    }
 
     /*  //invokes rest API
      registerMFI = (values) => {
@@ -77,6 +84,7 @@ class MFIRegistrationInputForm extends Component {
         return (
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
+                <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                 {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
@@ -110,13 +118,16 @@ class MFIRegistrationInputForm extends Component {
 const mapStateToProps = state => ({
     mfi: state.mfi.mfi,
     isLoading: state.mfi.isLoading,
-    error: state.mfi.error
+    error: state.mfi.error,
+    open:state.mfi.open,
+    message: state.mfi.message
 
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        registerMFI
+        registerMFI,
+        notificationOff
     }, dispatch);
 
 

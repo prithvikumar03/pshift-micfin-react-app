@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
 //import { of, from, BehaviorSubject } from 'rxjs'; 
-import { ofType, of, getJSON } from 'redux-observable';
+import { ofType, getJSON } from 'redux-observable';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { map, filter, scan, switchMap, catchError, mergeMap } from 'rxjs/operators';
 
@@ -24,8 +24,8 @@ const url = 'http://localhost:8081/micfin/api/mfi';
 export function microEntrepreneurEpic(action$) {
     return action$.pipe(
         ofType(FETCH_ALL_ENTREPRENEURS),
-        switchMap((action) => {
-            let observable=Observable.of(fake.getAllMicroEntrepreneursResponse);
+        switchMap((action$) => {
+            let observable=of(fake.getAllMicroEntrepreneursResponse);
             //let observable = ajax.getJSON(url);
             return (observable.pipe(
                 map(data => data),
@@ -43,10 +43,10 @@ export function microEntrepreneurEpic(action$) {
 
 const saveMEUrl = 'http://localhost:8081/micfin/api/microentrepreneur';
 export function registerMEEpic(action$) {
-     return action$.pipe()
-        .ofType(REGISTER_ME)
-          .switchMap((action) => {
-             let observable=Observable.of(fake.registerMEResponse);
+     return action$.pipe(
+        ofType(REGISTER_ME),
+        switchMap((action$) => {
+             let observable=of(fake.registerMEResponse);
             //let observable = ajax.post(saveMEUrl,action.payload, { 'Content-Type': 'application/json' });
             return (observable.pipe(
                 map(data => data),
@@ -58,7 +58,7 @@ export function registerMEEpic(action$) {
             )
             );
         })
-        
+     )   
 }
  
 

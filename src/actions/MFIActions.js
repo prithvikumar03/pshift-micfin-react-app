@@ -28,7 +28,8 @@ export const registerMFI = (mfiInfo) => ({
 
 export const registerMFISuccess = (MFI) => ({
     type:  REGISTER_MFI_SUCCESS,
-    payload: MFI
+    payload: MFI,
+    message: "MFI registered successfully."
 });
 
 export const registerMFIFailure = (message) => ({

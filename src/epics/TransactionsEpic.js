@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { ofType, of, getJSON } from 'redux-observable';
+import { Observable,of } from 'rxjs';
+import { ofType, getJSON } from 'redux-observable';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { map,switchMap, catchError } from 'rxjs/operators';
 
@@ -21,7 +21,7 @@ export function fetchTransactionsEpic(action$) {
     return action$.pipe(
         ofType(TRANSACTIONS_FETCH),
         switchMap((action) => {
-            let observable=Observable.of(fake.fetchTransactions);
+            let observable=of(fake.fetchTransactions);
             //let observable = ajax.getJSON(url);
             return (observable.pipe(
                 map(data => data),
