@@ -16,7 +16,7 @@ import {
 
 const initialState = {
     mfi: {
-        mfiId: '',
+        mfiId: "",
         companyName: "",
         directorName: ""
     },
@@ -65,9 +65,10 @@ export default function mfiReducer(state = initialState, action) {
         case REGISTER_MFI_FAILURE:
             return {
                 ...state,
-                mfi: null,
                 isLoading: false,
-                error: action.payload
+                error: action.payload,
+                message:action.message,
+                open:true
             };
         case NOTIFICATION_ON:
                 return {
