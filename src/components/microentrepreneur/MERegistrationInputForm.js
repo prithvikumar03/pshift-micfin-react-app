@@ -8,6 +8,10 @@ import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { registerME } from '../../actions/MEActions';
+import {notificationOff} from '../../actions/NotificationActions';
+//import Snackbar from '@material-ui/core/Snackbar';
+import CustomizedSnackbars from './../../utils/SnackBar';
+
 
 
 const styles = theme => ({
@@ -32,11 +36,14 @@ class MERegistrationInputForm extends Component {
     }
 
     componentWillMount(){
-       // this.props.registerME();
     }
+
+    handleClose=()=>{
+        this.props.notificationOff();
+    }
+
     render() {
         const currentPath = this.props.location.pathname
-        const { classes } = this.props;
         const {
             microentrepreneur,
             registerME,
@@ -47,11 +54,9 @@ class MERegistrationInputForm extends Component {
         return (
             <React.Fragment>
                 <SideNavBar currentPath={currentPath} />
-                {/*     <div className={classes.root}> */}
+                    <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                         <Grid container justify="center" alignItems="center" spacing={24}>
-                            {/* <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                                 <Grid item xs={12}> 
-                             */}        <Formik
+                                    <Formik
                                         initialValues={microentrepreneur}
                                         enableReinitialize
                                         validationSchema={validationSchema}
@@ -61,11 +66,7 @@ class MERegistrationInputForm extends Component {
                                             props => <MERegistration handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
-                            {/*     </Grid> 
-                            </Grid> */}
                         </Grid>
-                    
-                {/* </div> */}
             </React.Fragment>
         );
     }
@@ -76,13 +77,16 @@ class MERegistrationInputForm extends Component {
 const mapStateToProps = state => ({
     microentrepreneur: state.me.microentrepreneur,
     isLoading: state.me.isLoading,
-    error: state.me.error
+    error: state.me.error,
+    open:state.me.open,
+    message: state.me.message
 
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        registerME
+        registerME,
+        notificationOff
     }, dispatch);
 
 

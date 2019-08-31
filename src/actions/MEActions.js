@@ -15,7 +15,8 @@ export const registerME = (microentrepreneur) => ({
 
 export const registerMESuccess = (microentrepreneur) => ({
     type:  REGISTER_ME_SUCCESS,
-    payload: microentrepreneur
+    payload: microentrepreneur,
+    message: "Microentrepreneur registered successfully."
 });
 
 export const registerMEFailure = (error) => ({

@@ -7,6 +7,11 @@ import {
     FETCH_ALL_ENTREPRENEURS_FAILURE
 } from './../actions/MEActions';
 
+import {
+    NOTIFICATION_ON,
+    NOTIFICATION_OFF,
+} from './../actions/NotificationActions';
+
 const initialState ={
     microentrepreneur: {
     "aadhar": "",
@@ -81,7 +86,9 @@ export function microEntrepreneurReducer(state = initialState, action) {
                 ...state,
                 microentrepreneur: action.payload,
                 isLoading: false,
-                error: null
+                error: null,
+                message:action.message,
+                open:true
             };
         case REGISTER_ME_FAILURE:
             return {
@@ -90,6 +97,17 @@ export function microEntrepreneurReducer(state = initialState, action) {
                 isLoading: false,
                 error: action.payload
             };
+        case NOTIFICATION_ON:
+                return {
+                    ...state,
+                    open:true
+                };
+        case NOTIFICATION_OFF:
+                return {
+                    ...state,
+                    error: "",
+                    open:false
+                };    
         default:
             return state;
     }

@@ -7,7 +7,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const TAX_RATE = 0.07;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,13 +19,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
-
-function priceRow(qty, unit) {
-  return qty * unit;
-}
 
 function createRow(productName, loanId,loanAmount,payment,interestRate,date) {
   return {productName, loanId,loanAmount,payment,interestRate,date};
@@ -42,12 +34,7 @@ function subtotal(items) {
   return items.map(({ payment }) => payment).reduce((sum, i) => sum + i, 0);
 }
 
-/* const rows = [
-  createRow('Paperclips (Box)', 100, 1.15),
-  createRow('Paper (Case)', 10, 45.99),
-  createRow('Waste Basket', 2, 17.99),
-];
- */
+
 const getRows=(data,header)=>{
   var finalRows=[];
   data.forEach(e => {
@@ -55,20 +42,13 @@ const getRows=(data,header)=>{
     finalRows[1]=createRow(e.productName,e.loanId,e.loanAmount,e.payment,e.interestRate,e.date)
     
   });
-  alert('final rows'+ JSON.stringify(finalRows));
   return finalRows;
 }
-
-
-/* const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal; */
 
 export default function SpanningTable(props) {
   const classes = useStyles();
   console.log('props'+JSON.stringify(props));
   let trows=getRows(props.loanRepayments);
-  alert('trows'+trows);
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
