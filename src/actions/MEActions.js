@@ -24,8 +24,9 @@ export const registerMEFailure = (error) => ({
     payload: error
 });
 
-export const fetchAllEntrepreneurs = () => ({
+export const fetchAllEntrepreneurs = (mfiId) => ({
     type: FETCH_ALL_ENTREPRENEURS,
+    payload:mfiId
 });
 
 export const fetchAllEntrepreneursSuccess = (microentrepreneurs) => ({

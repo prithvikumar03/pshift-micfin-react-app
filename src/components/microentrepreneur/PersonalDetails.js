@@ -69,7 +69,7 @@ export default function PersonalDetails(props) {
                                 <ErrorMessage name="lastName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
                             </div>
                             <div>
-                                <TextField required id="dob" type="text" name="dob" label="Date Of Birth" className={classes.textField} value={values.dob} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                <TextField required id="dob" type="date" name="dob" label="Date Of Birth" className={classes.textField} value={values.dob} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
                                     InputLabelProps={{
                                         shrink: true,

@@ -109,7 +109,8 @@ class SearchEntrepreneurs extends Component {
     }
 
     componentWillMount() {
-        this.props.fetchAllEntrepreneurs();
+        //this.props.fetchAllEntrepreneurs(this.props.mfiId);
+        this.props.fetchAllEntrepreneurs({"mfiId":1});
     }
 
     render() {
@@ -154,6 +155,7 @@ class SearchEntrepreneurs extends Component {
 }
 
 const mapStateToProps = state => ({
+    mfiId:state.me.mfiId,
     microentrepreneurs: state.me.microentrepreneurs,
     isLoading: state.me.isLoading,
     error: state.me.error

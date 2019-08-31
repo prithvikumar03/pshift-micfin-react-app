@@ -13,6 +13,7 @@ import {
 } from './../actions/NotificationActions';
 
 const initialState ={
+    mfiId:"",
     microentrepreneur: {
     "aadhar": "",
     "address": {
