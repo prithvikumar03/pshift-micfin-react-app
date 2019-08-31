@@ -50,7 +50,7 @@ export function registerMEEpic(action$) {
         ofType(REGISTER_ME),
         switchMap((action$) => {
             let mfiId=action$.payload.mfiId;
-            const saveMEUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/microentrepreneur`;
+            const saveMEUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/micro-entrepreneur`;
              let observable=of(fake.registerMEResponse);
              if(isProd()){
                 observable = ajax.post(saveMEUrl,action$.payload, { 'Content-Type': 'application/json' });
