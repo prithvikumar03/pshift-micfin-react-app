@@ -17,4 +17,3 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Copy the updated conf file - particularly useful for react-router stuff.
 COPY nginx/nginx.conf /etc/nginx/conf.d
 COPY --from=build /app/build /usr/share/nginx/html 
-
