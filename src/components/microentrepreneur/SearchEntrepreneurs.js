@@ -114,7 +114,7 @@ class SearchEntrepreneurs extends Component {
     }
 
     render() {
-        const currentPath = this.props.location.pathname
+        //const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
             microentrepreneurs,
@@ -125,13 +125,13 @@ class SearchEntrepreneurs extends Component {
 
         return (
             <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
+                {/* <SideNavBar currentPath={currentPath} /> */}
                 <div>
                     <Grid container justify="center">
                         <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                             
                             <Typography component="div" variant="body1">    
-                            <Box bgcolor="background.main" p={6} m={2}>
+                            <Box bgcolor="background.main">
                                
                                            {  <MUIDataTable
                                                 title={"Microentrepreneurs List"}
@@ -141,7 +141,7 @@ class SearchEntrepreneurs extends Component {
                                             /> 
                                             }
                                 
-                             </Box>   
+                            </Box>    
                             </Typography>
                         </Grid>
                     </Grid>

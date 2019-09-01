@@ -140,7 +140,7 @@ class SearchTransactions extends Component {
         }
 
         return (
-            <Box bgcolor="background.main" p={8} m={4}>
+            <Box bgcolor="background.main" p={4} m={2}>
                 <Card className={classes.card}>
                     <div>
                         <Typography variant="h6">

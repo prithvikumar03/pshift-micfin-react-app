@@ -26,9 +26,10 @@ const Menu = [
     ],
   },
   {
-    header: "MFI",
+    header: null,
     label: "MFI",
-    children: [
+    pathname: "/mfiHome"
+    /* children: [
       {
         header: null,
         label: "Registration",
@@ -49,7 +50,7 @@ const Menu = [
         label: "Transactions",
         pathname: "/mfiTransactions"
       },
-    ],
+    ], */
   },
   {
     header: "MicroEntrepreneur",

@@ -1,11 +1,14 @@
-export const registerMFIResponse ={
+export const registerMFIResponse =
+{
+  response : {
     mfiId : '123',
     companyName : 'XYZ Enterprises',
     directorName : 'XYZ Director'
 }
+}
 
-export const registerMEResponse =
-{
+export const registerMEResponse ={
+  response : {
     "aadhar": "P7H999",
     "address": {
       "city": "string",
@@ -41,8 +44,10 @@ export const registerMEResponse =
     "totalAssests": 0
   }
 
-export const getAllMicroEntrepreneursResponse =
-[
+}
+
+export const getAllMicroEntrepreneursResponse = {
+  response : [
     {
       "aadhar": "P7H999",
       "address": {
@@ -114,105 +119,115 @@ export const getAllMicroEntrepreneursResponse =
       "totalAssests": 0
     }
   ]
+}
 
 
-  export const getAllMFIs =
-  [
-    {
-      "address": {
-        "city": "string",
-        "country": "string",
-        "pinCode": "string",
-        "streetName": "string",
-        "unitNo": "string"
-      },
-      "anyCasePendingInCourt": true,
-      "borrowedFromBanks": true,
-      "companyName": "string",
-      "directorName": "string",
-      "govtRegistrationNumber": "string",
-      "id": "string",
-      "netFundsOwned": "string",
-      "operating": true,
-      "reasonForApplication": "string",
-      "registrationDate": "2019-08-20T23:21:53.145Z"
-    }
-  ]
+
+  export const getAllMFIs ={
+    response : 
+    [
+      {
+        "address": {
+          "city": "string",
+          "country": "string",
+          "pinCode": "string",
+          "streetName": "string",
+          "unitNo": "string"
+        },
+        "anyCasePendingInCourt": true,
+        "borrowedFromBanks": true,
+        "companyName": "string",
+        "directorName": "string",
+        "govtRegistrationNumber": "string",
+        "id": "string",
+        "netFundsOwned": "string",
+        "operating": true,
+        "reasonForApplication": "string",
+        "registrationDate": "2019-08-20T23:21:53.145Z"
+      }
+    ]
+    
+  }
   
   
 
   export const saveLoanRepayment =
   {
-    "loanId" :"L123",
-     "mfiId" : "MFI345",
-     "meId" : "ME12",
-     "product" :{
-       "productId" :"P123",
-       "productName" : "P12F Fixed Interest 13%",
-       "interestRate" : "15",
-       "tenure" : "12",
-     },
-     "amount":"2322",
-     "date": ""
+    response : {
+      "loanId" :"L123",
+       "mfiId" : "MFI345",
+       "meId" : "ME12",
+       "product" :{
+         "productId" :"P123",
+         "productName" : "P12F Fixed Interest 13%",
+         "interestRate" : "15",
+         "tenure" : "12",
+       },
+       "amount":"2322",
+       "date": ""
+    }
   }
+  
 
 
-  export const fetchTransactions =
-     {
-      "mfiId" : "MFI123",
-      "loanDisbursements" :[ {
-         "mfiId": "MFI123",
-         "mfiName": "MFI-Grameen Institution",
-         "meId": "ME-GG",
-         "meName" :"Gayathri Gavarraju",
-         "loanId": "1",
-         "loanAmount": "10000",
-         "Date": "23/0/2009",
-         //product details
-        "productId" :"P123",
-        "productName" : "P123 Fixed Interest 13%",
-        "interestRate" : "15",
-        "tenure" : "12"
-        },
-        {
-          "mfiId": "MFI123",
-          "mfiName": "MFI-Grameen Institution",
-          "meId": "ME-PP",
-          "meName" :"Prithvi Kumar",
-          "loanId": "2",
-          "loanAmount": "2000000",
-          "Date": "23/0/2016",
-          //product details
-          "productId" :"P453",
-          "productName" : "P453 Floating SIBOR +5%",
-          "interestRate" : "5%",
-          "tenure" : "24"
-          
-         }
-        ],
-        "loanRepayments" :[ {
-          "meId": "ME-GG",
-          "loanId":"1",
-          "loanAmount": "10000",
-          "payment":"2000",
-          "date": "23/0/2010",
+  export const fetchTransactions = {
+    response : {
+        "mfiId" : "MFI123",
+        "loanDisbursements" :[ {
+           "mfiId": "MFI123",
+           "mfiName": "MFI-Grameen Institution",
+           "meId": "ME-GG",
+           "meName" :"Gayathri Gavarraju",
+           "loanId": "1",
+           "loanAmount": "10000",
+           "Date": "23/0/2009",
+           //product details
           "productId" :"P123",
-          "productName" : "P12F Fixed Interest 13%",
+          "productName" : "P123 Fixed Interest 13%",
           "interestRate" : "15",
           "tenure" : "12"
-         },
-         {
-           "meId": "ME-GG",
-           "loanId":"1",
-           "loanAmount": "10000",
-           "payment":"1200",
-           "date": "23/0/2011",
-           "productId" :"P123",
-           "productName" : "P12F Fixed Interest 13%",
-           "interestRate" : "15",
-           "tenure" : "12"
-          }
-         ]
-      }
+          },
+          {
+            "mfiId": "MFI123",
+            "mfiName": "MFI-Grameen Institution",
+            "meId": "ME-PP",
+            "meName" :"Prithvi Kumar",
+            "loanId": "2",
+            "loanAmount": "2000000",
+            "Date": "23/0/2016",
+            //product details
+            "productId" :"P453",
+            "productName" : "P453 Floating SIBOR +5%",
+            "interestRate" : "5%",
+            "tenure" : "24"
+            
+           }
+          ],
+          "loanRepayments" :[ {
+            "meId": "ME-GG",
+            "loanId":"1",
+            "loanAmount": "10000",
+            "payment":"2000",
+            "date": "23/0/2010",
+            "productId" :"P123",
+            "productName" : "P12F Fixed Interest 13%",
+            "interestRate" : "15",
+            "tenure" : "12"
+           },
+           {
+             "meId": "ME-GG",
+             "loanId":"1",
+             "loanAmount": "10000",
+             "payment":"1200",
+             "date": "23/0/2011",
+             "productId" :"P123",
+             "productName" : "P12F Fixed Interest 13%",
+             "interestRate" : "15",
+             "tenure" : "12"
+            }
+           ]
+        }
+    }
+     
       
   

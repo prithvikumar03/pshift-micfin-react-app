@@ -1,0 +1,14 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "micfin-react-app-local-20190831232840-authRole",
+            "UnauthRoleArn": "arn:aws:iam::210525354699:role/micfin-react-app-local-20190831232840-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::210525354699:role/micfin-react-app-local-20190831232840-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "micfin-react-app-local-20190831232840-deployment",
+            "UnauthRoleName": "micfin-react-app-local-20190831232840-unauthRole",
+            "StackName": "micfin-react-app-local-20190831232840",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:210525354699:stack/micfin-react-app-local-20190831232840/034379c0-cc04-11e9-878d-0a996106fc92"
+        }
+    }
+}

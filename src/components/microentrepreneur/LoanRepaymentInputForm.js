@@ -11,9 +11,9 @@ import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
 
 
 const styles = theme => ({
-    grid: {
+  /*   grid: {
         width: 1000
-    }
+    } */
 })
 
 
@@ -35,7 +35,7 @@ class LoanRepaymentInputForm extends Component {
     }
 
     render() {
-        const currentPath = this.props.location.pathname
+        //const currentPath = this.props.location.pathname
         
         const {
             loanRepayment,
@@ -44,15 +44,13 @@ class LoanRepaymentInputForm extends Component {
             error,
             
         } = this.props;
-
+        const { classes } = this.props; 
         return (
             <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
-                {/*     <div className={classes.root}> */}
-                        <Grid container justify="center" alignItems="center" spacing={24}>
-                            {/* <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                {/* <SideNavBar currentPath={currentPath} /> */}
+                            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
-                             */}        <Formik
+                                       <Formik
                                         initialValues={loanRepayment}
                                         enableReinitialize
                                         validationSchema={validationSchema}
@@ -62,11 +60,9 @@ class LoanRepaymentInputForm extends Component {
                                             props => <LoanRepayment handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
-                            {/*     </Grid> 
-                            </Grid> */}
-                        </Grid>
-                    
-                {/* </div> */}
+                              </Grid> 
+                            </Grid>                     
+                
             </React.Fragment>
         );
     }

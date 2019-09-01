@@ -3,7 +3,8 @@ import { Route, HashRouter, Switch } from 'react-router-dom'
 import Main from './components/Main'
 import MFIRegistrationInputForm from './components/mfi/MFIRegistrationInputForm'
 import ScrollToTop from './components/ScrollTop'
-import Home from './components/mfi/Home';
+//import Home from './components/mfi/Home';
+import MFIHome from './components/mfi/MFIHome';
 import SearchEntrepreneurs from './components/microentrepreneur/SearchEntrepreneurs';
 import MERegistrationInputForm from './components/microentrepreneur/MERegistrationInputForm';
 import LoanRepaymentInputForm from './components/microentrepreneur/LoanRepaymentInputForm';
@@ -15,7 +16,7 @@ export default props => (
         <Switch>
           
           <Route exact path='/' component={ Main } />
-          <Route exact path='/home' component={ Home } />
+          <Route exact path='/mfiHome' component={ MFIHome } />
           <Route exact path='/mfi' component={ MFIRegistrationInputForm } />
           <Route exact path='/searchEntrepreneurs' component={ SearchEntrepreneurs } />
           <Route exact path='/microEntrepreneur' component={ MERegistrationInputForm } />

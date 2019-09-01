@@ -5,43 +5,15 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/styles/withStyles';
-import MenuItem from '@material-ui/core/MenuItem';
-import { ErrorMessage } from 'formik';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
-import Avatar from '@material-ui/core/Avatar';
 import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
-import CustomInput from './../../utils/Dropzone';
-import { red, grey } from '@material-ui/core/colors'
 import Product from './../product/Product';
 
-
 const styles = theme => ({
-    /* container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
-        minWidth: 250,
-        padding: 3,
-        color: grey[900]
-    },
-    dense: {
-        marginTop: 16,
-    },
-    menu: {
-        width: 200,
-    },
-    error: {
-        color: 'red',
-        height: 48,
-        padding: '0 30px', 
-    } */
+
 
 })
 
@@ -57,8 +29,6 @@ class LoanRepayment extends Component {
     render() {
         const {
             values,
-            touched,
-            errors,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -66,7 +36,7 @@ class LoanRepayment extends Component {
 
         const { classes } = this.props;
         return (
-            <Box bgcolor="background.main" p={8} m={4}>
+            <Box bgcolor="background.main" p={4} m={2}>
                 <Card className={classes.card}>
                     <div>
                         <Typography variant="h6">
@@ -141,7 +111,62 @@ class LoanRepayment extends Component {
 
 
                             {/* Product Details*/}
-                            <Product {...this.props}></Product>
+                            {/* <Product {...this.props}></Product> */}
+                            <div className={classes.div}>
+                                <Card className={classes.card}>
+                                    <CardContent>
+                                        <Typography className={classes.title} gutterBottom>
+                                            Product
+                                        </Typography>
+
+                                        <Grid container item xs={12} spacing={2} direction="row">
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="productId" disabled type="text" name="productId" label="Product Id" className={classes.textField} value={values.product.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="productName" disabled type="text" name="productName" label="Product Name" className={classes.textField} value={values.product.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }} />
+                                                </div>
+                                            </Grid>
+
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="interestRate" disabled type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.product.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="tenure" disabled type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.product.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
+                            </div>
+
 
 
 
@@ -152,7 +177,7 @@ class LoanRepayment extends Component {
                                         <Typography className={classes.title} gutterBottom>
                                             Payment
                                         </Typography>
-                                        <Grid container item xs={12} spacing={2} direction="row">
+                                        <Grid container item xs={12} spacing={2} direction="    ">
                                             <Grid item xs={4} >
                                                 <div>
                                                     <TextField id="amount" required type="text" name="amount" label="Amount ($)" value={values.amount} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
@@ -191,12 +216,13 @@ class LoanRepayment extends Component {
                                 </Card>
                             </div>
 
-                           
+
 
                         </form>
                     </CardContent>
                 </Card>
             </Box>
+
         );
     }
 

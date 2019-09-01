@@ -47,7 +47,7 @@ class SearchTransactionsInputForm extends Component {
 
    
     render() {
-        const currentPath = this.props.location.pathname
+        //const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
             transactions,
@@ -57,8 +57,7 @@ class SearchTransactionsInputForm extends Component {
 
         return (
             <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
-                {/*     <div className={classes.root}> */}
+                {/* <SideNavBar currentPath={currentPath} /> */}
                         <Grid container justify="center">
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                  {/* <Grid item xs={12}>  */}

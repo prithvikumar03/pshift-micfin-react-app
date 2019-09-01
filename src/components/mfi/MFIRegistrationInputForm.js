@@ -72,7 +72,7 @@ class MFIRegistrationInputForm extends Component {
      }
   */
     render() {
-        const currentPath = this.props.location.pathname
+        //const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
             mfi,
@@ -83,7 +83,7 @@ class MFIRegistrationInputForm extends Component {
 
         return (
             <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
+                {/* <SideNavBar currentPath={currentPath} /> */}
                 <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                 {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
