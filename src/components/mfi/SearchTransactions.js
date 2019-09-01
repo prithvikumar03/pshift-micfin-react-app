@@ -130,7 +130,7 @@ class SearchTransactions extends Component {
         const { classes } = this.props;
         let renderloanDisbursements = <div></div>;
         let renderLoanRepaymentHistory=<div></div>;
-        //if(values.loanDisbursements && values.loanDisbursements.length>0){
+        
         if (values && values.loanDisbursements.length>0) {
             renderloanDisbursements =<LoanGrid data={values.loanDisbursements} columns={columns} title={"Loan Disbursement"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
         }
@@ -175,7 +175,14 @@ class SearchTransactions extends Component {
                                                         }}
                                                     />
                                                 </div>
-
+                                                <div>
+                                                    <TextField id="fromDate" type="date" name="fromDate" label="From Date" value={values.fromdate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
                                             </Grid>
                                             <Grid item xs={3} >
                                                 <div>
@@ -186,7 +193,27 @@ class SearchTransactions extends Component {
                                                         }}
                                                     />
                                                 </div>
+                                                <div>
+                                                    <TextField id="toDate" type="date" name="toDate" label="Date" value={values.toDate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
                                             </Grid>
+
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="meName" type="text" name="date" label="Microentreprenur Name" value={values.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
+                                            </Grid>
+
                                             <Grid item xs={3} >
                                                 <div>
                                                     <TextField id="loanId" type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
@@ -196,17 +223,10 @@ class SearchTransactions extends Component {
                                                         }}
                                                     />
                                                 </div>
+
+                                                
                                             </Grid>
-                                            <Grid item xs={3} >
-                                                <div>
-                                                    <TextField id="date" type="date" name="date" label="Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                                        variant="outlined"
-                                                        InputLabelProps={{
-                                                            shrink: true
-                                                        }}
-                                                    />
-                                                </div>
-                                            </Grid>
+                                            
                                         </Grid>
 
 
