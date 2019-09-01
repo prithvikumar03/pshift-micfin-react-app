@@ -12,33 +12,34 @@ import Address from './Address';
 import BusinessInfo from './BusinessInfo';
 import PersonalDetails from './PersonalDetails';
 import Grid from '@material-ui/core/Grid';
+import {grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
+  textField: {
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
+    minWidth: 250,
+    padding: 4,
+    color: grey[900]
+},
+div:{
+  padding: theme.spacing(2),
+},
+extradiv:{
+  padding: theme.spacing(4),
+},
 })
 
 class MERegistration extends Component {
 
-  /* 
-  onSubmitClick = (values) => {
-    this.props.handleSubmit();
-  } */
-
-  getTitle = () => {
-    return (
-      <Typography variant="h6" color="textSecondary" component="p">
-        MFI Registration
-      </Typography>
-    );
-  }
-
-  render() {
+   render() {
     const {
       handleSubmit,
     } = this.props;
 
     const { classes } = this.props;
     return (
-      <Box bgcolor="background.main" p={8} m={4}>
+      <Box bgcolor="background.main" p={4} m={2}>
         <Card className={classes.card}>
           <div>
             <Typography variant="h5">
@@ -56,10 +57,14 @@ class MERegistration extends Component {
               <div className={classes.div}>
                 <Grid container item xs={12} spacing={2} direction="row">
                   <Grid item xs={6}>
+                  <div className={classes.div}>
                     <Address {...this.props} />
+                    </div>
                   </Grid>
                   <Grid item xs={6}>
+                    <div className={classes.div}>
                     <BusinessInfo {...this.props} />
+                    </div>
                   </Grid>
                 </Grid>
               </div>

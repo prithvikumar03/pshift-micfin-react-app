@@ -23,7 +23,8 @@ export const yesNoOptions = [
 ];
 export default function PersonalDetails(props) {
 
-    const classes = useStyles();
+    //const classes = useStyles();
+    const { classes } = props;
     const {
         values,
         handleChange,
@@ -32,7 +33,8 @@ export default function PersonalDetails(props) {
 
     //alert ('address'+ JSON.stringify(this.props.values.address));      
     return (
-        <div className={classes.div}>
+       
+        <div> 
             <Card className={classes.card}>
                 <CardContent>
                     <Typography className={classes.title} gutterBottom>
@@ -40,7 +42,7 @@ export default function PersonalDetails(props) {
                     </Typography>
                     {/* <Divider /> */}
                     <Grid container item xs={12} spacing={2} direction="row">
-                        <Grid item xs={6} >
+                        <Grid item xs={4} >
 
                             <div>
                                 <TextField required id="aadhar" type="text" name="aadhar" label="Aadhar" value={values.aadhar} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
@@ -68,6 +70,9 @@ export default function PersonalDetails(props) {
                                 />
                                 <ErrorMessage name="lastName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>
                             </div>
+                            </Grid>    
+                        <Grid item xs={4} >
+                        
                             <div>
                                 <TextField required id="dob" type="date" name="dob" label="Date Of Birth" className={classes.textField} value={values.dob} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -76,7 +81,7 @@ export default function PersonalDetails(props) {
                                     }}
                                 />
                             </div>
-
+                           
                             
                             <div>
                                 <TextField id="filled-select-yesNoOption" select label="Gender" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
@@ -96,6 +101,8 @@ export default function PersonalDetails(props) {
                                 </TextField>
                             </div>
 
+                            
+
                             <div>
                                 <TextField id="filled-select-yesNoOption" select label="maritialStatus" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
                                     variant="outlined" InputLabelProps={{
@@ -113,7 +120,8 @@ export default function PersonalDetails(props) {
                                     ))}
                                 </TextField>
                             </div>
-
+                            </Grid>    
+                        <Grid item xs={4} >  
                             <div>
                                 <TextField  id="emiMonthly" type="text" name="emiMonthly" label="Monthly EMI" className={classes.textField} value={values.emiMonthly} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -140,8 +148,7 @@ export default function PersonalDetails(props) {
                                     ))}
                                 </TextField>
                             </div>
-                        </Grid>
-                        <Grid item xs={6}>
+                           
                             <div>
                                 <TextField  required id="mfiId" type="text" name="mfiId" label="MFI Id" className={classes.textField} value={values.mfiId} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -150,6 +157,8 @@ export default function PersonalDetails(props) {
                                     }}
                                 />
                             </div>
+                            </Grid>    
+                        <Grid item xs={4} >
                             <div>
                                 <TextField  id="formalSavingsAccount" type="text" name="formalSavingsAccount" label="Formal Savings Account" className={classes.textField} value={values.formalSavingsAccount} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -158,6 +167,7 @@ export default function PersonalDetails(props) {
                                     }}
                                 />
                             </div>
+                          
                             <div>
                                 <TextField  id="highestEducation" type="text" name="highestEducation" label="Highest Education" className={classes.textField} value={values.highestEducation} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -174,7 +184,8 @@ export default function PersonalDetails(props) {
                                     }}
                                 />
                             </div>
-
+                            </Grid>
+                        <Grid item xs={4}>
                             <div>
                                 <TextField  id="householdIncome" type="text" name="householdIncome" label="Household Income" className={classes.textField} value={values.householdIncome} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                     variant="outlined"
@@ -201,7 +212,8 @@ export default function PersonalDetails(props) {
                                     }}
                                 />
                             </div>
-
+                            </Grid>
+                        <Grid item xs={4}>
                             <div>
                                 <TextField id="filled-select-yesNoOption" select label="Drinker" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
                                     variant="outlined" InputLabelProps={{
@@ -223,7 +235,7 @@ export default function PersonalDetails(props) {
                     </Grid>
                 </CardContent>
             </Card>
-        </div>
+     </div>                                       
 
     );
 

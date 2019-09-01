@@ -15,9 +15,9 @@ import CustomizedSnackbars from './../../utils/SnackBar';
 
 
 const styles = theme => ({
-    grid: {
+   /*  grid: {
         width: 1000
-    }
+    } */
 })
 
 
@@ -43,19 +43,19 @@ class MERegistrationInputForm extends Component {
     }
 
     render() {
-        const currentPath = this.props.location.pathname
+        //const currentPath = this.props.location.pathname
         const {
             microentrepreneur,
             registerME,
             isLoading,
             error,
         } = this.props;
-
+        const { classes } = this.props;
         return (
             <React.Fragment>
-                <SideNavBar currentPath={currentPath} />
+                {/* <SideNavBar currentPath={currentPath} /> */}
                     <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
-                        <Grid container justify="center" alignItems="center" spacing={24}>
+                        <Grid container spacing={24} alignItems="center" justify="center" className={classes.grid}>
                                     <Formik
                                         initialValues={microentrepreneur}
                                         enableReinitialize

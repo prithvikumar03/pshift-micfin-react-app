@@ -53,9 +53,10 @@ const Menu = [
     ], */
   },
   {
-    header: "MicroEntrepreneur",
+    header: null,
     label: "MicroEntrepreneur",
-    children: [
+    pathname: "/meHome"
+    /* children: [
       {
         header: null,
         label: "Registration",
@@ -66,7 +67,7 @@ const Menu = [
         label: "Transactions",
         pathname: "/transactions"
       },
-    ],
+    ], */
   },
   {
     header: null,

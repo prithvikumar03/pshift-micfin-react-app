@@ -19,7 +19,8 @@ export const yesNoOptions = [
     },
 ];
 export default function BusinessInfo(props) {
-    const classes = useStyles();
+    //const classes = useStyles();
+    const { classes } = props;
 
     const {
         values,

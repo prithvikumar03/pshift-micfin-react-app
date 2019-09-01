@@ -9,8 +9,8 @@ import { useStyles } from './../../styles/index';
 
 export default function Address(props) {
 
-    const classes = useStyles();
-    //const { classes } = this.props;
+    //const classes = useStyles();
+    const { classes } = props;
 
     const {
         values,
