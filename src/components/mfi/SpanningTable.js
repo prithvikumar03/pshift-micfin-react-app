@@ -24,9 +24,13 @@ function createRow(productName, loanId,loanAmount,payment,interestRate,date) {
   return {productName, loanId,loanAmount,payment,interestRate,date};
 }
 
+function remaining(items) {
+  return items.map(({ interestRate }) => interestRate).reduce((sum, i) => sum + i, 0);
+}
 
 function avg(items) {
-  return items.map(({ interestRate }) => interestRate).reduce((sum, i) => sum + i, 0);
+  let total = items.map(({ interestRate }) => interestRate).reduce((sum, i) => (sum + i), 0);
+   return (total/items.length);
 }
 
 
@@ -51,15 +55,15 @@ export default function SpanningTable(props) {
   let trows=getRows(props.loanRepayments);
   return (
     <Paper className={classes.root}>
-      <Table className={classes.table}>
+      <Table className={classes.table} size="small">
         <TableHead>
           <TableRow>
             <TableCell align="left">Product Name</TableCell>
             <TableCell align="right">Loan Id</TableCell>
             <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Loan Amount</TableCell>
-            <TableCell align="right">Interest Rate</TableCell>
-            <TableCell align="right">Payment</TableCell>
+            <TableCell align="right">Interest Rate (%)</TableCell>
+            <TableCell align="right">Loan Amount ($)</TableCell>
+            <TableCell align="right">Payment ($)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,25 +72,22 @@ export default function SpanningTable(props) {
               <TableCell align="left">{row.productName}</TableCell>
               <TableCell align="right">{row.loanId}</TableCell>
               <TableCell align="right">{row.date}</TableCell>
-               <TableCell align="right">{row.loanAmount}</TableCell>
               <TableCell align="right">{row.interestRate}</TableCell>
+              <TableCell align="right">{row.loanAmount}</TableCell>
               <TableCell align="right">{row.payment}</TableCell>
             </TableRow>
           ))}
 
           <TableRow>
             <TableCell rowSpan={2} />
-            <TableCell colSpan={3}>Effective Interest Rate</TableCell>
-            <TableCell align="right">{avg(trows)}</TableCell>
+            <TableCell colSpan={4}><b>Total Repayment</b></TableCell>
+            <TableCell align="right"><b>{`$${subtotal(trows)} `}</b></TableCell>
           </TableRow>
-        {/*   <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow> */}
+          
           <TableRow>
-            <TableCell colSpan={3}>Total Payment</TableCell>
-            <TableCell align="right">{subtotal(trows)}</TableCell>
+            <TableCell colSpan={2}><b>Remaining Amount</b></TableCell>
+            <TableCell align="right">{`${avg(trows)} %`}</TableCell>
+            <TableCell align="right"><b>{`$${remaining(trows)} `}</b></TableCell>
           </TableRow>
         </TableBody>
       </Table>

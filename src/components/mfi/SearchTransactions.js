@@ -132,7 +132,7 @@ class SearchTransactions extends Component {
         let renderLoanRepaymentHistory=<div></div>;
         
         if (values && values.loanDisbursements.length>0) {
-            renderloanDisbursements =<LoanGrid data={values.loanDisbursements} columns={columns} title={"Loan Disbursement"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
+            renderloanDisbursements =<LoanGrid data={values.loanDisbursements} columns={columns} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
         }
 
         if(this.state.displayLoanRepayments){
@@ -194,7 +194,7 @@ class SearchTransactions extends Component {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <TextField id="toDate" type="date" name="toDate" label="Date" value={values.toDate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="toDate" type="date" name="toDate" label="To Date" value={values.toDate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

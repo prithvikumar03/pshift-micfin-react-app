@@ -206,23 +206,23 @@ export const getAllMicroEntrepreneursResponse = {
           "loanRepayments" :[ {
             "meId": "ME-GG",
             "loanId":"1",
-            "loanAmount": "10000",
-            "payment":"2000",
+            "loanAmount": 10000,
+            "payment":2000,
             "date": "23/0/2010",
             "productId" :"P123",
             "productName" : "P12F Fixed Interest 13%",
-            "interestRate" : "15",
+            "interestRate" : 15,
             "tenure" : "12"
            },
            {
              "meId": "ME-GG",
              "loanId":"1",
-             "loanAmount": "10000",
-             "payment":"1200",
+             "loanAmount": 10000,
+             "payment":1200,
              "date": "23/0/2011",
              "productId" :"P123",
              "productName" : "P12F Fixed Interest 13%",
-             "interestRate" : "15",
+             "interestRate" : 12,
              "tenure" : "12"
             }
            ]

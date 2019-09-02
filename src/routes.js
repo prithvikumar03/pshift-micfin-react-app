@@ -4,12 +4,14 @@ import Main from './components/Main'
 import ScrollToTop from './components/ScrollTop'
 import MEHome from './components/microentrepreneur/MEHome'
 import MFIHome from './components/mfi/MFIHome';
+import LoginInputForm from './components/login/LoginInputForm';
 
 export default props => (
     <HashRouter>
         <ScrollToTop>
         <Switch>
-          <Route exact path='/' component={ Main } />
+          {/* <Route exact path='/' component={ Main } /> */}
+          <Route exact path='/' component={ LoginInputForm} />
           <Route exact path='/mfiHome' component={ MFIHome } />
           <Route exact path='/meHome' component={ MEHome } />
         </Switch>

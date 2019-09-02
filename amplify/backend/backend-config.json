@@ -1,1 +1,9 @@
-{}
+{
+    "auth": {
+        "micfinreactappf3b72504": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    }
+}

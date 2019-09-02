@@ -9,6 +9,13 @@
             "UnauthRoleName": "micfin-react-app-local-20190831232840-unauthRole",
             "StackName": "micfin-react-app-local-20190831232840",
             "StackId": "arn:aws:cloudformation:ap-southeast-1:210525354699:stack/micfin-react-app-local-20190831232840/034379c0-cc04-11e9-878d-0a996106fc92"
+        },
+        "categories": {
+            "auth": {
+                "micfinreactappf3b72504": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            }
         }
     }
 }
