@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/styles/withStyles';
 import { withRouter } from 'react-router-dom';
 import SideNavBar from './SideNavBar';
+//import { withAuthenticator } from 'aws-amplify-react'
 
 const styles = theme => ({
 });
