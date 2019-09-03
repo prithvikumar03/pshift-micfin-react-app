@@ -112,8 +112,7 @@ class MFIRegistration extends Component {
                 <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" disabled value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                   variant="outlined"
                   InputLabelProps={{
-                    shrink: true,
-                    color: red[900]
+                    shrink: true
                   }}
                 />
               </div>
@@ -123,8 +122,7 @@ class MFIRegistration extends Component {
               <div>
                 <TextField required id="companyName" type="text" name="companyName" label="Company Name" className={classes.textField} value={values.companyName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                   variant="outlined" InputLabelProps={{
-                    shrink: true,
-                    color:red[900]
+                    shrink: true
                   }}
                 />
                 <ErrorMessage name="companyName">{msg => <div><span className={classes.error} >{msg}</span></div>}</ErrorMessage>

@@ -11,9 +11,35 @@ import IconButton from '@material-ui/core/IconButton';
 import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import Product from './../product/Product';
+import {red, grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
-
+     container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      textField: {
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+        minWidth: 200,
+        padding: 5,
+        color: grey[900]
+      },
+      dense: {
+        marginTop: 16,
+      },
+      menu: {
+        width: 200,
+      },
+      error: {
+        color: 'red',
+      },
+     /*  card: {
+        //maxWidth: 345,
+        padding: theme.spacing(3),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+    }, */
 
 })
 
@@ -36,7 +62,7 @@ class LoanRepayment extends Component {
 
         const { classes } = this.props;
         return (
-            <Box bgcolor="background.main" p={4} m={2}>
+            <Box bgcolor="background.main" p={4} m={2}> 
                 <Card className={classes.card}>
                     <div>
                         <Typography variant="h6">
@@ -73,7 +99,7 @@ class LoanRepayment extends Component {
                                                 </div>
 
                                             </Grid>
-                                            <Grid item xs={3} >
+                                            <Grid item xs={3} > 
                                                 <div>
                                                     <TextField id="meId" disabled type="text" name="meId" label="MicroEntrepreneur Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
@@ -82,8 +108,8 @@ class LoanRepayment extends Component {
                                                         }}
                                                     />
                                                 </div>
-                                            </Grid>
-                                            <Grid item xs={3} >
+                                             </Grid>
+                                            <Grid item xs={3} > 
                                                 <div>
                                                     <TextField id="loanId" disabled type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
@@ -93,7 +119,7 @@ class LoanRepayment extends Component {
                                                     />
                                                 </div>
                                             </Grid>
-                                            <Grid item xs={3} >
+                                            <Grid item xs={3} > 
                                                 <div>
                                                     <TextField id="date" required disabled type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
@@ -221,7 +247,7 @@ class LoanRepayment extends Component {
                         </form>
                     </CardContent>
                 </Card>
-            </Box>
+             </Box> 
 
         );
     }
