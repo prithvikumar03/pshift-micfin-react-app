@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom'
 import { Formik } from 'formik';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Login from './Login';
 import * as Yup from 'yup'
-import { withAuthenticator } from 'aws-amplify-react'
+//import { withAuthenticator } from 'aws-amplify-react'
 import { TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loginUser } from '../../actions/LoginActions';
+import {notificationOff} from '../../actions/NotificationActions';
+
 
 const styles = theme => ({
     paper: {
@@ -36,47 +42,68 @@ class LoginInputForm extends Component {
         this.state = {};
     }
 
-    login = (values) => {
-        alert('handle submit in parent class ! Hurray' + JSON.stringify(values));
-    }
-
-   
 
     render() {
 
+        const {
+            user,
+            loginUser,
+            isLoading,
+            error,
+            message,
+        } = this.props;
+        
+        let redirect= <div></div>;
+        if(message==='SUCCESS'){
+            redirect= <Redirect to="/mfiHome" /> ;
+        }
+       
         return (
-            /*   <React.Fragment>
+
+               <React.Fragment>
                   <div>
                   
                       <Formik
-                      initialValues={values}
-                      validationSchema={validationSchema} 
+                      initialValues={user}
+                      enableReinitialize
+                      //validationSchema={validationSchema} 
                       onSubmit={(values, { setSubmitting }) => {
-                          this.login(values);
-                      }}
+                        loginUser(values);
+                      }} 
+                      
                       
                       render={
                           props => <Login handleSubmit={this.props.handleSubmit} {...props}/>}
                       /> 
   
                   </div>
-              </React.Fragment> */
-
-            <div className="App">
-                <header className="App-header">
-                    {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload !! HELLO GG
-              </p>
-                  
-                 
-                </header>
-            </div >
-
-
-        );
+                  <div>{redirect}</div>
+              </React.Fragment> 
+            );
+         
+     
     }
 
 
 }
-export default withAuthenticator(withStyles(styles)(LoginInputForm));
+
+const mapStateToProps = state => ({
+    user: state.login.user,
+    isLoading: state.login.isLoading,
+    error: state.login.error,
+    open:state.login.open,
+    message: state.login.message
+
+});
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        loginUser,
+        notificationOff
+    }, dispatch);
+
+
+//export default withAuthenticator(withStyles(styles)(LoginInputForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginInputForm));
+
+

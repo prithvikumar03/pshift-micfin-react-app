@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles'
 import Routes from './routes'
 import {red, blue, grey,indigo, cyan} from '@material-ui/core/colors'
-import { withAuthenticator } from 'aws-amplify-react'
+//import { withAuthenticator } from 'aws-amplify-react'
 
 const theme = createMuiTheme({
   palette: {
@@ -54,6 +54,7 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App);
+export default App;
+//export default withAuthenticator(App);
 
 

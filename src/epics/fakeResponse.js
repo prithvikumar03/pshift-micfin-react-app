@@ -1,14 +1,14 @@
 export const registerMFIResponse =
 {
-  response : {
-    mfiId : '123',
-    companyName : 'XYZ Enterprises',
-    directorName : 'XYZ Director'
-}
+  response: {
+    mfiId: '123',
+    companyName: 'XYZ Enterprises',
+    directorName: 'XYZ Director'
+  }
 }
 
-export const registerMEResponse ={
-  response : {
+export const registerMEResponse = {
+  response: {
     "aadhar": "P7H999",
     "address": {
       "city": "string",
@@ -47,7 +47,7 @@ export const registerMEResponse ={
 }
 
 export const getAllMicroEntrepreneursResponse = {
-  response : [
+  response: [
     {
       "aadhar": "P7H999",
       "address": {
@@ -123,8 +123,8 @@ export const getAllMicroEntrepreneursResponse = {
 
 
 
-  export const getAllMFIs ={
-    response : 
+export const getAllMFIs = {
+  response:
     [
       {
         "address": {
@@ -146,88 +146,137 @@ export const getAllMicroEntrepreneursResponse = {
         "registrationDate": "2019-08-20T23:21:53.145Z"
       }
     ]
-    
-  }
-  
-  
 
-  export const saveLoanRepayment =
-  {
-    response : {
-      "loanId" :"L123",
-       "mfiId" : "MFI345",
-       "meId" : "ME12",
-       "product" :{
-         "productId" :"P123",
-         "productName" : "P12F Fixed Interest 13%",
-         "interestRate" : "15",
-         "tenure" : "12",
-       },
-       "amount":"2322",
-       "date": ""
+}
+
+
+
+export const saveLoanRepayment =
+{
+  response: {
+    "loanId": "L123",
+    "mfiId": "MFI345",
+    "meId": "ME12",
+    "product": {
+      "productId": "P123",
+      "productName": "P12F Fixed Interest 13%",
+      "interestRate": "15",
+      "tenure": "12",
+    },
+    "amount": "2322",
+    "date": ""
+  }
+}
+
+
+
+export const fetchTransactions = {
+  response: {
+    "mfiId": "MFI123",
+    "loanDisbursements": [{
+      "mfiId": "MFI123",
+      "mfiName": "MFI-Grameen Institution",
+      "meId": "ME-GG",
+      "meName": "Gayathri Gavarraju",
+      "loanId": "1",
+      "loanAmount": "10000",
+      "Date": "23/0/2009",
+      //product details
+      "productId": "P123",
+      "productName": "P123 Fixed Interest 13%",
+      "interestRate": "15",
+      "tenure": "12"
+    },
+    {
+      "mfiId": "MFI123",
+      "mfiName": "MFI-Grameen Institution",
+      "meId": "ME-PP",
+      "meName": "Prithvi Kumar",
+      "loanId": "2",
+      "loanAmount": "2000000",
+      "Date": "23/0/2016",
+      //product details
+      "productId": "P453",
+      "productName": "P453 Floating SIBOR +5%",
+      "interestRate": "5%",
+      "tenure": "24"
+
     }
+    ],
+    "loanRepayments": [{
+      "meId": "ME-GG",
+      "loanId": "1",
+      "loanAmount": 10000,
+      "payment": 2000,
+      "date": "23/0/2010",
+      "productId": "P123",
+      "productName": "P12F Fixed Interest 13%",
+      "interestRate": 15,
+      "tenure": "12"
+    },
+    {
+      "meId": "ME-GG",
+      "loanId": "1",
+      "loanAmount": 10000,
+      "payment": 1200,
+      "date": "23/0/2011",
+      "productId": "P123",
+      "productName": "P12F Fixed Interest 13%",
+      "interestRate": 12,
+      "tenure": "12"
+    }
+    ]
   }
-  
+}
 
 
-  export const fetchTransactions = {
-    response : {
-        "mfiId" : "MFI123",
-        "loanDisbursements" :[ {
-           "mfiId": "MFI123",
-           "mfiName": "MFI-Grameen Institution",
-           "meId": "ME-GG",
-           "meName" :"Gayathri Gavarraju",
-           "loanId": "1",
-           "loanAmount": "10000",
-           "Date": "23/0/2009",
-           //product details
-          "productId" :"P123",
-          "productName" : "P123 Fixed Interest 13%",
-          "interestRate" : "15",
-          "tenure" : "12"
-          },
-          {
-            "mfiId": "MFI123",
-            "mfiName": "MFI-Grameen Institution",
-            "meId": "ME-PP",
-            "meName" :"Prithvi Kumar",
-            "loanId": "2",
-            "loanAmount": "2000000",
-            "Date": "23/0/2016",
-            //product details
-            "productId" :"P453",
-            "productName" : "P453 Floating SIBOR +5%",
-            "interestRate" : "5%",
-            "tenure" : "24"
-            
-           }
-          ],
-          "loanRepayments" :[ {
-            "meId": "ME-GG",
-            "loanId":"1",
-            "loanAmount": 10000,
-            "payment":2000,
-            "date": "23/0/2010",
-            "productId" :"P123",
-            "productName" : "P12F Fixed Interest 13%",
-            "interestRate" : 15,
-            "tenure" : "12"
-           },
-           {
-             "meId": "ME-GG",
-             "loanId":"1",
-             "loanAmount": 10000,
-             "payment":1200,
-             "date": "23/0/2011",
-             "productId" :"P123",
-             "productName" : "P12F Fixed Interest 13%",
-             "interestRate" : 12,
-             "tenure" : "12"
-            }
-           ]
+export function getLoggedInUserInfo(userId) {
+
+  let userGroup = "";
+  if (userId.startsWith("MFI")) {
+    userGroup = "MFI"
+  }
+  else if (userId.startsWith("ME")) {
+    userGroup = "ME"
+  } else {
+    userGroup = "DBS"
+  }
+
+  switch (userGroup) {
+    case "DBS":
+      return {
+        response : {
+            userId:userId,
+            userGroup:userGroup,
+            entitlementLevel: "PERFORMER",
         }
-    }
-     
+      };
       
-  
+    case "MFI":
+      return {
+        response : {
+          userId:userId,
+          userGroup:userGroup,
+          entitlementLevel: "PERFORMER",
+      }
+      };
+
+    case "ME":
+      return {
+        response : {
+          userId:userId,
+          userGroup:userGroup,
+          entitlementLevel: "PERFORMER",
+      }
+      };
+
+
+    default:
+      return {
+
+      };
+
+
+  }
+
+}
