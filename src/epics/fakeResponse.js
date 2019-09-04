@@ -154,17 +154,18 @@ export const getAllMFIs = {
 export const saveLoanRepayment =
 {
   response: {
-    "loanId": "L123",
-    "mfiId": "MFI345",
-    "meId": "ME12",
-    "product": {
-      "productId": "P123",
-      "productName": "P12F Fixed Interest 13%",
-      "interestRate": "15",
-      "tenure": "12",
-    },
-    "amount": "2322",
-    "date": ""
+    "date": "2019-09-04T14:05:43.869Z",
+    "id": "string",
+    "interestRate": 0,
+    "loanAmount": "string",
+    "loanId": "string",
+    "mfiId": "string",
+    "microEntrepreneurId": "string",
+    "payment": 0,
+    "paymentDelayedInMonths": 0,
+    "productId": "string",
+    "productName": "string",
+    "tenure": 0
   }
 }
 

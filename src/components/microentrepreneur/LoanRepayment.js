@@ -91,7 +91,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="mfiId" disabled type="text" name="mfiId" label="MFI Id" value={values.user} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="mfiId"  type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -102,7 +102,7 @@ class LoanRepayment extends Component {
                                             </Grid>
                                             <Grid item xs={3} > 
                                                 <div>
-                                                    <TextField id="meId" disabled type="text" name="meId" label="MicroEntrepreneur Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="microEntrepreneurId"  type="text" name="microEntrepreneurId" label="MicroEntrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -112,7 +112,7 @@ class LoanRepayment extends Component {
                                              </Grid>
                                             <Grid item xs={3} > 
                                                 <div>
-                                                    <TextField id="loanId" disabled type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="loanId"  type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -122,7 +122,7 @@ class LoanRepayment extends Component {
                                             </Grid>
                                             <Grid item xs={3} > 
                                                 <div>
-                                                    <TextField id="date" required disabled type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="date" required  type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -149,7 +149,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productId" disabled type="text" name="productId" label="Product Id" className={classes.textField} value={values.product.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productId"  type="text" name="productId" label="Product Id" className={classes.textField} value={values.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -160,7 +160,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productName" disabled type="text" name="productName" label="Product Name" className={classes.textField} value={values.product.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productName"  type="text" name="productName" label="Product Name" className={classes.textField} value={values.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -170,7 +170,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="interestRate" disabled type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.product.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="interestRate"  type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -181,7 +181,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="tenure" disabled type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.product.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="tenure"  type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -207,7 +207,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="    ">
                                             <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="amount" required type="text" name="amount" label="Amount ($)" value={values.amount} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="payment" required type="text" name="payment" label="Amount ($)" value={values.payment} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

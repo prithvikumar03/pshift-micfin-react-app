@@ -4,28 +4,28 @@ import {
     LOAN_REPAYMENT_FAILURE,
 } from './../actions/LoanRepaymentActions';
 
-const initialState ={
-    loanRepayment:  {
-        "loanId" :"",
-         "mfiId" : "",
-         "meId" : "",
-         "product" :{
-           "productId" :"",
-           "productName" : "",
-           "interestRate" : "",
-           "tenure" : "",
-         },
-         "amount":"",
-         "date": ""
+const initialState = {
+    loanRepayment: {
+        "loanId": "",
+        "mfiId": "",
+        "microEntrepreneurId": "",
+        "date": "",
+        "interestRate": 0,
+        "loanAmount": "",
+        "payment": 0,
+        "paymentDelayedInMonths": 0,
+        "productId": "",
+        "productName": "",
+        "tenure": 0
     },
     isLoading: false,
     error: null
 };
 
 export function loanRepaymentReducer(state = initialState, action) {
-    console.log('Inside loanRepaymentReducer with action '+action.type);
+    console.log('Inside loanRepaymentReducer with action ' + action.type);
     switch (action.type) {
-      
+
         case LOAN_REPAYMENT:
             return {
                 ...state,
@@ -37,14 +37,18 @@ export function loanRepaymentReducer(state = initialState, action) {
                 ...state,
                 loanRepayment: action.payload,
                 isLoading: false,
-                error: null
+                error: null,
+                message: action.message,
+                open: true
             };
         case LOAN_REPAYMENT_FAILURE:
             return {
                 ...state,
                 loanRepayment: null,
                 isLoading: false,
-                error: action.payload
+                error: action.payload,
+                message: action.message,
+                open: true
             };
         default:
             return state;

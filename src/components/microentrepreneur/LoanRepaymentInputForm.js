@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
 import { fetchAllEntrepreneurs } from '../../actions/MEActions';
+import CustomizedSnackbars from './../../utils/SnackBar';
 
 const styles = theme => ({
   /*   grid: {
@@ -52,6 +53,7 @@ class LoanRepaymentInputForm extends Component {
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
+                    <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                        <Formik
