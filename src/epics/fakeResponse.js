@@ -9,6 +9,7 @@ export const registerMFIResponse =
 
 export const registerMEResponse = {
   response: {
+    "microEntrepreneurId":"ME234",
     "aadhar": "P7H999",
     "address": {
       "city": "string",
@@ -171,44 +172,33 @@ export const saveLoanRepayment =
 
 
 
-export const fetchTransactions = {
+export const fetchLoans = {
   response: {
-    "mfiId": "MFI123",
-    "loanDisbursements": [{
-      "mfiId": "MFI123",
-      "mfiName": "MFI-Grameen Institution",
-      "meId": "ME-GG",
-      "meName": "Gayathri Gavarraju",
-      "loanId": "1",
-      "loanAmount": "10000",
-      "Date": "23/0/2009",
-      //product details
-      "productId": "P123",
-      "productName": "P123 Fixed Interest 13%",
-      "interestRate": "15",
-      "tenure": "12"
-    },
-    {
-      "mfiId": "MFI123",
-      "mfiName": "MFI-Grameen Institution",
-      "meId": "ME-PP",
-      "meName": "Prithvi Kumar",
-      "loanId": "2",
-      "loanAmount": "2000000",
-      "Date": "23/0/2016",
-      //product details
-      "productId": "P453",
-      "productName": "P453 Floating SIBOR +5%",
-      "interestRate": "5%",
-      "tenure": "24"
-
-    }
+    
+    "mfiId": "string",
+    "mfiName": "string",
+    "microEntrepreneurId": "string",
+    "microEntrepreneurName": "string",
+    "productId": "string",
+    "productName": "string",
+    "tenure": 0,
+    "interestRate": 0,
+    "date": "2019-09-04T14:05:43.607Z",
+    "listLoanSchedule": [
+      {
+        "monthlyPayment": 0,
+        "rebate": 0,
+        "repaymentDate": "2019-09-04T14:05:43.607Z"
+      }
     ],
-    "loanRepayments": [{
-      "meId": "ME-GG",
+    "loanAmount": 0,
+    "loanId": "string",
+    "repaymentInfoList": [{
+      "microEntrepreneurId": "ME-GG",
       "loanId": "1",
       "loanAmount": 10000,
       "payment": 2000,
+      "paymentDelayedInMonths": 0,
       "date": "23/0/2010",
       "productId": "P123",
       "productName": "P12F Fixed Interest 13%",
@@ -216,10 +206,11 @@ export const fetchTransactions = {
       "tenure": "12"
     },
     {
-      "meId": "ME-GG",
+      "microEntrepreneurId": "ME-GG",
       "loanId": "1",
       "loanAmount": 10000,
       "payment": 1200,
+      "paymentDelayedInMonths": 0,
       "date": "23/0/2011",
       "productId": "P123",
       "productName": "P12F Fixed Interest 13%",

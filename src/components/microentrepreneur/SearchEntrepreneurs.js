@@ -109,8 +109,9 @@ class SearchEntrepreneurs extends Component {
     }
 
     componentWillMount() {
+        //alert('mfiID'+this.props.mfiId);
         //this.props.fetchAllEntrepreneurs(this.props.mfiId);
-        //this.props.fetchAllEntrepreneurs({"mfiId":1});
+        this.props.fetchAllEntrepreneurs({"mfiId":"MFI123"});
     }
 
     render() {
@@ -131,7 +132,7 @@ class SearchEntrepreneurs extends Component {
                         <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                             
                             <Typography component="div" variant="body1">    
-                            <Box bgcolor="background.main">
+                             <Box bgcolor="background.main">
                                
                                            {  <MUIDataTable
                                                 title={"Microentrepreneurs List"}
@@ -141,7 +142,7 @@ class SearchEntrepreneurs extends Component {
                                             /> 
                                             }
                                 
-                            </Box>    
+                            </Box>   
                             </Typography>
                         </Grid>
                     </Grid>

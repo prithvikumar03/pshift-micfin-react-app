@@ -130,14 +130,15 @@ class SearchTransactions extends Component {
         const { classes } = this.props;
         let renderloanDisbursements = <div></div>;
         let renderLoanRepaymentHistory=<div></div>;
+        //alert('values'+JSON.stringify(values));
         
-        if (values && values.loanDisbursements.length>0) {
-            renderloanDisbursements =<LoanGrid data={values.loanDisbursements} columns={columns} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
+        if (values && values.length>0) {
+            renderloanDisbursements =<LoanGrid data={values} columns={columns} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
         }
 
-        if(this.state.displayLoanRepayments){
+      /*   if(this.state.displayLoanRepayments){
             renderLoanRepaymentHistory=<SpanningTable {...values}/>
-        }
+        } */
 
         return (
             <Box bgcolor="background.main" p={4} m={2}>

@@ -45,7 +45,7 @@ export function registerMFIEpic(action$) {
      return action$.pipe(
         ofType(REGISTER_MFI) ,
         switchMap((action$) => {
-                console.log("Calling registerMFI API "+saveMFIUrl);
+                console.log("Calling registerMFI API "+saveMFIUrl +'with payload'+JSON.stringify(action$.payload));
                 let observable=of(fake.registerMFIResponse);
                 if(isProd()){
                     observable = ajax.post(saveMFIUrl,action$.payload, { 'Content-Type': 'application/json' });

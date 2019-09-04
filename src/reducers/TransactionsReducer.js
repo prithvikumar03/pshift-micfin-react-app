@@ -5,13 +5,31 @@ import {
 } from '../actions/TransactionsActions';
 
 const initialState ={
-    transactions:   {
+   /*  transactions:   {
         "mfiId" : "",
         "loanDisbursements" :[],
         "loanRepayments" :[]
-    },
+    }, */
+    transactions:   [
+        {
+        "date": "",
+        "id": "",
+        "inerestRate": 0,
+        "listLoanSchedule": [],
+        "loanAmount": 0,
+        "loanId": "",
+        "mfiId": "",
+        "mfiName": "",
+        "microEntrepreneurId": "",
+        "microEntrepreneurName": "",
+        "productId": "",
+        "productName": "",
+        "repaymentInfoList": []
+        }
+    ],
     isLoading: false,
     error: null
+
 };
 
 export function transactionsReducer(state = initialState, action) {

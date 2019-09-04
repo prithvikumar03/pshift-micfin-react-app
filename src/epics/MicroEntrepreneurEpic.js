@@ -27,14 +27,15 @@ export function microEntrepreneurEpic(action$) {
         switchMap((action$) => {
             let mfiId=action$.payload.mfiId;
             const fetchMicroentrepreneursUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/micro-entrepreneurs`;
+            console.log('Calling fetch microEntrepreneurs url '+fetchMicroentrepreneursUrl+'for MFI ID ' + mfiId );
             let observable=of(fake.getAllMicroEntrepreneursResponse);
             if(isProd()){
                 observable = ajax.getJSON(fetchMicroentrepreneursUrl);
             }
             return (observable.pipe(
                 map(response => {
-                    console.log('payload in registerMFIEpic  ------------------>' + JSON.stringify(response.response));
-                    return fetchAllEntrepreneursSuccess(response.response)
+                    console.log('Response in fetch microEntrepreneurEpic ------------------>' + JSON.stringify(response));
+                    return fetchAllEntrepreneursSuccess(response)
                 }),
                 catchError(error => of(fetchAllEntrepreneursFailure(error.message))) 
             )

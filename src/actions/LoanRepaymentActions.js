@@ -9,7 +9,8 @@ export const loanRepaymentAction = (microentrepreneur) => ({
 
 export const loanRepaymentSuccess = (microentrepreneur) => ({
     type:  LOAN_REPAYMENT_SUCCESS,
-    payload: microentrepreneur
+    payload: microentrepreneur,
+    message:"Loan repayment is successful."
 });
 
 export const loanRepaymentFailure = (error) => ({

@@ -1,5 +1,5 @@
-import { Observable,of } from 'rxjs';
-import { ofType, getJSON } from 'redux-observable';
+import { of } from 'rxjs';
+import { ofType } from 'redux-observable';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { map,switchMap, catchError } from 'rxjs/operators';
 import {getMicfinServiceURL,isProd} from './../utils/ConfigReader';
@@ -23,7 +23,7 @@ export function fetchTransactionsEpic(action$) {
         switchMap((action$) => {
             let mfiId=action$.payload.mfiId;
             const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/api/loans/${mfiId}`;
-            let observable=of(fake.fetchTransactions);
+            let observable=of(fake.fetchLoans);
             if(isProd()){
                 observable = ajax.getJSON(fetchTransactionsUrl);
             }
@@ -32,7 +32,7 @@ export function fetchTransactionsEpic(action$) {
                     console.log('payload in fetchTransactionsEpic  ------------------>' + JSON.stringify(response.response));
                     return fetchTransactionsSuccess(response.response)
                 }),
-                //catchError(error => Observable.of(fetchTransactionsFailure(error.message))) 
+                catchError(error => of(fetchTransactionsFailure(error.message))) 
             )
             );
         })
