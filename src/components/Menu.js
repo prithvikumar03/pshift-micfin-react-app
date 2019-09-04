@@ -7,6 +7,8 @@ const Menu = [
   {
     header: "DBS",
     label: "DBS",
+    userGroup:"DBS",
+    entitlement:"PERFORMER",
     children: [
       {
         header: null,
@@ -28,7 +30,9 @@ const Menu = [
   {
     header: null,
     label: "MFI",
-    pathname: "/mfiHome"
+    pathname: "/mfiHome",
+    userGroup:"MFI",
+    entitlement:"PERFORMER",
     /* children: [
       {
         header: null,
@@ -55,7 +59,9 @@ const Menu = [
   {
     header: null,
     label: "MicroEntrepreneur",
-    pathname: "/meHome"
+    pathname: "/meHome",
+    userGroup:"ME",
+    entitlement:"PERFORMER",
     /* children: [
       {
         header: null,

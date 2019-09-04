@@ -13,7 +13,7 @@ export default props => (
         <Switch>
           {/* <Route exact path='/' component={ Main } /> */}
           <Route exact path='/' component={ LoginInputForm} />
-          <Route exact path='/app' component={ App} />
+          <Route exact path='/main' component={Main} />
           <Route exact path='/mfiHome' component={ MFIHome } />
           <Route exact path='/meHome' component={ MEHome } />
         </Switch>

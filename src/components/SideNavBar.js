@@ -34,7 +34,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
 
 
-export default function SideNavBar() {
+export default function SideNavBar(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -56,10 +56,12 @@ export default function SideNavBar() {
     }
 
 
-    function getListItem(item, index, isNested) {
+    function getListItem(item, index,loggedInUserGroup, isNested) {
+        let isDisabled=false;
         if (item.header === null) {
+            isDisabled=(item.userGroup && loggedInUserGroup!==item.userGroup)?true:false;
             return (
-                <ListItem className={isNested ? classes.nested : ''} component={item.external ? MaterialLink : Link} href={item.external ? item.pathname : null} to={item.pathname} button key={item.label}>
+                <ListItem disabled={isDisabled} className={isNested ? classes.nested : ''} component={item.external ? MaterialLink : Link} href={item.external ? item.pathname : null} to={item.pathname} button key={item.label}>
                     <ListItemIcon>
                         {getIcon(item.label, classes.icon)}
                     </ListItemIcon>
@@ -69,9 +71,10 @@ export default function SideNavBar() {
         }
         else {
             let children = item.children;
+            isDisabled=(item.userGroup && loggedInUserGroup!==item.userGroup)?true:false;
             return (
                 <div>
-                    <ListItem button onClick={handleClick}>
+                    <ListItem disabled={isDisabled} button onClick={handleClick}>
                         <ListItemIcon>
                             {getIcon(item.label, classes.sideBar)}
                         </ListItemIcon>
@@ -197,7 +200,7 @@ export default function SideNavBar() {
                 <Divider /> 
                 <List>
                     {Menu.map((item, index) => (
-                        getListItem(item, index, false)
+                        getListItem(item, index, props.userGroup,false)
                     ))}
 
                 </List>

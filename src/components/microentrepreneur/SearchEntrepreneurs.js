@@ -110,7 +110,7 @@ class SearchEntrepreneurs extends Component {
 
     componentWillMount() {
         //this.props.fetchAllEntrepreneurs(this.props.mfiId);
-        this.props.fetchAllEntrepreneurs({"mfiId":1});
+        //this.props.fetchAllEntrepreneurs({"mfiId":1});
     }
 
     render() {

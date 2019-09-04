@@ -8,7 +8,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
-
+import { fetchAllEntrepreneurs } from '../../actions/MEActions';
 
 const styles = theme => ({
   /*   grid: {
@@ -32,6 +32,10 @@ class LoanRepaymentInputForm extends Component {
     }
 
     componentWillMount(){
+        //alert("userId"+JSON.stringify(this.props.user));
+        this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
+        //document.getElementById("mfiId").value=this.props.user.userId;
+        //alert("microentrepreneurs"+JSON.stringify(this.props.microentrepreneurs));
     }
 
     render() {
@@ -73,12 +77,15 @@ class LoanRepaymentInputForm extends Component {
 const mapStateToProps = state => ({
     loanRepayment: state.lr.loanRepayment,
     isLoading: state.lr.isLoading,
-    error: state.lr.error
+    error: state.lr.error,
+    user:state.login.user,
+    microentrepreneurs:state.me.microentrepreneurs
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-       loanRepaymentAction
+       loanRepaymentAction,
+       fetchAllEntrepreneurs
     }, dispatch);
 
 

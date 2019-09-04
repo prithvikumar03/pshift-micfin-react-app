@@ -238,7 +238,7 @@ export function getLoggedInUserInfo(userId) {
   }
   else if (userId.startsWith("ME")) {
     userGroup = "ME"
-  } else {
+  } else if (userId.startsWith("DBS")) {
     userGroup = "DBS"
   }
 

@@ -48,16 +48,17 @@ class LoanRepayment extends Component {
 
 
     onSubmitClick = (values) => {
-        alert('handle submit in parent class ! Hurray');
+        //alert('handle submit in parent class ! Hurray');
         this.props.handleSubmit();
     }
 
+    
     render() {
         const {
             values,
             handleChange,
             handleBlur,
-            handleSubmit,
+            handleSubmit
         } = this.props;
 
         const { classes } = this.props;
@@ -90,7 +91,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="mfiId" disabled type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="mfiId" disabled type="text" name="mfiId" label="MFI Id" value={values.user} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

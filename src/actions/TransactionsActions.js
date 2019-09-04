@@ -3,8 +3,9 @@ export const TRANSACTIONS_FETCH_SUCCESS = 'TRANSACTIONS_FETCH_SUCCESS';
 export const TRANSACTIONS_FETCH_FAILURE = 'TRANSACTIONS_FETCH_FAILURE';
 
 
-export const fetchTransactions = () => ({
+export const fetchTransactions = (searchCriteria) => ({
     type: TRANSACTIONS_FETCH,
+    payload:searchCriteria
 });
 
 export const fetchTransactionsSuccess = (microentrepreneurs) => ({

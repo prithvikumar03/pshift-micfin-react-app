@@ -3,6 +3,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/styles/withStyles';
 import { withRouter } from 'react-router-dom';
 import SideNavBar from './SideNavBar';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 //import { withAuthenticator } from 'aws-amplify-react'
 
 const styles = theme => ({
@@ -86,13 +89,28 @@ const styles = theme => ({
 
 class Main extends Component {
   render() {
+    let {user}=this.props;
     return (
       <React.Fragment>
         <CssBaseline />
-        <SideNavBar></SideNavBar>
+        <SideNavBar {...user}></SideNavBar>
       </React.Fragment>
       );
   }
 }
 
-export default withRouter(withStyles(styles)(Main));
+
+
+const mapStateToProps = state => ({
+  user: state.login.user,
+  isLoading: state.login.isLoading,
+  error: state.login.error,
+  open:state.login.open,
+  message: state.login.message
+
+});
+
+
+
+//export default withRouter(withStyles(styles)(Main));
+export default connect(mapStateToProps, null)(withRouter(withStyles(styles)(Main)));
