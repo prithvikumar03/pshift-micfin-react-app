@@ -28,7 +28,7 @@ export default class Login extends Component{
             <React.Fragment>
                 <form onSubmit={handleSubmit}>
                               <Container maxWidth="lg">
-                              <h1>Login</h1>
+                              <h1>MICFIN Login</h1>
                               <div>
                               <TextField id="userId" type="text" name="userId" label="User name" variant="outlined" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''} />
                               </div>
