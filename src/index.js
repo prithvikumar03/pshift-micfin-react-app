@@ -10,15 +10,15 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers/RootReducer';
 import { rootEpic } from './epics/index';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import Amplify from 'aws-amplify'
-import config from './aws-exports'
+//import Amplify from 'aws-amplify'
+//import config from './aws-exports'
 
 const epicMiddleware = createEpicMiddleware();
 //const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(epicMiddleware)));
 epicMiddleware.run(rootEpic);
-Amplify.configure(config);
+//Amplify.configure(config);
 ReactDOM.render(
     <Provider store={store}>
     <App />
