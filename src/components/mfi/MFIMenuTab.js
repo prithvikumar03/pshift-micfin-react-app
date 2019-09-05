@@ -6,7 +6,6 @@ import Tab from '@material-ui/core/Tab';
 import { Route, Switch, Link, BrowserRouter, } from 'react-router-dom'
 import MFIRegistrationInputForm from './MFIRegistrationInputForm'
 import SearchEntrepreneurs from './../microentrepreneur/SearchEntrepreneurs';
-import Home from './Home.js';
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import LoanRepaymentInputForm from './../microentrepreneur/LoanRepaymentInputForm';
 import SearchTransactionsInputForm from './SearchTransactionsInputForm';

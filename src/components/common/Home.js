@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SideNavBar from './../SideNavBar';
+import SideNavBar from '../SideNavBar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
@@ -25,17 +25,17 @@ media: {
 class Home extends Component {
 
   render() {
-    //const currentPath = this.props.location.pathname
+    const currentPath = this.props.location.pathname
     const { classes } = this.props;
     return (
       <div>
         <React.Fragment>
-      {/*     <SideNavBar currentPath={currentPath} /> */}
+          <SideNavBar currentPath={currentPath} /> 
           <div>
             {/* <div className={classes.root}> */}
             <Grid container justify="center">
               <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                   <Card classNam={classes.card}>
                     <CardActionArea>
                       <CardMedia

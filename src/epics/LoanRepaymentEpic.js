@@ -33,8 +33,8 @@ export function saveLoanRepayment(action$) {
             return (observable.pipe(
                 map(data => data),
                 map(response => {
-                    console.log('Response in saveLoanRepayment  ------------------>' + JSON.stringify(response));
-                    return loanRepaymentSuccess(response)
+                    console.log('Response in saveLoanRepayment  ------------------>' + JSON.stringify(response.response));
+                    return loanRepaymentSuccess(response.response)
                 }),
                 catchError(error => of(loanRepaymentFailure(error.message))) 
             )
