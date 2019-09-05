@@ -32,6 +32,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
+import {Redirect} from 'react-router-dom'
 
 
 export default function SideNavBar(props) {
@@ -53,6 +54,11 @@ export default function SideNavBar(props) {
 
     function handleProfileMenuOpen() {
 
+    }
+    function logout(props){
+        //props.history.push("login");
+     return (<Redirect to="/login" />);
+    
     }
 
 
@@ -151,7 +157,7 @@ export default function SideNavBar(props) {
                                 <NotificationsIcon className={classes.icon} />
                             </Badge>
                         </IconButton>
-                        <IconButton color="inherit">
+                        <IconButton color="inherit" onClick={()=>logout()}>
                             <Badge color="secondary">
                                 <ExitToAppIcon className={classes.icon}/>
                             </Badge>

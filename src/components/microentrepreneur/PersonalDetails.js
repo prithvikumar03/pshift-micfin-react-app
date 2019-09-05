@@ -21,6 +21,18 @@ export const yesNoOptions = [
         label: 'NO',
     },
 ];
+
+export const genderOptions = [
+    {
+        value: 'MALE',
+        label: 'MALE',
+    },
+    {
+        value: 'FEMALE',
+        label: 'FEMALE',
+    },
+];
+
 export default function PersonalDetails(props) {
 
     //const classes = useStyles();
@@ -84,7 +96,7 @@ export default function PersonalDetails(props) {
                            
                             
                             <div>
-                                <TextField id="filled-select-yesNoOption" select label="Gender" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
+                                <TextField id="filled-select-genderOptions" select label="Gender" className={classes.textField} value={values.genderOptions} onChange={handleChange('genderOptions')} margin="dense"
                                     variant="outlined" InputLabelProps={{
                                         shrink: true,
                                     }} SelectProps={{

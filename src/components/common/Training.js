@@ -9,8 +9,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-/* import FileViewer from 'react-file-viewer';
-import { CustomErrorComponent } from 'custom-error'; */
+import FileViewer from 'react-file-viewer';
+import { CustomErrorComponent } from 'custom-error'; 
 
 const styles = theme => ({
   grid: {
@@ -24,8 +24,8 @@ media: {
 },
 })
 
-const file = ''
-const type = 'png'
+const file = './../../training/MicroFinancing Dealer Platform_v4.pptx'
+const type = 'ppt'
 class Training extends Component {
 
   onError(e) {
@@ -43,11 +43,11 @@ class Training extends Component {
             <Grid container justify="center">
               <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                 <Grid item xs={12}>
-                {/* <FileViewer
+                 <FileViewer
                     fileType={type}
                     filePath={file}
                     errorComponent={CustomErrorComponent}
-                    onError={this.onError}/> */}
+                    onError={this.onError}/> 
                 </Grid>
               </Grid>
             </Grid>
