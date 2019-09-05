@@ -13,9 +13,28 @@ import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import LoanGrid from './LoanGrid';
 import SpanningTable from './SpanningTable';
+import { red,grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
-
+    textField: {
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+        minWidth: 200,
+        padding: 5,
+        color: grey[900]
+    },
+    card: {
+        //maxWidth: 345,
+        padding: theme.spacing(0),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+    },
+    div:{
+        padding: theme.spacing(2),
+    },
+    extradiv:{
+        padding: theme.spacing(4),
+    },
 })
 
 

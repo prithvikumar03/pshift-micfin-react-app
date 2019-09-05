@@ -43,8 +43,6 @@ class SearchTransactionsInputForm extends Component {
         super(props);
         this.state = {};
     }
-
-
    
     render() {
         //const currentPath = this.props.location.pathname
