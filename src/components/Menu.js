@@ -5,8 +5,9 @@ const Menu = [
     pathname: "/home"
   },
   {
-    header: "DBS",
+    header: null,
     label: "DBS",
+    pathname: "/dbsHome",
     userGroup:"DBS",
     entitlement:"PERFORMER",
     children: [
