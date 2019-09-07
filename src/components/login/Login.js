@@ -40,7 +40,7 @@ export default class Login extends PureComponent {
                                 </Typography>
                                 <CardContent>
                                     <div>
-                                        <TextField id="userId" required type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField } 
+                                        <TextField id="userId"  type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField } 
                                         InputLabelProps={{
                                             shrink: true
                                           }}
@@ -53,7 +53,7 @@ export default class Login extends PureComponent {
                                           }} />
                                     </div> */}
                                     <div>
-                                        <TextField id="password" required type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
+                                        <TextField id="password"  type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
                                         InputLabelProps={{
                                             shrink: true
                                           }} />

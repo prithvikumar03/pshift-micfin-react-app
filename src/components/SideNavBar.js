@@ -66,10 +66,11 @@ export default function SideNavBar(props) {
     }
 
 
+
     function getListItem(item, index,loggedInUserGroup, isNested) {
         let isDisabled=false;
         if (item.header === null) {
-            isDisabled=(item.userGroup && loggedInUserGroup!==item.userGroup)?true:false;
+            isDisabled=(item.userGroup && !item.userGroup.includes(loggedInUserGroup))?true:false;
             return (
                 <ListItem disabled={isDisabled} className={isNested ? classes.nested : ''} component={item.external ? MaterialLink : Link} href={item.external ? item.pathname : null} to={item.pathname} button key={item.label}>
                     <ListItemIcon>
@@ -81,7 +82,7 @@ export default function SideNavBar(props) {
         }
         else {
             let children = item.children;
-            isDisabled=(item.userGroup && loggedInUserGroup!==item.userGroup)?true:false;
+            isDisabled=(item.userGroup && !item.userGroup.includes(loggedInUserGroup))?true:false;
             return (
                 <div>
                     <ListItem disabled={isDisabled} button onClick={handleClick}>
@@ -196,9 +197,9 @@ export default function SideNavBar(props) {
                 }}
                 open={open}
             >
-                <div>
+              
                 {/* <div className={classes.toolbar}> */}
-                    <Box bgcolor="primary.main" p={1} m={0} border-bottom-color="#000000de" border-image-width={1} border-image-repeat="stretch">
+                    <Box  className={classes.drawerBox} >
                         <Typography variant="subtitle2" noWrap className={classes.typography}>
                             Welcome!
                             <IconButton
@@ -214,8 +215,8 @@ export default function SideNavBar(props) {
                             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                         </IconButton>
                         </Typography>   
-                    </Box>
-                </div>
+                    
+              
                 <Divider /> 
                 <List>
                     {Menu.map((item, index) => (
@@ -246,7 +247,7 @@ export default function SideNavBar(props) {
 
 
                 <Divider />
-
+                </Box>
             </Drawer>
            {/*  <main className={classes.content}>
                 <div className={classes.toolbar} />

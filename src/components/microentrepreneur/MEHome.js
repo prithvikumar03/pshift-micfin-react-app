@@ -5,7 +5,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import MEMenuTab from './MEMenuTab';
 
 const styles = theme => ({
-   grid: {
+    grid: {
     width: 1000
   },
   card: {
@@ -13,7 +13,7 @@ const styles = theme => ({
   },
   media: {
     height: 500,
-  },
+  }, 
 })
 
 class MEHome extends Component {
@@ -29,7 +29,7 @@ class MEHome extends Component {
           <Grid container justify="center">
             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
               <Grid item xs={12}>
-                <MEMenuTab />
+                <MEMenuTab {...this.props}/>
               </Grid>
             </Grid>
           </Grid>

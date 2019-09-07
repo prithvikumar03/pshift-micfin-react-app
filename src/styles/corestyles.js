@@ -13,7 +13,10 @@ export const styles = theme => ({
         flexGrow: 1,
     },
     grid: {
-        width: 1000
+       // display: 'flex-center',
+        width: 1000,
+        //p: 4,
+        //flexGrow: 1,
     },
     spacer: {
         padding: 8,
@@ -62,6 +65,9 @@ export const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(9) + 1,
         },
+    },
+    drawerBox: {
+        background:theme.palette.background.secondary,
     },
     divider:{
         color: theme.palette.primary,
@@ -121,9 +127,9 @@ export const styles = theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
     },
-    media: {
+    /* media: {
         height: 140,
-    },
+    }, */
     box: {
         bgcolor: "text.hint",
         color: "background.paper",

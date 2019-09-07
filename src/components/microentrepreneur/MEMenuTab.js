@@ -13,10 +13,10 @@ import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles(theme => ({
-  root: {
+   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.main,
-  },
+    backgroundColor: theme.palette.background.tertiary,
+  }, 
 }));
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,7 +53,8 @@ const PageShell = (Page, previous) => {
   );
 };
 
-export default function SimpleTabs() {
+export default function SimpleTabs(props) {
+  //const {classes} = props;
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -63,7 +64,7 @@ export default function SimpleTabs() {
 
   return (
     <BrowserRouter>
-      <div className={classes.root}>
+      {/* <div className={classes.root}> */}
         <AppBar position="static">
           <Tabs value={value} onChange={handleChange} >
             <Tab label="Registration" component={Link} to="/microEntrepreneur" />
@@ -72,16 +73,19 @@ export default function SimpleTabs() {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <MERegistrationInputForm />
+          test1
+          {/* <MERegistrationInputForm /> */}
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <LoanRepaymentInputForm />
+        test1
+          {/* <LoanRepaymentInputForm /> */}
         </TabPanel>
 
 
         <TabPanel value={value} index={2}>
-          <SearchTransactionsInputForm />
+        test1
+          {/* <SearchTransactionsInputForm /> */}
         </TabPanel>
 
         {/* <Switch>
@@ -89,7 +93,7 @@ export default function SimpleTabs() {
           <Route exact path='/loanRepayment' component={PageShell(LoanRepaymentInputForm)} />
           <Route exact path='/meTransactions' component={PageShell(SearchTransactionsInputForm)} />
         </Switch> */}
-      </div>
+      
     </BrowserRouter>
   );
 

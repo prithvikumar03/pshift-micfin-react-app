@@ -70,6 +70,14 @@ export const useStyles = makeStyles(theme => ({
             width: theme.spacing(9) + 1,
         },
     },
+    drawerBox: {
+        background:theme.palette.background.secondary,
+       /*  p={1},
+        m={0},
+        border-bottom-color="#000000de",
+        border-image-width={1},
+        border-image-repeat="stretch", */
+    },
     toolbarImage: {
         display: 'flex',
         alignItems: 'center',
@@ -119,9 +127,9 @@ export const useStyles = makeStyles(theme => ({
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
     },
-    media: {
+   /*  media: {
         height: 140,
-    },
+    }, */
     box: {
         bgcolor: "text.hint",
         color: "background.paper",

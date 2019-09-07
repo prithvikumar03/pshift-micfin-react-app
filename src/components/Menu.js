@@ -8,7 +8,7 @@ const Menu = [
     header: null,
     label: "DBS",
     pathname: "/dbsHome",
-    userGroup:"DBS",
+    userGroup:["DBS","SUPER"],
     entitlement:"PERFORMER",
     children: [
       {
@@ -32,7 +32,7 @@ const Menu = [
     header: null,
     label: "MFI",
     pathname: "/mfiHome",
-    userGroup:"MFI",
+    userGroup:["MFI","SUPER"],
     entitlement:"PERFORMER",
     /* children: [
       {
@@ -61,7 +61,7 @@ const Menu = [
     header: null,
     label: "MicroEntrepreneur",
     pathname: "/meHome",
-    userGroup:"ME",
+    userGroup:["ME","SUPER"],
     entitlement:"PERFORMER",
     /* children: [
       {

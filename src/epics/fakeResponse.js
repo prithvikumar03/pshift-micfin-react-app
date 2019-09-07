@@ -232,6 +232,8 @@ export function getLoggedInUserInfo(userId) {
     userGroup = "ME"
   } else if (userId.startsWith("DBS")) {
     userGroup = "DBS"
+  }else if (userId.startsWith("SUPER")) {
+    userGroup = "SUPER"
   }
 
   switch (userGroup) {
@@ -261,7 +263,14 @@ export function getLoggedInUserInfo(userId) {
           entitlementLevel: "PERFORMER",
       }
       };
-
+    case "SUPER":
+      return {
+        response : {
+          userId:userId,
+          userGroup:userGroup,
+          entitlementLevel: "PERFORMER",
+      }
+      };
 
     default:
       return {

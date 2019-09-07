@@ -14,27 +14,28 @@ const styles = theme => ({
   grid: {
     width: 1000
 },
-card: {
+ card: {
   maxWidth: 1000,
 },
 media: {
-  height: 500,
-},
+  height: 120,
+}
 })
 
 class Home extends Component {
 
   render() {
-    const currentPath = this.props.location.pathname
+    const currentPath = this.props.location.pathname 
     const { classes } = this.props;
     return (
       <div>
         <React.Fragment>
-          <SideNavBar currentPath={currentPath} /> 
+          <SideNavBar currentPath={currentPath} />  
           <div>
             {/* <div className={classes.root}> */}
-            <Grid container justify="center">
-              <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+            <Grid container alignItems="center" justify="center"> 
+            
+              <Grid xs={12} spacing={24} alignItems="center" justify="center" container className={classes.grid}>
                 <Grid item xs={12}>
                   <Card classNam={classes.card}>
                     <CardActionArea>
@@ -65,7 +66,7 @@ class Home extends Component {
                   </Card>
                 </Grid>
               </Grid>
-            </Grid>
+            </Grid> 
             {/* </div> */}
           </div>
         </React.Fragment>

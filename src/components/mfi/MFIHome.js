@@ -19,12 +19,12 @@ const styles = theme => ({
 class MFIHome extends Component {
 
   render() {
-    const currentPath = this.props.location.pathname
+    /* const currentPath = this.props.location.pathname */
     const { classes } = this.props;
     return (
       <div>
       <React.Fragment>
-        <SideNavBar currentPath={currentPath} />
+        {/* <SideNavBar currentPath={currentPath} /> */}
         <div>
           <Grid container justify="center">
             <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
