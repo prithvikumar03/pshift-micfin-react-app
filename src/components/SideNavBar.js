@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link, withRouter } from 'react-router-dom';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import List from '@material-ui/core/List';
@@ -16,13 +16,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Menu from './Menu';
-import ListItemLink from './ListItemLink';
 import { Link as MaterialLink } from '@material-ui/core'
 import { useStyles } from '../styles/index';
-import Header from './Header';
 import { getIcon, LogoIcon, HomeIcon } from './../styles/icons';
 import Badge from '@material-ui/core/Badge';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -36,9 +33,11 @@ import {Redirect} from 'react-router-dom'
 
 
 export default function SideNavBar(props) {
+    
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const {user}=props;
 
     function handleDrawerOpen() {
         setOpen(true);
@@ -114,7 +113,7 @@ export default function SideNavBar(props) {
                 })}
             >
 
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -127,15 +126,19 @@ export default function SideNavBar(props) {
                         <MenuIcon />
                     </IconButton>
 
-                    <LogoIcon />
-                    <div className={classes.spacer}></div>
-                    <Typography variant="h5" noWrap>
+{/*                     <LogoIcon /> */}
+                    
+                   {/* <Typography variant="h5" noWrap>
                         MICFIN
                     </Typography>
                     <div className={classes.spacer}></div>
                     <Typography variant="h6" noWrap alignRight colorSecondary>
                         MicroFinancing Dealer Platform
                     </Typography>
+ */}                <div>
+                                <img src={require('./../images/micfinlogo10.png')} alt="Micfin logo"/>
+                                <img src={require('./../images/addon8.png')} alt="Micfin logo"/>
+                    </div>
 
 
                     {/* Right Section of Tool Bar */}
@@ -144,22 +147,26 @@ export default function SideNavBar(props) {
                     <div className={classes.sectionDesktop} >
                         <IconButton color="inherit">
                             <Badge color="secondary">
-                                <HomeIcon className={classes.icon}/>
+                               {/*  <HomeIcon className={classes.icon}/> */}
+                                <img className={classes.icon} src={require('./../images/homeIcon.png')} alt="Home logo"/> 
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={4}>
-                                <MailIcon className={classes.icon}/>
+                                {/* <MailIcon className={classes.icon}/> */}
+                                <img className={classes.icon} src={require('./../images/mailIcon.png')} alt="Home logo"/>
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit">
                             <Badge color="error" badgeContent={17}>
-                                <NotificationsIcon className={classes.icon} />
+                                <img className={classes.icon} src={require('./../images/notificationIcon.png')} alt="Home logo"/>
+                                {/* <NotificationsIcon className={classes.icon} /> */}
                             </Badge>
                         </IconButton>
                         <IconButton color="inherit" onClick={()=>logout()}>
                             <Badge color="secondary">
-                                <ExitToAppIcon className={classes.icon}/>
+                                {/* <ExitToAppIcon className={classes.icon}/> */}
+                                <img className={classes.icon} src={require('./../images/exitIcon2.png')} alt="Home logo"/>
                             </Badge>
                         </IconButton>
 
@@ -213,10 +220,10 @@ export default function SideNavBar(props) {
                 <Divider />
 
             </Drawer>
-            <main className={classes.content}>
+           {/*  <main className={classes.content}>
                 <div className={classes.toolbar} />
 
-            </main>
+            </main> */}
         </div>
     );
 }

@@ -14,7 +14,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //import config from './aws-exports'
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles'
-import {red, blue, grey,indigo, cyan} from '@material-ui/core/colors'
+import {red, blue, grey,indigo, cyan, purple,deepPurple,deepOrange} from '@material-ui/core/colors'
 const epicMiddleware = createEpicMiddleware();
 
 //const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
@@ -30,7 +30,10 @@ const theme = createMuiTheme({
         //main: "#b2ebf2" //teal theme 1
         //main: "#007bff" //blue theme 2
        // main: "#3b5998" //facebook theme 2
-       main: cyan[800] // theme 4
+       //main: cyan[800] // theme 4
+      // main: purple[900] // theme 4
+      //main: "#00e5ff" // theme 4
+      main: blue[800] // theme 4 #1565c0
        //  main: "#311b92"
        
         

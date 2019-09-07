@@ -70,12 +70,11 @@ export const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-center',
-       // width: drawerWidth,
-        //padding: '3 1px',
         padding: '2',
-        background: theme.palette.primary,
+        background: theme.palette.secondary,
         ...theme.mixins.toolbar,
     },
+   
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),

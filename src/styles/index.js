@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { red,grey } from '@material-ui/core/colors'
+import backgroundImage from './../images/background4.jpg'; // Import using relative path
 const drawerWidth = 260;
 
 export const useStyles = makeStyles(theme => ({
@@ -69,8 +70,10 @@ export const useStyles = makeStyles(theme => ({
         justifyContent: 'flex-center',
        // width: drawerWidth,
         //padding: '3 1px',
-        padding: '2',
-        background: theme.palette.primary,
+        padding: '3',
+        //background: theme.palette.secondary,
+        background: grey[200],
+        backgroundImage: `url(${backgroundImage})`,
         ...theme.mixins.toolbar,
     },
     content: {
@@ -82,7 +85,9 @@ export const useStyles = makeStyles(theme => ({
     },
     icon: {
         margin: theme.spacing(0),
-        color: theme.palette.secondary,
+        //color: theme.palette.secondary,
+       // color: "#000000",
+        
     },
     sideBar: {
         margin: theme.spacing(0),
