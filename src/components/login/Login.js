@@ -36,7 +36,7 @@ export default class Login extends PureComponent {
                             <Card className={classes.card}>
                                 <Typography variant="h6">
                                     Login
-                                        <Divider variant="fullwidth" className={classes.divider} />
+                                        <Divider variant="fullWidth" className={classes.divider} />
                                 </Typography>
                                 <CardContent>
                                     <div>

@@ -11,56 +11,53 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-  grid: {
-    width: 1000
-},
- card: {
-  maxWidth: 1000,
-},
+  
 media: {
-  height: 600,
-}
+  height: 0,
+  paddingTop: '56.25%', // 16:9
+} ,
+card: {
+  maxWidth: 345,
+  padding: theme.spacing(3),
+  marginLeft: theme.spacing(1),
+  marginRight: theme.spacing(1),
+  
+},
+
 })
 
-class Home extends Component {
+class DisplayCard extends Component {
 
   render() {
-    const currentPath = this.props.location.pathname 
+    
     const { classes } = this.props;
     return (
       <div>
         <React.Fragment>
-          <SideNavBar currentPath={currentPath} />  
+       
           <div>
             {/* <div className={classes.root}> */}
             <Grid container alignItems="center" justify="center"> 
             
-              <Grid xs={12} spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+              <Grid xs={12} spacing={4} alignItems="center" justify="center" container className={classes.grid}>
                 <Grid item xs={12}>
                   <Card classNam={classes.card}>
                     <CardActionArea>
                       <CardMedia
                         className={classes.media}
-                        image={require("./../../images/exitIcon.png")}
+                        image={require('./../../images/cattle.jpg')}
                         /* title="" */
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h6" component="h2"> 
-                        
-                            <Typography gutterBottom variant="body" component="h2">
-                              MICFIN - Digitalizing microfinancing in developing nations!
+                            <Typography gutterBottom variant="body" component="h4">
+                             Affordable loans for Agriculture and cattle sector!
                            </Typography>
-                        </Typography>
-                         
-                        <Typography variant="body2" component="p">
-                          Creating digital engagement that empowers customers to get the banking services they need
-                          while doing good for the environment and society.
-                        </Typography>
+                      
                       </CardContent>
                     </CardActionArea>
                     <CardActions>
                       <Button size="small" color="secondary">
-                        Learn More ->
+                        Learn More  
                       </Button>
                     </CardActions>
                   </Card>
@@ -76,5 +73,5 @@ class Home extends Component {
 
   }
 }
-export default withStyles(styles)(Home);
+export default withStyles(styles)(DisplayCard);
 

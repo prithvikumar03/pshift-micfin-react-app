@@ -126,6 +126,7 @@ export const styles = theme => ({
         padding: theme.spacing(3),
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
+        
     },
     /* media: {
         height: 140,
@@ -169,8 +170,13 @@ export const styles = theme => ({
     },
     typography:{
         color: theme.palette.secondary,
+    },
+    paperHeader:{
+        bgcolor: "text.hint",
+        color: "background.tertiary",
+        p: 2,
+        m: 1,
     }
-
 
 
   })

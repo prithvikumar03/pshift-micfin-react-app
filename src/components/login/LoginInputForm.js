@@ -4,25 +4,21 @@ import { Formik } from 'formik';
 import withStyles from "@material-ui/core/styles/withStyles";
 import Login from './Login';
 import * as Yup from 'yup'
-//import { withAuthenticator } from 'aws-amplify-react'
-import { TextField } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginUser } from '../../actions/LoginActions';
 import { notificationOff } from '../../actions/NotificationActions';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { red, blue, grey, indigo, cyan } from '@material-ui/core/colors'
+import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import DisplayCard from './DisplayCard';
+import DisplayCard1 from './DisplayCard1';
+import DisplayCard2 from './DisplayCard2';
+import Typography from '@material-ui/core/Typography';
+
 
 const validationSchema = Yup.object({
     email: Yup.string("Enter your email")
@@ -34,11 +30,11 @@ const validationSchema = Yup.object({
 });
 
 const styles = theme => ({
-    /*  root: {
-         width: '100%',
-         maxWidth: 600,
-         backgroundColor: theme.palette.background.secondary,
-       }, */
+      loginBox: {
+        bgcolor: "text.hint",
+        color: "background.paper",
+       }, 
+      
 })
 
 
@@ -95,6 +91,8 @@ class LoginInputForm extends Component {
 
 
                             </Grid>
+
+
                             <Grid item xs={12}>
                                 <Divider className={classes.divider} />
                             </Grid>
@@ -104,11 +102,43 @@ class LoginInputForm extends Component {
                             <Grid item xs={12}>
                                 <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
                                     <Grid item xs={6}>
-                                        to do
+                                        <Grid container alignItems="center" justify="center" className={classes.headerGrid}>
+                                             <Grid item xs={12}>
+                                                <Box 
+                                                    bgcolor="background.tertiary"
+                                                    boxShadow={2}
+                                                    p={{ xs: 2, sm: 3, md: 4 }}
+                                                >
+                                                <Typography variant="body">
+                                                    Our mission is to create digital engagement that empowers customers to get the banking services they need while doing good for the environment and society.
+                                                </Typography>
+                                                </Box>
+                                            </Grid> 
+
+                                            <Grid item xs={12}>
+                                                <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
+                                                    <Grid item xs={4}>
+                                                        <DisplayCard1 {...this.props} />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <DisplayCard2 {...this.props} />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <DisplayCard {...this.props} />
+                                                    </Grid>
+                                                </Grid>    
+                                            </Grid>
+
+                                        </Grid>
                                     </Grid>
-                                    
+
                                     <Grid item xs={6}>
-                                        <Formik
+                                    <Box 
+                                        bgcolor="background.secondary"
+                                        boxShadow={2}
+                                        p={{ xs: 2, sm: 3, md: 4 }}
+                                    >
+                                    <Formik
                                             initialValues={user}
                                             enableReinitialize
                                             //validationSchema={validationSchema} 
@@ -119,10 +149,17 @@ class LoginInputForm extends Component {
                                             render={
                                                 props => <Login handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
                                         />
+                                    </Box>    
+                                        
                                     </Grid>
-                                    
+
                                 </Grid>
 
+                            </Grid>
+
+                             {/*     */}
+                            <Grid item xs={12}>
+                                <Divider className={classes.divider} />
                             </Grid>
 
                         </Grid>
