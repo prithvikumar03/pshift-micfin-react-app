@@ -37,7 +37,7 @@ export default function Address(props) {
                     </div>
 
                     <div>
-                        <TextField id="streetName" type="text" name="streetName" label="Street Name" className={classes.textField} value={values.address.streetName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                        <TextField id="streetName" type="text" name="address.streetName" label="Street Name" className={classes.textField} value={values.address.streetName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,
@@ -46,7 +46,7 @@ export default function Address(props) {
 
 
                     <div>
-                        <TextField id="city" type="text" name="city" label="City" className={classes.textField} value={values.address.city} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                        <TextField id="city" type="text" name="address.city" label="City" className={classes.textField} value={values.address.city} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,
@@ -55,7 +55,7 @@ export default function Address(props) {
 
 
                     <div>
-                        <TextField id="country" type="text" name="country" label="Country" className={classes.textField} value={values.address.country} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                        <TextField id="country" type="text" name="address.country" label="Country" className={classes.textField} value={values.address.country} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,
@@ -64,7 +64,7 @@ export default function Address(props) {
 
 
                    {/*  <div>
-                        <TextField id="pinCode" type="text" name="pinCode" label="PinCode" className={classes.textField} value={values.address.pinCode} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                        <TextField id="pinCode" type="text" name="address.pinCode" label="PinCode" className={classes.textField} value={values.address.pinCode} onChange={handleChange} onBlur={handleBlur} margin="dense"
                             variant="outlined"
                             InputLabelProps={{
                                 shrink: true,

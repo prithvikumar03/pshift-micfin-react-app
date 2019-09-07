@@ -32,6 +32,7 @@ class Router extends Component {
             {/* <Route exact path='/' component={ Main } /> */}
   {/*           <Route exact path='/' component={LoginInputForm} {...this.props}/> */}
             <Route exact path='/' render={(routeProps) => <LoginInputForm {...routeProps} {...this.props}/>}/>
+            <Route exact path='/logout' render={(routeProps) => <LoginInputForm {...routeProps} {...this.props}/>}/>
             <Route exact path='/home' component={Home} />
             <Route exact path='/main' component={Main} />
             <Route exact path='/dbsHome' component={DBSHome} />

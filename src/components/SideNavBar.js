@@ -37,6 +37,7 @@ export default function SideNavBar(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const [logOut, setlogOut] = React.useState(false);
     const {user}=props;
 
     function handleDrawerOpen() {
@@ -54,10 +55,14 @@ export default function SideNavBar(props) {
     function handleProfileMenuOpen() {
 
     }
-    function logout(props){
-        //props.history.push("login");
-     return (<Redirect to="/login" />);
-    
+
+    function setLogout(props){
+        //alert('inside logout2');
+        setlogOut(true);
+    }
+    function renderLogout(props){
+        if(logOut)
+            return (<Redirect to="/logout" />);
     }
 
 
@@ -105,6 +110,7 @@ export default function SideNavBar(props) {
 
     return (
         <div className={classes.root}>
+            <div>{renderLogout()}</div>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -163,7 +169,7 @@ export default function SideNavBar(props) {
                                 {/* <NotificationsIcon className={classes.icon} /> */}
                             </Badge>
                         </IconButton>
-                        <IconButton color="inherit" onClick={()=>logout()}>
+                        <IconButton color="inherit" onClick={()=>setLogout()}>
                             <Badge color="secondary">
                                 {/* <ExitToAppIcon className={classes.icon}/> */}
                                 <img className={classes.icon} src={require('./../images/exitIcon2.png')} alt="Home logo"/>
@@ -217,6 +223,28 @@ export default function SideNavBar(props) {
                     ))}
 
                 </List>
+
+                <List>
+                    <ListItem>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            className={clsx(classes.menuButton, {
+                                [classes.hide]: open,
+                            })}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        </IconButton>
+                    </ListItem>
+
+                </List>
+
+
                 <Divider />
 
             </Drawer>
