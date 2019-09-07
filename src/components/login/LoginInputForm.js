@@ -18,6 +18,7 @@ import DisplayCard from './DisplayCard';
 import DisplayCard1 from './DisplayCard1';
 import DisplayCard2 from './DisplayCard2';
 import Typography from '@material-ui/core/Typography';
+import Footer from './../Footer';
 
 
 const validationSchema = Yup.object({
@@ -103,7 +104,7 @@ class LoginInputForm extends Component {
                                 <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
                                     <Grid item xs={6}>
                                         <Grid container alignItems="center" justify="center" className={classes.headerGrid}>
-                                             <Grid item xs={12}>
+                                            {/*  <Grid item xs={12}>
                                                 <Box 
                                                     bgcolor="background.tertiary"
                                                     boxShadow={2}
@@ -113,7 +114,7 @@ class LoginInputForm extends Component {
                                                     Our mission is to create digital engagement that empowers customers to get the banking services they need while doing good for the environment and society.
                                                 </Typography>
                                                 </Box>
-                                            </Grid> 
+                                            </Grid>  */}
 
                                             <Grid item xs={12}>
                                                 <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
@@ -134,8 +135,11 @@ class LoginInputForm extends Component {
 
                                     <Grid item xs={6}>
                                     <Box 
-                                        bgcolor="background.secondary"
+                                        /* bgcolor="background.secondary" */
                                         boxShadow={2}
+                                        /* style={{background: 'linear-gradient(to right bottom, #430089, #82ffa1)'}} */
+                                         style={{background: 'linear-gradient(to right bottom, #1565c0, #82ffa1)'}}
+                                        
                                         p={{ xs: 2, sm: 3, md: 4 }}
                                     >
                                     <Formik
@@ -158,13 +162,29 @@ class LoginInputForm extends Component {
                             </Grid>
 
                              {/*     */}
+                           {/*  <Grid item xs={12}>
+                                <Box 
+                                    bgcolor="background.tertiary"
+                                    boxShadow={2}
+                                    p={{ xs: 2, sm: 3, md: 4 }}
+                                >
+                                <Typography variant="body">
+                                    Our mission is to create digital engagement that empowers customers to get the banking services they need while doing good for the environment and society.
+                                </Typography>
+                                    </Box>
+                            </Grid> */}
+
+                            
                             <Grid item xs={12}>
-                                <Divider className={classes.divider} />
+                                <div>
+                               <Divider className={classes.divider} />
+                              <Footer {...this.props}></Footer>
+                              </div>
                             </Grid>
 
                         </Grid>
 
-                    </Grid>
+                    </Grid> 
                 </div>
                 <div>{redirect}</div>
             </React.Fragment>

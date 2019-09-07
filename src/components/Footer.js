@@ -7,9 +7,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles({
-  root: {
+ /*  root: {
     width: 500,
-  },
+  }, */
+  footer:{
+    position: 'fixed',
+    bottom:0,
+    width: '100%',
+    minHeight: '25px',
+}
 });
 
 export default function SimpleBottomNavigation() {
@@ -23,7 +29,7 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
       }}
       showLabels
-      className={classes.root}
+      className={classes.footer}
     >
       <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
       <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />

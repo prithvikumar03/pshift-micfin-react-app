@@ -50,13 +50,13 @@ class DisplayCard extends Component {
                       />
                       <CardContent>
                             <Typography gutterBottom variant="body" component="h4">
-                             Affordable loans for Agriculture and cattle sector!
+                            Empowering Agriculture sector!
                            </Typography>
                       
                       </CardContent>
                     </CardActionArea>
                     <CardActions>
-                      <Button size="small" color="secondary">
+                      <Button size="small" color="primary"  variant="outlined">
                         Learn More  
                       </Button>
                     </CardActions>

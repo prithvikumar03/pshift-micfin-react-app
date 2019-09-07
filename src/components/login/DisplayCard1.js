@@ -58,7 +58,7 @@ class DisplayCard1 extends Component {
                       </CardContent>
                     </CardActionArea>
                     <CardActions>
-                      <Button size="small" color="secondary">
+                      <Button size="small" color="primary"  variant="outlined">
                         Learn More 
                       </Button>
                     </CardActions>
