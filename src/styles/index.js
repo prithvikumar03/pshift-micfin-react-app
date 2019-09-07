@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { red,grey } from '@material-ui/core/colors'
 import backgroundImage from './../images/background4.jpg'; // Import using relative path
+import menuButtonImage from './../images/MenuIcon2.png'; // Import using relative path
 const drawerWidth = 260;
 
 export const useStyles = makeStyles(theme => ({
@@ -37,6 +38,11 @@ export const useStyles = makeStyles(theme => ({
     },
     menuButton: {
         marginRight: 36,
+        color:"#263238"
+    },
+    menuButtonImage: {
+        marginRight: 36,
+        backgroundImage: `url(${menuButtonImage})`,
     },
     hide: {
         display: 'none',
