@@ -51,9 +51,11 @@ export const useStyles = makeStyles(theme => ({
         width: drawerWidth,
         flexShrink: 0,
         whiteSpace: 'nowrap',
+        background:theme.palette.background.secondary,
     },
     drawerOpen: {
         width: drawerWidth,
+        background:theme.palette.background.secondary,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -65,6 +67,9 @@ export const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.leavingScreen,
         }),
         overflowX: 'hidden',
+        background:theme.palette.background.secondary,
+        //background: 'linear-gradient(to right bottom, #1565c0, #82ffa1)',
+        //background:theme.palette.primary.main,
         width: theme.spacing(7) + 1,
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(9) + 1,

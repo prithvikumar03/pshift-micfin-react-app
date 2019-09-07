@@ -23,10 +23,12 @@ const useStyles = makeStyles(theme => ({
 
 
 const styles = theme => ({
-  root: {
+   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.main,
-  },
+    marginTop: '15%'
+  }, 
+
 })
 
 function TabPanel(props) {
@@ -42,7 +44,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={0}>{children}</Box>
+      <Box p={0} boxShadow={2}>{children}</Box>
     </Typography>
   );
 }
@@ -92,8 +94,8 @@ class MFIMenuTab extends Component {
   return (
     <BrowserRouter>
       <div className={classes.root}>
-        <AppBar position="static">
-          <Tabs value={value} onChange={this.handleChange} fullWidth>
+        <AppBar position="relative" fullWidth className={classes.AppBarMenu}>
+          <Tabs value={value} onChange={this.handleChange} >
             
             <Tab label="Registration" component={Link} to="/mfi" />
             <Tab label="Search Entrepreneurs" component={Link} to="/searchEntrepreneurs" />

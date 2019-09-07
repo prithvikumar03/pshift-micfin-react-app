@@ -198,8 +198,9 @@ export default function SideNavBar(props) {
                 open={open}
             >
               
-                {/* <div className={classes.toolbar}> */}
-                    <Box  className={classes.drawerBox} >
+                
+                   {/*  <Box  className={classes.drawerBox} > */}
+                   <Box> 
                         <Typography variant="subtitle2" noWrap className={classes.typography}>
                             Welcome!
                             <IconButton
@@ -249,10 +250,7 @@ export default function SideNavBar(props) {
                 <Divider />
                 </Box>
             </Drawer>
-           {/*  <main className={classes.content}>
-                <div className={classes.toolbar} />
-
-            </main> */}
+         
         </div>
     );
 }
