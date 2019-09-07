@@ -5,17 +5,19 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles({
- /*  root: {
-    width: 500,
-  }, */
-  footer:{
+  /*  root: {
+     width: 500,
+   }, */
+  /* footer: {
     position: 'fixed',
-    bottom:0,
+    bottom: 0,
     width: '100%',
-    minHeight: '25px',
-}
+    minHeight: '40px',
+    background: theme.palette.background.secondary,
+  } */
 });
 
 export default function SimpleBottomNavigation() {
@@ -23,17 +25,21 @@ export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.footer}
-    >
-      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-    </BottomNavigation>
+    <div>
+      <Divider className={classes.divider} />
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.footer}
+
+      >
+        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation>
+    </div>
   );
 }

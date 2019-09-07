@@ -176,7 +176,14 @@ export const styles = theme => ({
         color: "background.tertiary",
         p: 2,
         m: 1,
-    }
+    },
+    footer: {
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        minHeight: '24px',
+        background: theme.palette.background.secondary,
+      }
 
 
   })

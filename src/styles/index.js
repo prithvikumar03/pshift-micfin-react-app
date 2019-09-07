@@ -163,5 +163,12 @@ export const useStyles = makeStyles(theme => ({
     },
     typography:{
         color: theme.palette.secondary,
-    }
+    },
+    footer: {
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        minHeight: '24px',
+        background: theme.palette.background.secondary,
+      }
 }));

@@ -31,7 +31,7 @@ export default class Login extends PureComponent {
 
                 <React.Fragment>
                     <form onSubmit={handleSubmit}>
-                        <Grid alignItems="center" justify="center" container>
+                        <Grid alignItems="center" justify="flex-end" container>
                             <Grid item>
                             <Card className={classes.card}>
                                 <Typography variant="h6">
@@ -46,18 +46,18 @@ export default class Login extends PureComponent {
                                           }}
                                         />
                                     </div>
-                                    {/* <div>
-                                        <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
-                                        InputLabelProps={{
-                                            shrink: true
-                                          }} />
-                                    </div> */}
                                     <div>
                                         <TextField id="password"  type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
                                         InputLabelProps={{
                                             shrink: true
                                           }} />
                                     </div>
+                                    <div>
+                                        <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
+                                        InputLabelProps={{
+                                            shrink: true
+                                          }} />
+                                    </div> 
                                     <div></div>
                                     <div>
                                         <Button
