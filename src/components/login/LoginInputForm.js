@@ -21,6 +21,8 @@ import Button from '@material-ui/core/Button';
 import { red, blue, grey, indigo, cyan } from '@material-ui/core/colors'
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 const validationSchema = Yup.object({
     email: Yup.string("Enter your email")
@@ -32,11 +34,11 @@ const validationSchema = Yup.object({
 });
 
 const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 600,
-        backgroundColor: theme.palette.background.paper,
-      },
+    /*  root: {
+         width: '100%',
+         maxWidth: 600,
+         backgroundColor: theme.palette.background.secondary,
+       }, */
 })
 
 
@@ -71,38 +73,60 @@ class LoginInputForm extends Component {
 
                 <div>
                     <Grid container justify="left">
-                        <Grid spacing={0} alignItems="center" justify="center" container className={classes.headerGrid}  xs={12}>
+                        <Grid spacing={0} alignItems="center" justify="center" container xs={12}>
+                            <Grid item xs={12}>
                                 <Grid item xs={12}>
-                                
-                                    <img src={require('./../../images/micfinlogo10.png')} alt="Micfin logo"/>
-                                    <img src={require('./../../images/addon8.png')} alt="Micfin logo"/>
+                                    <AppBar position="static">
+                                        <Toolbar className={classes.toolbar}>
+                                            <Grid item xs={9}>
 
-                                </Grid>  
-                                <Grid item xs={12}>
-                                <Divider className={classes.divider}/> 
-                                </Grid>    
-                                
-                        </Grid>
-                        <Grid spacing={24} alignItems="center" justify="center"   container>
-
-                            <Grid item xs={12} className={classes.root}>
-                                <Box className={classes.box}>
-                                <Formik
-                                    initialValues={user}
-                                    enableReinitialize
-                                    //validationSchema={validationSchema} 
-                                    onSubmit={(values, { setSubmitting }) => {
-                                        loginUser(values);
-                                    }}
+                                                <img src={require('./../../images/micfinlogo10.png')} alt="Micfin logo" />
+                                                <img src={require('./../../images/addon8.png')} alt="Micfin logo" />
+                                            </Grid>
+                                            <Grid item xs={9}>
 
 
-                                    render={
-                                        props => <Login handleSubmit={this.props.handleSubmit} {...props} />}
-                                />
-                                </Box>
+                                            </Grid>
+
+                                        </Toolbar>
+                                    </AppBar>
+
+                                </Grid>
+
+
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Divider className={classes.divider} />
+                            </Grid>
+
+
+
+                            <Grid item xs={12}>
+                                <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
+                                    <Grid item xs={6}>
+                                        to do
+                                    </Grid>
+                                    
+                                    <Grid item xs={6}>
+                                        <Formik
+                                            initialValues={user}
+                                            enableReinitialize
+                                            //validationSchema={validationSchema} 
+                                            onSubmit={(values, { setSubmitting }) => {
+                                                loginUser(values);
+                                            }}
+
+                                            render={
+                                                props => <Login handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
+                                        />
+                                    </Grid>
+                                    
+                                </Grid>
+
                             </Grid>
 
                         </Grid>
+
                     </Grid>
                 </div>
                 <div>{redirect}</div>

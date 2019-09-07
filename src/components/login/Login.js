@@ -3,6 +3,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
 export default class Login extends PureComponent {
 
     constructor(props) {
@@ -19,6 +22,7 @@ export default class Login extends PureComponent {
             handleChange,
             handleBlur,
             handleSubmit,
+            classes,
         } = this.props;
 
 
@@ -27,39 +31,49 @@ export default class Login extends PureComponent {
 
                 <React.Fragment>
                     <form onSubmit={handleSubmit}>
-
-                        
-                            <Grid spacing={24} alignItems="right" justify="center" container>
-
-
-                                <Grid item xs={6}>
-
-                                    <Typography variant="h5">
-                                        Login
-                                    </Typography>
+                        <Grid alignItems="center" justify="center" container>
+                            <Grid item>
+                            <Card className={classes.card}>
+                                <Typography variant="h6">
+                                    Login
+                                        <Divider variant="fullwidth" className={classes.divider} />
+                                </Typography>
+                                <CardContent>
                                     <div>
-                                        <TextField id="userId" type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''} />
+                                        <TextField id="userId" required type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField } 
+                                        InputLabelProps={{
+                                            shrink: true
+                                          }}
+                                        />
                                     </div>
+                                    {/* <div>
+                                        <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
+                                        InputLabelProps={{
+                                            shrink: true
+                                          }} />
+                                    </div> */}
                                     <div>
-                                        <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''} />
-                                    </div>
-                                    <div>
-                                        <TextField id="password" type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className={errors.name && touched.name ? 'error' : ''} />
+                                        <TextField id="password" required type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
+                                        InputLabelProps={{
+                                            shrink: true
+                                          }} />
                                     </div>
                                     <div></div>
                                     <div>
                                         <Button
                                             type="submit"
-                                            variant="outlined"
+                                            variant="contained"
                                             color="primary"
+                                            margin="dense"
                                         >
                                             Submit
-                              </Button>
+                                        </Button>
                                     </div>
-
-                                </Grid>
+                                </CardContent>
+                            </Card>
                             </Grid>
-                        
+                        </Grid>
+
                     </form>
                 </React.Fragment>
             </div>

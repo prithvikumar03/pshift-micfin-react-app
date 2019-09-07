@@ -45,7 +45,9 @@ const theme = createMuiTheme({
         main: grey[900] //grey theme 3
       },
       background: {
-        main: grey[300]
+        main: grey[300],
+        secondary: grey[200],
+        tertiary: blue[100]
         //main: "#c5cae9"
       }
     },
@@ -66,7 +68,7 @@ const theme = createMuiTheme({
 
 
 ReactDOM.render(
-    <Provider store={store}>\
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
     <App />
     </ThemeProvider>

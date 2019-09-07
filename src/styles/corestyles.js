@@ -1,4 +1,5 @@
 import {red, blue, grey,indigo, cyan} from '@material-ui/core/colors'
+import backgroundImage from './../images/background4.jpg'; // Import using relative path
 const drawerWidth = 260;
 
 export const styles = theme => ({
@@ -66,15 +67,26 @@ export const styles = theme => ({
         color: theme.palette.primary,
         light:false,
     },
+    toolbarImage: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-center',
+       // width: drawerWidth,
+        //padding: '3 1px',
+        padding: '3',
+        //background: theme.palette.secondary,
+        background: grey[200],
+        backgroundImage: `url(${backgroundImage})`,
+        ...theme.mixins.toolbar,
+    },
     toolbar: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-center',
         padding: '2',
-        background: theme.palette.secondary,
+        background: theme.palette.background.secondary,
         ...theme.mixins.toolbar,
     },
-   
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
@@ -104,10 +116,10 @@ export const styles = theme => ({
         marginRight: theme.spacing(0),
     },
     card: {
-        maxWidth: 345,
+        //maxWidth: 345,
         padding: theme.spacing(3),
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
     },
     media: {
         height: 140,
@@ -118,10 +130,16 @@ export const styles = theme => ({
         p: 2,
         m: 1,
     },
+    box2: {
+        bgcolor: "text.hint",
+        color: "background.tertiary",
+        p: 2,
+        m: 1,
+    },
     textField: {
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
-        minWidth: 300,
+        //minWidth: 300,
         padding: 3,
         color: grey[900]
     },

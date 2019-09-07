@@ -113,7 +113,7 @@ export default function SideNavBar(props) {
                 })}
             >
 
-                <Toolbar className={classes.toolbar}>
+                <Toolbar className={classes.toolbarImage}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"

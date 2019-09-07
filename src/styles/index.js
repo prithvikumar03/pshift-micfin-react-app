@@ -64,7 +64,7 @@ export const useStyles = makeStyles(theme => ({
             width: theme.spacing(9) + 1,
         },
     },
-    toolbar: {
+    toolbarImage: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-center',
@@ -74,6 +74,14 @@ export const useStyles = makeStyles(theme => ({
         //background: theme.palette.secondary,
         background: grey[200],
         backgroundImage: `url(${backgroundImage})`,
+        ...theme.mixins.toolbar,
+    },
+    toolbar: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-center',
+        padding: '2',
+        background: theme.palette.background.secondary,
         ...theme.mixins.toolbar,
     },
     content: {
@@ -117,7 +125,7 @@ export const useStyles = makeStyles(theme => ({
     textField: {
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
-        minWidth: 300,
+        //minWidth: 300,
         padding: 3,
         color: grey[900]
     },
