@@ -16,12 +16,9 @@ import SpanningTable from './SpanningTable';
 import { red,grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
-    textField: {
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
-        minWidth: 200,
-        padding: 5,
-        color: grey[900]
+     textField: {
+        /* marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1), */
     },
     card: {
         //maxWidth: 345,
@@ -34,7 +31,7 @@ const styles = theme => ({
     },
     extradiv:{
         padding: theme.spacing(4),
-    },
+    }
 })
 
 
@@ -161,8 +158,8 @@ class Ledger extends Component {
         } */
 
         return (
-            <Box bgcolor="background.main" p={4} m={2}>
-                <Card className={classes.card}>
+            <Box bgcolor="background.main" p={2} m={2}>
+                <Card>
                     <div>
                         <Typography variant="h6">
                             <IconButton>
@@ -181,13 +178,13 @@ class Ledger extends Component {
 
                             {/* Search Card*/}
                             <div className={classes.div}>
-                                <Card className={classes.card}>
+                                <Card>
                                     <CardContent>
                                         <Typography className={classes.title} gutterBottom>
                                             Search
                                         </Typography>
-                                        <Grid container item xs={12} spacing={2} direction="row">
-                                            <Grid item xs={3} >
+                                        <Grid container item xs={12} spacing={1} className={classes.grid} direction="row">
+                                            <Grid item xs={4} >
                                                 <div>
                                                     <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={user.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
@@ -197,7 +194,7 @@ class Ledger extends Component {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <TextField id="fromDate" type="date" name="fromDate" label="From Date" value={values.fromdate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="fromDate" type="date" name="fromDate" label="From Date" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -205,9 +202,9 @@ class Ledger extends Component {
                                                     />
                                                 </div>
                                             </Grid>
-                                            <Grid item xs={3} >
+                                            <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="meId" type="text" name="meId" label="Microentrepreneur Id" value={values.meId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="Microentrepreneur Id" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -215,18 +212,7 @@ class Ledger extends Component {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <TextField id="toDate" type="date" name="toDate" label="To Date" value={values.toDate} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                                        variant="outlined"
-                                                        InputLabelProps={{
-                                                            shrink: true
-                                                        }}
-                                                    />
-                                                </div>
-                                            </Grid>
-
-                                            <Grid item xs={3} >
-                                                <div>
-                                                    <TextField id="meName" type="text" name="date" label="Microentreprenur Name" value={values.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="toDate" type="date" name="toDate" label="To Date" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -235,9 +221,18 @@ class Ledger extends Component {
                                                 </div>
                                             </Grid>
 
-                                            <Grid item xs={3} >
+                                            <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="loanId" type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="microEntrepreneurName" type="text" name="microEntrepreneurName" label="Microentrepreneur Name" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
+                                           
+                                                <div>
+                                                    <TextField id="loanId" type="text" name="loanId" label="Loan Id" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

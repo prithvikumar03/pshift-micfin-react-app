@@ -150,7 +150,7 @@ export const styles = theme => ({
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
         //minWidth: 300,
-        padding: 3,
+        padding: 5,
         color: grey[900]
     },
     dense: {

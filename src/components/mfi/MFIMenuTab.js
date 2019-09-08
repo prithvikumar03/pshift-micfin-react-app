@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const styles = theme => ({
-   root: {
+   adjustedRoot: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.main,
     marginTop: '15%'
@@ -51,25 +51,6 @@ function TabPanel(props) {
 }
 
 
-const PageShell = (Page, value, index) => {
-  
-  return props => (
-    <div className="page">
-      <ReactCSSTransitionGroup
-        transitionAppear={true}
-        transitionAppearTimeout={600}
-        transitionEnterTimeout={600}
-        transitionLeaveTimeout={600}
-        transitionName={props.match.path === "/mfi" ? "SlideIn" : "SlideOut"}
-      >
-        {console.log(props)}
-      <Page {...props} />  
- 
-      </ReactCSSTransitionGroup>
-    </div>
-  );
-};
-
 class MFIMenuTab extends Component {
   
     constructor(props) {
@@ -94,8 +75,8 @@ class MFIMenuTab extends Component {
     //alert('rendered value '+value);
   return (
     <BrowserRouter>
-      <div className={classes.root}>
-        <AppBar position="relative" fullWidth className={classes.AppBarMenu}>
+      <div className={classes.adjustedRoot}>
+        <AppBar position="static" fullWidth>
           <Tabs value={value} onChange={this.handleChange} >
             
             <Tab label="Registration" component={Link} to="/mfi" />
@@ -105,20 +86,20 @@ class MFIMenuTab extends Component {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <MFIRegistrationInputForm/> 
+          <MFIRegistrationInputForm /> 
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <SearchEntrepreneurs/> 
+          <SearchEntrepreneurs /> 
         </TabPanel>
 
 
         <TabPanel value={value} index={2}>
-          <LoanRepaymentInputForm/> 
+          <LoanRepaymentInputForm /> 
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-          <LedgerInputForm/> 
+          <LedgerInputForm {...this.props}/> 
         </TabPanel>
       </div>
 

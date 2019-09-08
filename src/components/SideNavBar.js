@@ -41,6 +41,7 @@ export function SideNavBar(props) {
     const [logOut, setlogOut] = React.useState(false);
     const user = useSelector(state => state.login.user);
   
+    //alert('user'+JSON.stringify(user));
 
     function handleDrawerOpen() {
         setOpen(true);

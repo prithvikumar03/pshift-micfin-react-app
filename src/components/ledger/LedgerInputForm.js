@@ -54,13 +54,13 @@ class LedgerInputForm extends Component {
             user,
         } = this.props;
 
-        alert('user'+JSON.stringify(user));
+       //alert('user'+JSON.stringify(user));
         
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
                         <Grid container justify="center">
-                            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                            <Grid spacing={2} alignItems="center" justify="center" container className={classes.grid}>
                                  {/* <Grid item xs={12}>  */}
                                     <Formik
                                         //this is the crux.Never forget to initialise and enableReinitialize the formik form with the values!
@@ -70,7 +70,7 @@ class LedgerInputForm extends Component {
                                         onSubmit={fetchTransactions}
 
                                         render={
-                                            props => <Ledger handleSubmit={this.props.handleSubmit} {...props} />}
+                                            props => <Ledger handleSubmit={this.props.handleSubmit} {...this.props} />}
                                     >
                                     </Formik>
                                 {/* </Grid>  */}

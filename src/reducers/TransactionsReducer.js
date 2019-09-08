@@ -10,6 +10,8 @@ const initialState ={
         "loanDisbursements" :[],
         "loanRepayments" :[]
     }, */
+
+    
     transactions:   [
         {
         "date": "",
@@ -24,6 +26,8 @@ const initialState ={
         "microEntrepreneurName": "",
         "productId": "",
         "productName": "",
+        "fromDate":"",
+        "toDate":"",
         "repaymentInfoList": []
         }
     ],
