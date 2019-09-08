@@ -29,7 +29,7 @@ class MFIHome extends Component {
             <Grid container justify="center">
               <Grid spacing={24} direction="column" alignItems="center" justify="center" container className={classes.grid} xs={12}>
 
-                <Grid item xs={6}>
+                <Grid item xs={8}>
                   <MFIMenuTab {...this.props}/>
 
                 </Grid>

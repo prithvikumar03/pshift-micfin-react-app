@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import Ledger from './Ledger';
+import SearchLedger from './SearchLedger';
 import * as Yup from 'yup'
 import SideNavBar from '../SideNavBar';
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +8,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTransactions } from '../../actions/TransactionsActions';
+import LedgerResults from './LedgerResults';
 
 
 const styles = theme => ({
@@ -75,12 +76,16 @@ class LedgerInputForm extends Component {
             searchCriteria.microEntrepreneurId=user.userId
         }
         
+        let renderloans = <div></div>;
+        if (transactions && transactions.length>0) {
+            renderloans =<LedgerResults data={transactions} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
+        }
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
                         <Grid container justify="center">
                             <Grid spacing={2} alignItems="center" justify="center" container className={classes.grid}>
-                                 {/* <Grid item xs={12}>  */}
+                                  <Grid item xs={12}>  
                                      
                                      <Formik
                                                 initialValues={searchCriteria}
@@ -91,10 +96,14 @@ class LedgerInputForm extends Component {
                                                 }}
 
                                                 render={
-                                                    props => <Ledger handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
+                                                    props => <SearchLedger handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
                                             />  
                                     
-                                {/* </Grid>  */}
+                                 </Grid> 
+                                
+                                 <Grid item xs={12}> 
+                                 {renderloans}
+                                 </Grid>
                             </Grid>
                         </Grid>
                     

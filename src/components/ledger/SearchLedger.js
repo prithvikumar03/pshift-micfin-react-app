@@ -113,7 +113,7 @@ const columns = [
 
 
 
-class Ledger extends Component {
+class SearchLedger extends Component {
 
 
     constructor(props) {
@@ -311,4 +311,4 @@ class Ledger extends Component {
 
 }
 
-export default withStyles(styles)(Ledger);
+export default withStyles(styles)(SearchLedger);

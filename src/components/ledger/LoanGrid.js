@@ -30,6 +30,7 @@ export default class LoanGrid extends Component{
                                 data={this.props.data}
                                 columns={this.props.columns}
                                 options={options}
+                                size="small"
                             />
                             }
 
