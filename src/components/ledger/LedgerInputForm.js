@@ -46,10 +46,10 @@ class LedgerInputForm extends Component {
         super(props);
         this.state = {};
     }
-    
-    onSearchClick=(values)=>{
+
+    onSearchClick = (values) => {
         //alert('in parent'+ JSON.stringify(values));
-        this.props.searchCriteria={...values}
+        this.props.searchCriteria = { ...values }
         this.props.dispatch(fetchTransactions(this.props.searchCriteria));
         /* alert('1-'+event.taret[0].value);
         alert('2'+event.target.elements); */
@@ -66,47 +66,40 @@ class LedgerInputForm extends Component {
             user,
         } = this.props;
 
-       //alert('user'+JSON.stringify(user));
-        //alert('values'+JSON.stringify(values));
-        let mfiId='';
-        let meId='';
-        if(user.userGroup==='MFI'){
-            searchCriteria.mfiId=user.userId;
-        }else if (user.userGroup==='ME'){
-            searchCriteria.microEntrepreneurId=user.userId
-        }
-        
+        searchCriteria.mfiId = user.mfiId;
+        searchCriteria.microEntrepreneurId = user.microEntrepreneurId
+
         let renderloans = <div></div>;
-        if (transactions && transactions.length>0) {
-            renderloans =<LedgerResults data={transactions} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
+        if (transactions && transactions.length > 0) {
+            renderloans = <LedgerResults data={transactions} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
         }
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
-                        <Grid container justify="center">
-                            <Grid spacing={2} alignItems="center" justify="center" container className={classes.grid}>
-                                  <Grid item xs={12}>  
-                                     
-                                     <Formik
-                                                initialValues={searchCriteria}
-                                                enableReinitialize
-                                                //validationSchema={validationSchema} 
-                                                onSubmit={(values, { setSubmitting }) => {
-                                                    fetchTransactions(values);
-                                                }}
+                <Grid container justify="center">
+                    <Grid spacing={2} alignItems="center" justify="center" container className={classes.grid}>
+                        <Grid item xs={12}>
 
-                                                render={
-                                                    props => <SearchLedger handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
-                                            />  
-                                    
-                                 </Grid> 
-                                
-                                 <Grid item xs={12}> 
-                                 {renderloans}
-                                 </Grid>
-                            </Grid>
+                            <Formik
+                                initialValues={searchCriteria}
+                                enableReinitialize
+                                //validationSchema={validationSchema} 
+                                onSubmit={(values, { setSubmitting }) => {
+                                    fetchTransactions(values);
+                                }}
+
+                                render={
+                                    props => <SearchLedger handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
+                            />
+
                         </Grid>
-                    
+
+                        <Grid item xs={12}>
+                            {renderloans}
+                        </Grid>
+                    </Grid>
+                </Grid>
+
                 {/* </div> */}
             </React.Fragment>
         );
@@ -120,7 +113,7 @@ const mapStateToProps = state => ({
     isLoading: state.tr.isLoading,
     error: state.tr.error,
     user: state.login.user,
-    searchCriteria:state.tr.searchCriteria
+    searchCriteria: state.tr.searchCriteria
 
 });
 

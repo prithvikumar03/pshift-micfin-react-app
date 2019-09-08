@@ -31,7 +31,7 @@ export function loginEpic(action$) {
                 map(data => data),
                 map(response => {
                     console.log('payload in  loginEpic ->' + JSON.stringify(response.response));
-                    return loginUserSuccess(response.response)
+                    return loginUserSuccess(enrichResponse(response.response))
                 }),
                 catchError(error => of(loginUserFailure(error.message))) 
             )
@@ -40,4 +40,21 @@ export function loginEpic(action$) {
     )
 }   
 
+
+function enrichResponse(user){
+    let result={};
+    if(user.userGroup==='MFI'){
+        result={...user,mfiId:`${user.userId}`}
+        
+    }else if (user.userGroup==='ME'){
+        result={...user, microEntrepreneurId:`${user.userId}`}
+       
+    }
+    else{
+        //super user
+        result={...user}
+       
+    }
+    return(result);
+}
 

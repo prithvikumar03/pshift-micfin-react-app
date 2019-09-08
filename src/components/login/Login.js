@@ -52,12 +52,12 @@ export default class Login extends PureComponent {
                                             shrink: true
                                           }} />
                                     </div>
-                                    <div>
+                                  {/*   <div>
                                         <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
                                         InputLabelProps={{
                                             shrink: true
                                           }} />
-                                    </div> 
+                                    </div>  */}
                                     <div></div>
                                     <div>
                                         <Button
