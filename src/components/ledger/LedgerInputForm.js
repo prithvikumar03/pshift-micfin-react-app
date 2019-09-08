@@ -37,24 +37,43 @@ const styles = theme => ({
 
 
 
+
+
 class LedgerInputForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {};
     }
-   
+    
+    onSearchClick=(values)=>{
+        //alert('in parent'+ JSON.stringify(values));
+        this.props.searchCriteria={...values}
+        this.props.dispatch(fetchTransactions(this.props.searchCriteria));
+        /* alert('1-'+event.taret[0].value);
+        alert('2'+event.target.elements); */
+    }
+
     render() {
         //const currentPath = this.props.location.pathname
         const { classes } = this.props;
         const {
             transactions,
+            searchCriteria,
             fetchTransactions,
             error,
             user,
         } = this.props;
 
        //alert('user'+JSON.stringify(user));
+        //alert('values'+JSON.stringify(values));
+        let mfiId='';
+        let meId='';
+        if(user.userGroup==='MFI'){
+            searchCriteria.mfiId=user.userId;
+        }else if (user.userGroup==='ME'){
+            searchCriteria.microEntrepreneurId=user.userId
+        }
         
         return (
             <React.Fragment>
@@ -62,17 +81,19 @@ class LedgerInputForm extends Component {
                         <Grid container justify="center">
                             <Grid spacing={2} alignItems="center" justify="center" container className={classes.grid}>
                                  {/* <Grid item xs={12}>  */}
-                                    <Formik
-                                        //this is the crux.Never forget to initialise and enableReinitialize the formik form with the values!
-                                        initialValues={transactions}
-                                        enableReinitialize
-                                       // validationSchema={validationSchema}
-                                        onSubmit={fetchTransactions}
+                                     
+                                     <Formik
+                                                initialValues={searchCriteria}
+                                                enableReinitialize
+                                                //validationSchema={validationSchema} 
+                                                onSubmit={(values, { setSubmitting }) => {
+                                                    fetchTransactions(values);
+                                                }}
 
-                                        render={
-                                            props => <Ledger handleSubmit={this.props.handleSubmit} {...this.props} />}
-                                    >
-                                    </Formik>
+                                                render={
+                                                    props => <Ledger handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
+                                            />  
+                                    
                                 {/* </Grid>  */}
                             </Grid>
                         </Grid>
@@ -90,6 +111,7 @@ const mapStateToProps = state => ({
     isLoading: state.tr.isLoading,
     error: state.tr.error,
     user: state.login.user,
+    searchCriteria:state.tr.searchCriteria
 
 });
 

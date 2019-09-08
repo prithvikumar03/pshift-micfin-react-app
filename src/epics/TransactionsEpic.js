@@ -30,9 +30,9 @@ export function fetchTransactionsEpic(action$) {
             }
             return (observable.pipe(
                 map(response => {
-                    console.log('payload in fetchTransactionsEpic  ------------------>' + JSON.stringify(response.response));
-                    return fetchTransactionsSuccess(response.response)
-                }),
+                    console.log('payload in fetchTransactionsEpic  ------------------>' + JSON.stringify(response));
+                    return fetchTransactionsSuccess(response)
+                                  }),
                 catchError(error => of(fetchTransactionsFailure(error.message))) 
             )
             );

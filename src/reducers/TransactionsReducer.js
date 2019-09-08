@@ -11,7 +11,11 @@ const initialState ={
         "loanRepayments" :[]
     }, */
 
-    
+    searchCriteria:{
+        mfiId:'',
+        microEntrepreneurId:'',
+        loanId:'',
+    },
     transactions:   [
         {
         "date": "",

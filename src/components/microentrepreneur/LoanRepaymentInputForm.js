@@ -34,7 +34,7 @@ class LoanRepaymentInputForm extends Component {
 
     componentWillMount(){
         //alert("userId"+JSON.stringify(this.props.user));
-        this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
+        //this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
         //document.getElementById("mfiId").value=this.props.user.userId;
         //alert("microentrepreneurs"+JSON.stringify(this.props.microentrepreneurs));
     }

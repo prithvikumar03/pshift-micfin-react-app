@@ -35,8 +35,7 @@ class MERegistrationInputForm extends Component {
         this.state = {};
     }
 
-    componentWillMount(){
-    }
+   
 
     handleClose=()=>{
         this.props.notificationOff();

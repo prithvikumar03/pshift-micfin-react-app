@@ -134,6 +134,18 @@ class Ledger extends Component {
         this.onRowsSelect();
     }
 
+    onSearchClick=(event)=>{
+        
+        //alert('mfiid-'+event.target.elements.mfiId.value); 
+        let values={
+            mfiId:`${event.target.elements.mfiId.value}`,
+            microEntrepreneurId:`${event.target.elements.microEntrepreneurId.value}`,
+            loanId:`${event.target.elements.loanId.value}`
+        }
+        //alert('values'+ JSON.stringify(values));
+        this.props.onSearchClick(values);
+    }
+
     render() {
         const {
             values,
@@ -147,7 +159,7 @@ class Ledger extends Component {
         const { classes } = this.props;
         let renderloanDisbursements = <div></div>;
         let renderLoanRepaymentHistory=<div></div>;
-        //alert('values'+JSON.stringify(values));
+        
         
         if (values && values.length>0) {
             renderloanDisbursements =<LoanGrid data={values} columns={columns} title={"Loan Disbursements"} onRowsSelect={this.onRowsSelect} onRowClick={this.onRowClick} {...this.props} />;
@@ -186,7 +198,7 @@ class Ledger extends Component {
                                         <Grid container item xs={12} spacing={1} className={classes.grid} direction="row">
                                             <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={user.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -204,7 +216,7 @@ class Ledger extends Component {
                                             </Grid>
                                             <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="Microentrepreneur Id" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="Microentrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
