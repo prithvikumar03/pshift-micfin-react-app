@@ -9,7 +9,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
-import { RegistrationIcon } from './../../styles/icons';
+import { RegistrationIcon } from '../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import LoanGrid from './LoanGrid';
 import SpanningTable from './SpanningTable';
@@ -116,7 +116,7 @@ const columns = [
 
 
 
-class SearchTransactions extends Component {
+class Ledger extends Component {
 
 
     constructor(props) {
@@ -303,4 +303,4 @@ class SearchTransactions extends Component {
 
 }
 
-export default withStyles(styles)(SearchTransactions);
+export default withStyles(styles)(Ledger);

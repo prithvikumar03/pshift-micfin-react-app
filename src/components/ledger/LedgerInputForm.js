@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import SearchTransactions from './SearchTransactions';
+import Ledger from './Ledger';
 import * as Yup from 'yup'
-import SideNavBar from './../SideNavBar';
+import SideNavBar from '../SideNavBar';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/styles/withStyles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTransactions } from './../../actions/TransactionsActions';
+import { fetchTransactions } from '../../actions/TransactionsActions';
 
 
 const styles = theme => ({
@@ -37,7 +37,7 @@ const styles = theme => ({
 
 
 
-class SearchTransactionsInputForm extends Component {
+class LedgerInputForm extends Component {
 
     constructor(props) {
         super(props);
@@ -67,7 +67,7 @@ class SearchTransactionsInputForm extends Component {
                                         onSubmit={fetchTransactions}
 
                                         render={
-                                            props => <SearchTransactions handleSubmit={this.props.handleSubmit} {...props} />}
+                                            props => <Ledger handleSubmit={this.props.handleSubmit} {...props} />}
                                     >
                                     </Formik>
                                 {/* </Grid>  */}
@@ -96,5 +96,5 @@ const mapDispatchToProps = dispatch =>
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SearchTransactionsInputForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LedgerInputForm));
 

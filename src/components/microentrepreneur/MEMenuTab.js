@@ -7,7 +7,7 @@ import { Route, Switch, Link, BrowserRouter, } from 'react-router-dom'
 import MERegistrationInputForm from './MERegistrationInputForm'
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import LoanRepaymentInputForm from './LoanRepaymentInputForm';
-import SearchTransactionsInputForm from './../mfi/SearchTransactionsInputForm';
+import LedgerInputForm from '../ledger/LedgerInputForm';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
@@ -69,7 +69,7 @@ export default function SimpleTabs(props) {
           <Tabs value={value} onChange={handleChange} >
             <Tab label="Registration" component={Link} to="/microEntrepreneur" />
             <Tab label="Loan Repayment" component={Link} to="/loanRepayment" />
-            <Tab label="Transactions" component={Link} to="/meTransactions" />
+            <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>

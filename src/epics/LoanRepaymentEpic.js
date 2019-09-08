@@ -23,7 +23,8 @@ export function saveLoanRepayment(action$) {
         switchMap((action$) => {
             let observable = of(fake.saveLoanRepayment);
             let loanId = action$.payload.loanId;
-            const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment/${loanId}`;
+            //const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment/${loanId}`;
+            const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment`;
 
             if (isProd()) {
                 console.log("Calling saveLoanRepayment API "+saveLoanRepaymentURL+" with payload "+JSON.stringify(action$.payload));

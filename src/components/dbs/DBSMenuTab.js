@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { Route, Switch, Link, BrowserRouter, } from 'react-router-dom'
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import SearchTransactionsInputForm from '../mfi/SearchTransactionsInputForm';
+import LedgerInputForm from '../ledger/LedgerInputForm';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
@@ -89,7 +89,7 @@ export default function SimpleTabs() {
 
 
         <TabPanel value={value} index={2}>
-          <SearchTransactionsInputForm />
+          <LedgerInputForm />
         </TabPanel>
 
       </div>
