@@ -30,15 +30,17 @@ import Collapse from '@material-ui/core/Collapse';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
 import {Redirect} from 'react-router-dom'
+import { connect, useSelector } from "react-redux";
 
 
-export default function SideNavBar(props) {
+export function SideNavBar(props) {
     
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const [logOut, setlogOut] = React.useState(false);
-    const {user}=props;
+    const user = useSelector(state => state.login.user);
+  
 
     function handleDrawerOpen() {
         setOpen(true);
@@ -108,8 +110,8 @@ export default function SideNavBar(props) {
         }
     }
 
-
     return (
+         
         <div className={classes.root}>
             <div>{renderLogout()}</div>
             <CssBaseline />
@@ -221,7 +223,7 @@ export default function SideNavBar(props) {
                 <Divider /> 
                 <List>
                     {Menu.map((item, index) => (
-                        getListItem(item, index, props.userGroup,false)
+                        getListItem(item, index, user.userGroup,false)
                     ))}
 
                 </List>
@@ -254,3 +256,13 @@ export default function SideNavBar(props) {
         </div>
     );
 }
+
+
+const mapStateToProps = ({ login }) => ({
+    login
+  });
+
+export default connect(
+    mapStateToProps,
+    null
+  )(SideNavBar);
