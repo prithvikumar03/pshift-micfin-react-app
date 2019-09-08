@@ -10,6 +10,8 @@ import { bindActionCreators } from 'redux';
 import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
 import { fetchAllEntrepreneurs } from '../../actions/MEActions';
 import CustomizedSnackbars from './../../utils/SnackBar';
+import {populateSelect} from './../../utils/Common';
+
 
 const styles = theme => ({
   /*   grid: {
@@ -29,7 +31,9 @@ class LoanRepaymentInputForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            mfiValueOptions:[]
+        };
     }
 
     componentWillMount(){
@@ -37,6 +41,23 @@ class LoanRepaymentInputForm extends Component {
         //this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
         //document.getElementById("mfiId").value=this.props.user.userId;
         //alert("microentrepreneurs"+JSON.stringify(this.props.microentrepreneurs));
+        let mfiValues=[];
+        mfiValues.push(this.props.user.mfiId);
+        let mfiOptions=populateSelect(mfiValues)
+       // alert('value options'+JSON.stringify(mfiValueOptions));
+        //this.setState({mfiValueOptions:`${mfiValueOptions}`})
+        this.setState({mfiOptions:mfiOptions})
+
+        //loading the mes
+        this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
+       
+        alert('mevalues'+JSON.stringify(this.props.microentrepreneurs));
+        let meValues=[];
+        meValues.push(this.props.microentrepreneurs.map(x=>x.microEntrepreneurId));
+
+        this.setState({meOptions:meValues})
+
+
     }
 
     render() {
@@ -50,6 +71,7 @@ class LoanRepaymentInputForm extends Component {
             
         } = this.props;
         const { classes } = this.props; 
+        const selectProps ={mfiOptions:this.state.mfiValueOptions,meOptions:this.state.meOptions};
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
@@ -63,7 +85,7 @@ class LoanRepaymentInputForm extends Component {
                                         onSubmit={loanRepaymentAction}
 
                                         render={
-                                            props => <LoanRepayment handleSubmit={this.props.handleSubmit} {...props} />}
+                                            props => <LoanRepayment handleSubmit={this.props.handleSubmit} {...props} {...selectProps}/>}
                                     >
                                     </Formik>
                               </Grid> 

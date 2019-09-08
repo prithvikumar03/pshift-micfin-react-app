@@ -11,59 +11,68 @@ import IconButton from '@material-ui/core/IconButton';
 import { RegistrationIcon } from './../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import Product from './../product/Product';
-import {red, grey } from '@material-ui/core/colors'
+import { red, grey } from '@material-ui/core/colors'
+import MenuItem from '@material-ui/core/MenuItem';
+import {populateSelect} from './../../utils/Common';
 
 const styles = theme => ({
-     container: {
+    container: {
         display: 'flex',
         flexWrap: 'wrap',
-      },
-      textField: {
+    },
+    textField: {
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
         minWidth: 200,
         padding: 5,
         color: grey[900]
-      },
-      dense: {
+    },
+    dense: {
         marginTop: 16,
-      },
-      menu: {
+    },
+    menu: {
         width: 200,
-      },
-      error: {
+    },
+    error: {
         color: 'red',
-      },
-     /*  card: {
-        //maxWidth: 345,
-        padding: theme.spacing(3),
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
-    }, */
+    },
+    /*  card: {
+       //maxWidth: 345,
+       padding: theme.spacing(3),
+       marginLeft: theme.spacing(0),
+       marginRight: theme.spacing(0),
+   }, */
 
 })
 
-
+const mfiOptions =[]; 
+const meOptions =[]; 
+ 
 class LoanRepayment extends Component {
 
-
+  
     onSubmitClick = (values) => {
         //alert('handle submit in parent class ! Hurray');
         this.props.handleSubmit();
     }
 
-    
+
     render() {
         const {
             values,
             handleChange,
             handleBlur,
-            handleSubmit
+            handleSubmit,
+            mfiOptions,
+            meOptions
+            
         } = this.props;
 
+
+    
         const { classes } = this.props;
         return (
-            <Box bgcolor="background.main" p={4} m={2}> 
+            <Box bgcolor="background.main" p={4} m={2}>
                 <Card className={classes.card}>
                     <div>
                         <Typography variant="h6">
@@ -90,29 +99,56 @@ class LoanRepayment extends Component {
                                         </Typography>
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
+                                               
                                                 <div>
-                                                    <TextField id="mfiId"  type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                                        variant="outlined"
-                                                        InputLabelProps={{
-                                                            shrink: true
+                                                    <TextField id="filled-select-mfiOptions" select label="MFI Id" className={classes.textField} value={values.mfiOptions} onChange={handleChange('mfiOptions')} margin="dense"
+                                                        variant="outlined" InputLabelProps={{
+                                                            shrink: true,
+                                                        }} SelectProps={{
+                                                            MenuProps: {
+                                                                className: classes.menu,
+                                                            },
                                                         }}
-                                                    />
+                                                    >
+                                                        {mfiOptions.map(option => (
+                                                            <MenuItem key={option.value} value={option.value}>
+                                                                {option.label}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </TextField>
                                                 </div>
 
                                             </Grid>
-                                            <Grid item xs={3} > 
-                                                <div>
-                                                    <TextField id="microEntrepreneurId"  type="text" name="microEntrepreneurId" label="MicroEntrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                            <Grid item xs={3} >
+                                                {/* <div>
+                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="MicroEntrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
                                                         }}
                                                     />
-                                                </div>
-                                             </Grid>
-                                            <Grid item xs={3} > 
+                                                </div> */}
                                                 <div>
-                                                    <TextField id="loanId"  type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="filled-select-meOptions" select label="MicroEntrepreneur Id" className={classes.textField} value={values.meOptions} onChange={handleChange('meOptions')} margin="dense"
+                                                        variant="outlined" InputLabelProps={{
+                                                            shrink: true,
+                                                        }} SelectProps={{
+                                                            MenuProps: {
+                                                                className: classes.menu,
+                                                            },
+                                                        }}
+                                                    >
+                                                        {meOptions.map(option => (
+                                                            <MenuItem key={option.value} value={option.value}>
+                                                                {option.label}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </TextField>
+                                                </div>
+                                            </Grid>
+                                            <Grid item xs={3} >
+                                                <div>
+                                                    <TextField id="loanId" type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -120,9 +156,9 @@ class LoanRepayment extends Component {
                                                     />
                                                 </div>
                                             </Grid>
-                                            <Grid item xs={3} > 
+                                            <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="date" required  type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="date" required type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -149,7 +185,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productId"  type="text" name="productId" label="Product Id" className={classes.textField} value={values.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productId" type="text" name="productId" label="Product Id" className={classes.textField} value={values.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -160,7 +196,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productName"  type="text" name="productName" label="Product Name" className={classes.textField} value={values.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productName" type="text" name="productName" label="Product Name" className={classes.textField} value={values.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -170,7 +206,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="interestRate"  type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="interestRate" type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -181,7 +217,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="tenure"  type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="tenure" type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -248,7 +284,7 @@ class LoanRepayment extends Component {
                         </form>
                     </CardContent>
                 </Card>
-             </Box> 
+            </Box>
 
         );
     }
