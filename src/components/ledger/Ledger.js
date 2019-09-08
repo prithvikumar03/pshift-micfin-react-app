@@ -144,6 +144,7 @@ class Ledger extends Component {
             handleChange,
             handleBlur,
             handleSubmit,
+            user,
         } = this.props;
 
         const { classes } = this.props;
@@ -168,8 +169,8 @@ class Ledger extends Component {
                                 <RegistrationIcon />
                             </IconButton>
 
-                            Transactions
-              </Typography>
+                            Ledger
+                        </Typography>
                         <Divider />
                     </div>
 
@@ -188,7 +189,7 @@ class Ledger extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={user.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

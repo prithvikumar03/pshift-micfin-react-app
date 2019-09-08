@@ -51,8 +51,11 @@ class LedgerInputForm extends Component {
             transactions,
             fetchTransactions,
             error,
+            user,
         } = this.props;
 
+        alert('user'+JSON.stringify(user));
+        
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
@@ -85,7 +88,8 @@ class LedgerInputForm extends Component {
 const mapStateToProps = state => ({
     transactions: state.tr.transactions,
     isLoading: state.tr.isLoading,
-    error: state.tr.error
+    error: state.tr.error,
+    user: state.login.user,
 
 });
 

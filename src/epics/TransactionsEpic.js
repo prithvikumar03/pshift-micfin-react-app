@@ -22,7 +22,8 @@ export function fetchTransactionsEpic(action$) {
         ofType(TRANSACTIONS_FETCH),
         switchMap((action$) => {
             let mfiId=action$.payload.mfiId;
-            const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/api/loans/${mfiId}`;
+            /* const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/api/loans/${mfiId}`; */
+            const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/loans`;
             let observable=of(fake.fetchLoans);
             if(isProd()){
                 observable = ajax.getJSON(fetchTransactionsUrl);
