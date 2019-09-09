@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -10,14 +10,17 @@ import LoanRepaymentInputForm from './LoanRepaymentInputForm';
 import LedgerInputForm from '../ledger/LedgerInputForm';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import withStyles from '@material-ui/styles/withStyles';
 
 
-const useStyles = makeStyles(theme => ({
-   root: {
+const styles = theme => ({
+  /*  adjustedRoot: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.tertiary,
-  }, 
-}));
+    backgroundColor: theme.palette.background.main,
+    marginTop: '15%'
+  },  */
+
+})
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -31,61 +34,56 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={0}>{children}</Box>
+      <Box p={0} boxShadow={2}>{children}</Box>
     </Typography>
   );
 }
 
-const PageShell = (Page, previous) => {
-  return props => (
-    <div className="page">
-      <ReactCSSTransitionGroup
-        transitionAppear={true}
-        transitionAppearTimeout={600}
-        transitionEnterTimeout={600}
-        transitionLeaveTimeout={600}
-        transitionName={props.match.path === "/mfi" ? "SlideIn" : "SlideOut"}
-      >
-        {console.log(props)}
-        <Page {...props} />
-      </ReactCSSTransitionGroup>
-    </div>
-  );
-};
 
-export default function SimpleTabs(props) {
+
+class MEMenuTab extends Component {
   //const {classes} = props;
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
 
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+}
+handleChange=(event, newValue)=> {
+  this.setState({value: newValue});
+}
 
+ componentWillMount(){
+  //alert('component mounted with value '+this.state.value);
+  this.handleChange(()=>{},0);
+}
+
+render(){
+  const { classes } = this.props;
+    
+    const {value} =this.state;
   return (
     <BrowserRouter>
-      {/* <div className={classes.root}> */}
-        <AppBar position="static">
-          <Tabs value={value} onChange={handleChange} >
+      <div className={classes.adjustedRoot}> 
+        <AppBar position="static" fullWidth>
+          <Tabs value={value} onChange={this.handleChange} >
             <Tab label="Registration" component={Link} to="/microEntrepreneur" />
             <Tab label="Loan Repayment" component={Link} to="/loanRepayment" />
             <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          test1
-          {/* <MERegistrationInputForm /> */}
+        
+          <MERegistrationInputForm {...this.props} /> 
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-        test1
-          {/* <LoanRepaymentInputForm /> */}
+          <LoanRepaymentInputForm  {...this.props}/> 
         </TabPanel>
 
 
         <TabPanel value={value} index={2}>
-        test1
-          {/* <SearchTransactionsInputForm /> */}
+              <LedgerInputForm {...this.props}/> 
         </TabPanel>
 
         {/* <Switch>
@@ -93,8 +91,10 @@ export default function SimpleTabs(props) {
           <Route exact path='/loanRepayment' component={PageShell(LoanRepaymentInputForm)} />
           <Route exact path='/meTransactions' component={PageShell(SearchTransactionsInputForm)} />
         </Switch> */}
-      
+      </div>
     </BrowserRouter>
   );
-
+      }
 }
+
+export default withStyles(styles)(MEMenuTab);

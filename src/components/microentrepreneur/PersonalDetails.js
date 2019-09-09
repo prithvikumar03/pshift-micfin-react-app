@@ -79,13 +79,13 @@ export default function PersonalDetails(props) {
     return (
        
         <div> 
-            <Card className={classes.card}>
+            <Card className={classes.cardNoSpacing}>
                 <CardContent>
                     <Typography className={classes.title} gutterBottom>
                         Personal
                     </Typography>
                     {/* <Divider /> */}
-                    <Grid container item xs={12} spacing={2} direction="row">
+                    <Grid container item xs={12} spacing={1} direction="row">
 
                         <Grid item xs={4} >
 

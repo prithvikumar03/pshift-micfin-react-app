@@ -31,7 +31,7 @@ export default function BusinessInfo(props) {
     //alert ('address'+ JSON.stringify(this.props.values.address));      
     return (
 
-        <Card className={classes.card}>
+        <Card className={classes.cardNoSpacing}>
             <CardContent>
                 <Typography className={classes.title} gutterBottom>
                     Business Details

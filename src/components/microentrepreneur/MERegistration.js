@@ -15,7 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import {grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
-  textField: {
+ /*  textField: {
     marginLeft: theme.spacing(0),
     marginRight: theme.spacing(0),
     minWidth: 250,
@@ -27,7 +27,7 @@ div:{
 },
 extradiv:{
   padding: theme.spacing(4),
-},
+}, */
 })
 
 class MERegistration extends Component {
@@ -55,7 +55,7 @@ class MERegistration extends Component {
             <form onSubmit={handleSubmit}>
               <PersonalDetails {...this.props} />
               <div className={classes.div}>
-                <Grid container item xs={12} spacing={2} direction="row">
+                <Grid container item xs={12} spacing={1} direction="row">
                   <Grid item xs={6}>
                   <div className={classes.div}>
                     <Address {...this.props} />
@@ -71,7 +71,7 @@ class MERegistration extends Component {
 
 
               <div className={classes.extradiv}>
-                <Grid container item xs={12} spacing={2} align="center" justify="center" direction="row">
+                <Grid container item xs={12} spacing={1} align="center" justify="center" direction="row">
                   <Grid item xs={6}>
                     <Button
                       type="submit"

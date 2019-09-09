@@ -6,14 +6,14 @@ import MEMenuTab from './MEMenuTab';
 
 const styles = theme => ({
     grid: {
-    width: 1000
+    width: '100%'
   },
-  card: {
+  /* card: {
     maxWidth: 1000,
   },
   media: {
     height: 500,
-  }, 
+  },  */
 })
 
 class MEHome extends Component {
@@ -27,7 +27,7 @@ class MEHome extends Component {
         <SideNavBar currentPath={currentPath} />
         <div>
           <Grid container justify="center">
-            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+            <Grid spacing={24} direction="column" alignItems="center" justify="center" container className={classes.grid} xs={12}>
               <Grid item xs={12}>
                 <MEMenuTab {...this.props}/>
               </Grid>

@@ -16,11 +16,11 @@ import CustomizedSnackbars from './../../utils/SnackBar';
 
 
 const styles = theme => ({
-    root: {
+  /*   root: {
         flexGrow: 1,
         backgroundColor: theme.palette.grey['A500'],
         overflow: 'hidden',
-        /* background: `url(${backgroundShape}) no-repeat`, */
+        background: `url(${backgroundShape}) no-repeat`, 
         backgroundSize: 'cover',
         backgroundPosition: '0 400px',
         marginTop: 20,
@@ -29,7 +29,7 @@ const styles = theme => ({
     },
     grid: {
         width: 1000
-    }
+    } */
 })
 
 

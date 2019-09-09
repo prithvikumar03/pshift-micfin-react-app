@@ -29,7 +29,7 @@ const yesNoOptions = [
 
 
 const styles = theme => ({
-  container: {
+/*   container: {
     display: 'flex',
     flexWrap: 'wrap',
   },
@@ -48,8 +48,17 @@ const styles = theme => ({
   },
   error: {
     color: 'red',
-    /* height: 48,
-    padding: '0 30px', */
+     height: 48,
+    padding: '0 30px', 
+  } */
+
+  grid:{
+    display:'flex',
+    wrap:'nowrap'
+  },
+  menu:{
+    display:'flex',
+    wrap:'nowrap'
   }
 
 })
@@ -105,7 +114,7 @@ class MFIRegistration extends Component {
                 <Divider />
               </div>
               <div></div> */}
- <Grid container item xs={12} spacing={2} direction="row">
+ <Grid container item xs={12} spacing={2} direction="row" className={classes.grid}>
                         <Grid item xs={6} >
               <div>
                 <TextField id="mfiId" type="text" name="mfiId" label="MFI Id"  value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"

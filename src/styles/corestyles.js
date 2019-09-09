@@ -131,6 +131,13 @@ export const styles = theme => ({
         marginRight: theme.spacing(1),
         
     },
+    cardNoSpacing: {
+        //maxWidth: 345,
+        padding: theme.spacing(0),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+        
+    },
     /* media: {
         height: 140,
     }, */
@@ -186,7 +193,12 @@ export const styles = theme => ({
         width: '100%',
         minHeight: '24px',
         background: theme.palette.background.secondary,
-      }
+      },
+      adjustedRoot: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.main,
+        marginTop: '15%'
+      }, 
 
 
   })

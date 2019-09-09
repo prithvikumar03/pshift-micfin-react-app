@@ -24,11 +24,11 @@ const useStyles = makeStyles(theme => ({
 
 
 const styles = theme => ({
-   adjustedRoot: {
+  /*  adjustedRoot: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.main,
     marginTop: '15%'
-  }, 
+  },  */
 
 })
 
