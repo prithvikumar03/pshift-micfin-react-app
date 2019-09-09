@@ -9,6 +9,7 @@ import SearchEntrepreneurs from './../microentrepreneur/SearchEntrepreneurs';
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import LoanRepaymentInputForm from './../microentrepreneur/LoanRepaymentInputForm';
 import LedgerInputForm from '../ledger/LedgerInputForm';
+import MERegistrationInputForm from './../microentrepreneur/MERegistrationInputForm'
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -79,14 +80,14 @@ class MFIMenuTab extends Component {
         <AppBar position="static" fullWidth>
           <Tabs value={value} onChange={this.handleChange} >
             
-            <Tab label="Registration" component={Link} to="/mfi" />
+            <Tab label="Registration" component={Link} to="/microEntrepreneur" />
             <Tab label="Search Entrepreneurs" component={Link} to="/searchEntrepreneurs" />
-            <Tab label="Payment" component={Link} to="/loanRepayment" />
+            <Tab label="Payments" component={Link} to="/loanRepayment" />
             <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <MFIRegistrationInputForm {...this.props}/> 
+          <MERegistrationInputForm {...this.props} /> 
         </TabPanel>
 
         <TabPanel value={value} index={1}>

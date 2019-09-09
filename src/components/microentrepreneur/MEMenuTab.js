@@ -67,22 +67,17 @@ render(){
       <div className={classes.adjustedRoot}> 
         <AppBar position="static" fullWidth>
           <Tabs value={value} onChange={this.handleChange} >
-            <Tab label="Registration" component={Link} to="/microEntrepreneur" />
             <Tab label="Loan Repayment" component={Link} to="/loanRepayment" />
             <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
         </AppBar>
+       
         <TabPanel value={value} index={0}>
-        
-          <MERegistrationInputForm {...this.props} /> 
-        </TabPanel>
-
-        <TabPanel value={value} index={1}>
           <LoanRepaymentInputForm  {...this.props}/> 
         </TabPanel>
 
 
-        <TabPanel value={value} index={2}>
+        <TabPanel value={value} index={1}>
               <LedgerInputForm {...this.props}/> 
         </TabPanel>
 
