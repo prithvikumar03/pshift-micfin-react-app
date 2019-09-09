@@ -90,7 +90,7 @@ export function SideNavBar(props) {
                 <div>
                     <ListItem disabled={isDisabled} button onClick={handleClick}>
                         <ListItemIcon>
-                            {getIcon(item.label, classes.sideBar)}
+                            {getIcon(item.label, classes.icon)}
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         {open ? <ExpandLess /> : <ExpandMore />}

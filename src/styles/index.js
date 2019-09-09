@@ -113,7 +113,7 @@ export const useStyles = makeStyles(theme => ({
     icon: {
         margin: theme.spacing(0),
         //color: theme.palette.secondary,
-       // color: "#000000",
+        color: "#000000",
         
     },
     sideBar: {

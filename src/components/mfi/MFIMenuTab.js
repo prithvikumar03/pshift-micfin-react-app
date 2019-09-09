@@ -81,21 +81,21 @@ class MFIMenuTab extends Component {
             
             <Tab label="Registration" component={Link} to="/mfi" />
             <Tab label="Search Entrepreneurs" component={Link} to="/searchEntrepreneurs" />
-            <Tab label="Loan Repayment" component={Link} to="/loanRepayment" />
+            <Tab label="Payment" component={Link} to="/loanRepayment" />
             <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <MFIRegistrationInputForm /> 
+          <MFIRegistrationInputForm {...this.props}/> 
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <SearchEntrepreneurs /> 
+          <SearchEntrepreneurs {...this.props}/> 
         </TabPanel>
 
 
         <TabPanel value={value} index={2}>
-          <LoanRepaymentInputForm /> 
+          <LoanRepaymentInputForm {...this.props}/> 
         </TabPanel>
 
         <TabPanel value={value} index={3}>

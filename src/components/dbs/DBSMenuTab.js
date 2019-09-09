@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -9,6 +9,10 @@ import LedgerInputForm from '../ledger/LedgerInputForm';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import withStyles from '@material-ui/styles/withStyles';
+import MFIRegistrationInputForm from './../mfi/MFIRegistrationInputForm'
+import SearchEntrepreneurs from './../microentrepreneur/SearchEntrepreneurs';
+import LoanRepaymentInputForm from './../microentrepreneur/LoanRepaymentInputForm';
+
 
 
 /* const useStyles = makeStyles(theme => ({
@@ -36,7 +40,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    
+
     <Typography
       component="div"
       role="tabpanel"
@@ -57,51 +61,66 @@ class DBSMenuTab extends Component {
     super(props);
     this.state = {
     };
-}
+  }
 
-handleChange=(event, newValue)=> {
-this.setState({value: newValue});
-}
+  handleChange = (event, newValue) => {
+    this.setState({ value: newValue });
+  }
 
-componentWillMount(){
-//alert('component mounted with value '+this.state.value);
-this.handleChange(()=>{},0);
-}
+  componentWillMount() {
+    //alert('component mounted with value '+this.state.value);
+    this.handleChange(() => { }, 0);
+  }
 
-render(){
-  const { classes } = this.props;
-    
-  const {value} =this.state;
-  return (
-    <BrowserRouter>
-      <div className={classes.adjustedRoot}>
-        <AppBar position="static" fullWidth>
-          <Tabs value={value} onChange={this.handleChange} >
-            <Tab label="MFI Approval" component={Link} to="/mfiApproval" />
-            <Tab label="Loan Disbursement" component={Link} to="/loanDisbursement" />
-            <Tab label="Transactions" component={Link} to="/meTransactions" />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={value} index={0}>
-          <div className={classes.div}>
-          To be Added
+  render() {
+    const { classes } = this.props;
+
+    const { value } = this.state;
+    return (
+      <BrowserRouter>
+        <div className={classes.adjustedRoot}>
+          <AppBar position="static" fullWidth>
+            <Tabs value={value} onChange={this.handleChange} >
+              <Tab label="MFI Registration" component={Link} to="/mfi" />
+              <Tab label="Loans" component={Link} to="/loanDisbursement" />
+              <Tab label="Search" component={Link} to="/searchEntrepreneurs" />
+              <Tab label="Payments" component={Link} to="/loanRepayment" />
+              <Tab label="Ledger" component={Link} to="/ledger" />
+            </Tabs>
+          </AppBar>
+          <TabPanel value={value} index={0}>
+            <div className={classes.div}>
+              <MFIRegistrationInputForm {...this.props} />
+            </div>
+          </TabPanel>
+
+          <TabPanel value={value} index={1}>
+            <div className={classes.div}>
+              To be Added
           </div>
-        </TabPanel>
+          </TabPanel>
 
-        <TabPanel value={value} index={1}>
-        <div className={classes.div}>
-          To be Added
-          </div>
-        </TabPanel>
+          <TabPanel value={value} index={2}>
+            <div className={classes.div}>
+              <SearchEntrepreneurs {...this.props} />
+            </div>
+          </TabPanel>
 
+          <TabPanel value={value} index={3}>
+            <div className={classes.div}>
+              <LoanRepaymentInputForm {...this.props} />
+            </div>
+          </TabPanel>
 
-        <TabPanel value={value} index={2}>
-          <LedgerInputForm {...this.props}/>
-        </TabPanel>
+          <TabPanel value={value} index={4}>
+            <div className={classes.div}>
+              <LedgerInputForm {...this.props} />
+            </div>
+          </TabPanel>
 
-      </div>
-    </BrowserRouter>
-  );
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 export default withStyles(styles)(DBSMenuTab);

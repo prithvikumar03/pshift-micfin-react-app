@@ -105,7 +105,9 @@ export const styles = theme => ({
     },
     icon: {
         margin: theme.spacing(0),
-        color: theme.palette.secondary,
+        //color: theme.palette.secondary,
+        color:'#000000' //black
+       
     },
     sideBar: {
         margin: theme.spacing(0),
