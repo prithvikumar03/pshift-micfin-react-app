@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
 import { fetchAllEntrepreneurs } from '../../actions/MEActions';
+import { fetchTransactions } from '../../actions/TransactionsActions';
 import CustomizedSnackbars from './../../utils/SnackBar';
 import {populateSelect} from './../../utils/Common';
 
@@ -32,7 +33,8 @@ class LoanRepaymentInputForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mfiValueOptions:[]
+            mfiOptions:[],
+            meOptions:[]
         };
     }
 
@@ -54,8 +56,8 @@ class LoanRepaymentInputForm extends Component {
         alert('mevalues'+JSON.stringify(this.props.microentrepreneurs));
         let meValues=[];
         meValues.push(this.props.microentrepreneurs.map(x=>x.microEntrepreneurId));
-
-        this.setState({meOptions:meValues})
+        let meOptions=populateSelect(meValues)
+        this.setState({meOptions:meOptions})
 
 
     }
@@ -71,7 +73,7 @@ class LoanRepaymentInputForm extends Component {
             
         } = this.props;
         const { classes } = this.props; 
-        const selectProps ={mfiOptions:this.state.mfiValueOptions,meOptions:this.state.meOptions};
+        const selectProps ={mfiOptions:this.state.mfiOptions,meOptions:this.state.meOptions};
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
@@ -103,13 +105,15 @@ const mapStateToProps = state => ({
     isLoading: state.lr.isLoading,
     error: state.lr.error,
     user:state.login.user,
-    microentrepreneurs:state.me.microentrepreneurs
+    microentrepreneurs:state.me.microentrepreneurs,
+    transactions: state.tr.transactions,
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
        loanRepaymentAction,
-       fetchAllEntrepreneurs
+       fetchAllEntrepreneurs,
+       fetchTransactions
     }, dispatch);
 
 

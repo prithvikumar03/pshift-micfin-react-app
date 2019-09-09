@@ -56,7 +56,13 @@ class LoanRepayment extends Component {
         this.props.handleSubmit();
     }
 
+    handleChange=(event)=>{
+        alert('handlechange');
+        //   handleChange('mfiOptions')
 
+    }
+
+ 
     render() {
         const {
             values,
