@@ -37,6 +37,10 @@ export const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
+    menu: {
+        display:'flex',
+        wrap:'nowrap'
+    },
     menuButton: {
         marginRight: 36,
     },
@@ -159,8 +163,12 @@ export const styles = theme => ({
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
         //minWidth: 300,
-        padding: 5,
-        color: grey[900]
+        padding: 2,
+        color: grey[900],
+        display:'flex',
+        wrap:'nowrap'
+
+
     },
     dense: {
         marginTop: 16,

@@ -16,20 +16,7 @@ import CustomizedSnackbars from './../../utils/SnackBar';
 
 
 const styles = theme => ({
-  /*   root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.grey['A500'],
-        overflow: 'hidden',
-        background: `url(${backgroundShape}) no-repeat`, 
-        backgroundSize: 'cover',
-        backgroundPosition: '0 400px',
-        marginTop: 20,
-        padding: 20,
-        paddingBottom: 200
-    },
-    grid: {
-        width: 1000
-    } */
+  
 })
 
 
@@ -87,7 +74,7 @@ class MFIRegistrationInputForm extends Component {
                 <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                 {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
-                            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                            <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                     <Formik
                                         initialValues={mfi}
@@ -100,7 +87,7 @@ class MFIRegistrationInputForm extends Component {
                                         onSubmit={registerMFI}
 
                                         render={
-                                            props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} />}
+                                            props => <MFIRegistration handleSubmit={this.props.handleSubmit} {...props} {...this.props}/>}
                                     >
                                     </Formik>
                                 </Grid> 

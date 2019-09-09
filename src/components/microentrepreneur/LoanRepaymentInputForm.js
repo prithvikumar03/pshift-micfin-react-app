@@ -15,9 +15,7 @@ import {populateSelect} from './../../utils/Common';
 
 
 const styles = theme => ({
-  /*   grid: {
-        width: 1000
-    } */
+  
 })
 
 
@@ -65,7 +63,7 @@ class LoanRepaymentInputForm extends Component {
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
                     <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
-                            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
+                            <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                        <Formik
                                         initialValues={loanRepayment}

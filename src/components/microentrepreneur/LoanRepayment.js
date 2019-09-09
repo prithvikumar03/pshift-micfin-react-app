@@ -16,33 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {populateSelect} from './../../utils/Common';
 
 const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
-        minWidth: 200,
-        padding: 5,
-        color: grey[900]
-    },
-    dense: {
-        marginTop: 16,
-    },
-    menu: {
-        width: 200,
-    },
-    error: {
-        color: 'red',
-    },
-    /*  card: {
-       //maxWidth: 345,
-       padding: theme.spacing(3),
-       marginLeft: theme.spacing(0),
-       marginRight: theme.spacing(0),
-   }, */
-
+   
 })
 
 const mfiOptions =[]; 
@@ -154,8 +128,8 @@ class LoanRepayment extends Component {
     
         const { classes } = this.props;
         return (
-            <Box bgcolor="background.main" p={4} m={2}>
-                <Card className={classes.card}>
+            <Box bgcolor="background.main" p={1} m={1}>
+                <Card className={classes.cardNoSpacing}>
                     <div>
                         <Typography variant="h6">
                             <IconButton>
@@ -174,7 +148,7 @@ class LoanRepayment extends Component {
 
                             {/* MainID Details*/}
                             <div className={classes.div}>
-                                <Card className={classes.card}>
+                                <Card className={classes.cardNoSpacing}>
                                     <CardContent>
                                         <Typography className={classes.title} gutterBottom>
                                             Identifiers
@@ -274,7 +248,7 @@ class LoanRepayment extends Component {
                             {/* Product Details*/}
                             {/* <Product {...this.props}></Product> */}
                             <div className={classes.div}>
-                                <Card className={classes.card}>
+                                <Card className={classes.cardNoSpacing}>
                                     <CardContent>
                                         <Typography className={classes.title} gutterBottom>
                                             Product
@@ -283,7 +257,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productId" type="text" name="productId" label="Product Id" className={classes.textField} value={this.state.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productId" disabled type="text" name="productId" label="Product Id" className={classes.textField} value={this.state.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -294,7 +268,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productName" type="text" name="productName" label="Product Name" className={classes.textField} value={this.state.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productName" disabled type="text" name="productName" label="Product Name" className={classes.textField} value={this.state.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -304,7 +278,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="interestRate" type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={this.state.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="interestRate" disabled type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={this.state.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -315,7 +289,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="tenure" type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={this.state.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="tenure" type="text" disabled name="tenure" label="Tenure (months)" className={classes.textField} value={this.state.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -333,7 +307,7 @@ class LoanRepayment extends Component {
 
                             {/* Loan  Amount */}
                             <div className={classes.div}>
-                                <Card className={classes.card}>
+                                <Card className={classes.cardNoSpacing}>
                                     <CardContent>
                                         <Typography className={classes.title} gutterBottom>
                                             Payment

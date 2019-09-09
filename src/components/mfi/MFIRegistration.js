@@ -51,7 +51,7 @@ const styles = theme => ({
      height: 48,
     padding: '0 30px', 
   } */
-
+/* 
   grid:{
     display:'flex',
     wrap:'nowrap'
@@ -60,7 +60,7 @@ const styles = theme => ({
     display:'flex',
     wrap:'nowrap'
   }
-
+ */
 })
 
 
@@ -92,7 +92,7 @@ class MFIRegistration extends Component {
 
     const { classes } = this.props;
     return (
-      <Box bgcolor="background.main" p={4} m={2}>
+      <Box bgcolor="background.main" p={1} m={1}>
         <Card className={classes.card}>
           <div>
             <Typography variant="h6">
@@ -174,7 +174,7 @@ class MFIRegistration extends Component {
               <tr></tr>
               <div>
                 <TextField id="filled-select-yesNoOption" select label="Any Existing Bank Loans" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
-                  variant="outlined" InputLabelProps={{
+                  variant="outlined"  InputLabelProps={{
                     shrink: true,
                   }} SelectProps={{
                     MenuProps: {

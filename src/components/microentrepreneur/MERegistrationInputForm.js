@@ -54,7 +54,7 @@ class MERegistrationInputForm extends Component {
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
                     <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
-                        <Grid container spacing={24} alignItems="center" justify="center" className={classes.grid}>
+                        <Grid container spacing={10} alignItems="center" justify="center" className={classes.grid}>
                             <Grid item xs={12} >
                                     <Formik
                                         initialValues={microentrepreneur}

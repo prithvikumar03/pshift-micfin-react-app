@@ -5,18 +5,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import MFIMenuTab from './MFIMenuTab';
 import Box from '@material-ui/core/Box';
 const styles = theme => ({
-  newGrid: {
-   // width: '100%'
-  },
-  /* grid: {
-    width: 1000
-  },
-  card: {
-    maxWidth: 1000,
-  },
-  media: {
-    height: 500,
-  }, */
+  
 })
 
 class MFIHome extends Component {
@@ -30,9 +19,9 @@ class MFIHome extends Component {
           <SideNavBar currentPath={currentPath} />
           <div>
             <Grid container justify="center">
-              <Grid spacing={10} direction="row" alignItems="center" justify="center" container className={classes.newGrid} xs={12}>
+              <Grid spacing={2} direction="row" alignItems="center" justify="center" container className={classes.grid} xs={12}>
 
-                <Grid item xs={8}>
+                <Grid item xs={12}>
                   <MFIMenuTab {...this.props}/>
 
                 </Grid>

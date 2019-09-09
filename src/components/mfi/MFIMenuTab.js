@@ -15,22 +15,10 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import withStyles from '@material-ui/styles/withStyles';
 
-/* 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.main,
-  },
-})); */
 
 
 const styles = theme => ({
-  /*  adjustedRoot: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.main,
-    marginTop: '15%'
-  },  */
-
+ 
 })
 
 function TabPanel(props) {
