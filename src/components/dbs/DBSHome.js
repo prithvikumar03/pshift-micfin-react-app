@@ -5,7 +5,11 @@ import withStyles from '@material-ui/styles/withStyles';
 import DBSMenuTab from './DBSMenuTab';
 
 const styles = theme => ({
-   grid: {
+
+  newGrid: {
+    // width: '100%'
+   },
+  /*  grid: {
     width: 1000
   },
   card: {
@@ -13,7 +17,7 @@ const styles = theme => ({
   },
   media: {
     height: 500,
-  },
+  }, */
 })
 
 class DBSHome extends Component {
@@ -27,9 +31,9 @@ class DBSHome extends Component {
         <SideNavBar currentPath={currentPath} />
         <div>
           <Grid container justify="center">
-            <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-              <Grid item xs={12}>
-                <DBSMenuTab />
+            <Grid spacing={10} direction="row"  alignItems="center" justify="center" container className={classes.grid} xs={12}>
+              <Grid item xs={8}>
+                <DBSMenuTab {...this.props} />
               </Grid>
             </Grid>
           </Grid>
