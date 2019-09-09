@@ -50,7 +50,21 @@ const meOptions =[];
  
 class LoanRepayment extends Component {
 
-  
+    constructor(props) {
+        super(props);
+        this.state = {
+           mfiId:'',
+           microEntrepreneurId:'',
+           loanId:'',
+           productId:'',
+           productName:'',
+           interestRate:'',
+           tenure:'',
+           mfiOptions:[],
+           meOptions:[],
+           loanOptions:[]
+        };
+    }
     onSubmitClick = (values) => {
         //alert('handle submit in parent class ! Hurray');
         this.props.handleSubmit();
@@ -62,15 +76,77 @@ class LoanRepayment extends Component {
 
     }
 
- 
+    componentWillReceiveProps(nextProps){
+        if(nextProps.user!==this.props.user){
+            let mfiValues=[];
+            mfiValues.push(this.props.user.mfiId);
+            this.setState({mfiOptions:populateSelect(mfiValues)})
+        }
+        if(nextProps.microentrepreneurs!==this.props.microentrepreneurs){
+            let meValues=[];
+            meValues.push(nextProps.microentrepreneurs.map(x=>x.microEntrepreneurId));
+            this.setState({meOptions:populateSelect(meValues)})
+        }
+        if(nextProps.transactions!==this.props.transactions){
+            this.setState({loanOptions:populateSelect(nextProps.transactions.map(x=>x.loanId))})
+        }
+    }
+
+    componentWillMount(){
+        if(this.props.user){
+            let mfiValues=[];
+            mfiValues.push(this.props.user.mfiId);
+            this.setState({mfiOptions:populateSelect(mfiValues)});
+        }
+    }
+
+    handleMFIChange=(event)=>{
+        this.setState(
+            {
+                [event.target.name]:[event.target.value],
+            }
+        );
+        this.props.onMFIChange(event);
+    }
+
+    handleMEChange=(event)=>{
+        this.setState(
+            {
+                [event.target.name]:[event.target.value],
+            }
+        );
+        this.props.onMEChange(event);
+    }
+    
+    handleLoanChange=(event)=>{
+        this.setState(
+            {
+                [event.target.name]:[event.target.value],
+            }
+        );
+        this.populateProductInfo(event.target.value);
+    }
+    
+    populateProductInfo=(loanId)=>{
+        let {transactions}=this.props;
+        let tInfo=transactions.filter(x=>(x.loanId===loanId))
+        this.setState({
+            productId:tInfo[0].productId,
+            productName:tInfo[0].productName,
+            tenure:tInfo[0].tenure,
+            interestRate:tInfo[0].interestRate
+        })
+    }
+
     render() {
         const {
             values,
             handleChange,
             handleBlur,
             handleSubmit,
-            mfiOptions,
-            meOptions
+            onMFIChange,
+            mfiValues,
+            meValues
             
         } = this.props;
 
@@ -107,7 +183,7 @@ class LoanRepayment extends Component {
                                             <Grid item xs={3} >
                                                
                                                 <div>
-                                                    <TextField id="filled-select-mfiOptions" select label="MFI Id" className={classes.textField} value={values.mfiOptions} onChange={handleChange('mfiOptions')} margin="dense"
+                                                    <TextField id="filled-select-mfiOptions" select name="mfiId" label="MFI Id" className={classes.textField} value={this.state.mfiId} onChange={this.handleMFIChange} margin="dense"
                                                         variant="outlined" InputLabelProps={{
                                                             shrink: true,
                                                         }} SelectProps={{
@@ -116,7 +192,7 @@ class LoanRepayment extends Component {
                                                             },
                                                         }}
                                                     >
-                                                        {mfiOptions.map(option => (
+                                                        {this.state.mfiOptions.map(option => (
                                                             <MenuItem key={option.value} value={option.value}>
                                                                 {option.label}
                                                             </MenuItem>
@@ -135,7 +211,7 @@ class LoanRepayment extends Component {
                                                     />
                                                 </div> */}
                                                 <div>
-                                                    <TextField id="filled-select-meOptions" select label="MicroEntrepreneur Id" className={classes.textField} value={values.meOptions} onChange={handleChange('meOptions')} margin="dense"
+                                                    <TextField id="filled-select-meOptions" select name='microEntrepreneurId' label="MicroEntrepreneur Id" className={classes.textField} value={this.state.microEntrepreneurId} onChange={this.handleMEChange} margin="dense"
                                                         variant="outlined" InputLabelProps={{
                                                             shrink: true,
                                                         }} SelectProps={{
@@ -144,7 +220,7 @@ class LoanRepayment extends Component {
                                                             },
                                                         }}
                                                     >
-                                                        {meOptions.map(option => (
+                                                        {this.state.meOptions.map(option => (
                                                             <MenuItem key={option.value} value={option.value}>
                                                                 {option.label}
                                                             </MenuItem>
@@ -154,12 +230,28 @@ class LoanRepayment extends Component {
                                             </Grid>
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="loanId" type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                   {/*  <TextField id="loanId" type="text" name="loanId" label="Loan Id" value={values.loanId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
                                                         }}
-                                                    />
+                                                    /> */}
+
+                                                    <TextField id="filled-select-loanOptions" select name='loanId' label="Loan Id" className={classes.textField} value={this.state.loanId} onChange={this.handleLoanChange} margin="dense"
+                                                        variant="outlined" InputLabelProps={{
+                                                            shrink: true,
+                                                        }} SelectProps={{
+                                                            MenuProps: {
+                                                                className: classes.menu,
+                                                            },
+                                                        }}
+                                                    >
+                                                        {this.state.loanOptions.map(option => (
+                                                            <MenuItem key={option.value} value={option.value}>
+                                                                {option.label}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </TextField>
                                                 </div>
                                             </Grid>
                                             <Grid item xs={3} >
@@ -191,7 +283,7 @@ class LoanRepayment extends Component {
                                         <Grid container item xs={12} spacing={2} direction="row">
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productId" type="text" name="productId" label="Product Id" className={classes.textField} value={values.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productId" type="text" name="productId" label="Product Id" className={classes.textField} value={this.state.productId} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -202,7 +294,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="productName" type="text" name="productName" label="Product Name" className={classes.textField} value={values.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="productName" type="text" name="productName" label="Product Name" className={classes.textField} value={this.state.productName} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -212,7 +304,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="interestRate" type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={values.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="interestRate" type="text" name="interestRate" label="Interest Rate (%)" className={classes.textField} value={this.state.interestRate} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,
@@ -223,7 +315,7 @@ class LoanRepayment extends Component {
 
                                             <Grid item xs={3} >
                                                 <div>
-                                                    <TextField id="tenure" type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={values.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="tenure" type="text" name="tenure" label="Tenure (months)" className={classes.textField} value={this.state.tenure} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true,

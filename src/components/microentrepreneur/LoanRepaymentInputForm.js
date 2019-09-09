@@ -38,29 +38,16 @@ class LoanRepaymentInputForm extends Component {
         };
     }
 
-    componentWillMount(){
-        //alert("userId"+JSON.stringify(this.props.user));
-        //this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
-        //document.getElementById("mfiId").value=this.props.user.userId;
-        //alert("microentrepreneurs"+JSON.stringify(this.props.microentrepreneurs));
-        let mfiValues=[];
-        mfiValues.push(this.props.user.mfiId);
-        let mfiOptions=populateSelect(mfiValues)
-       // alert('value options'+JSON.stringify(mfiValueOptions));
-        //this.setState({mfiValueOptions:`${mfiValueOptions}`})
-        this.setState({mfiOptions:mfiOptions})
-
-        //loading the mes
-        this.props.fetchAllEntrepreneurs({"mfiId":this.props.user.userId});
-       
-        alert('mevalues'+JSON.stringify(this.props.microentrepreneurs));
-        let meValues=[];
-        meValues.push(this.props.microentrepreneurs.map(x=>x.microEntrepreneurId));
-        let meOptions=populateSelect(meValues)
-        this.setState({meOptions:meOptions})
-
-
+    onMFIChange=(event)=>{
+        this.props.fetchAllEntrepreneurs({"mfiId":event.target.value});
     }
+
+    onMEChange=(event)=>{
+        //TODO change it later to use MEID instead of MFI ID
+        this.props.fetchTransactions({"mfiId":this.props.user.mfiId});
+    }
+    componentWillMount(){
+        }
 
     render() {
         //const currentPath = this.props.location.pathname
@@ -73,7 +60,7 @@ class LoanRepaymentInputForm extends Component {
             
         } = this.props;
         const { classes } = this.props; 
-        const selectProps ={mfiOptions:this.state.mfiOptions,meOptions:this.state.meOptions};
+        
         return (
             <React.Fragment>
                 {/* <SideNavBar currentPath={currentPath} /> */}
@@ -87,7 +74,10 @@ class LoanRepaymentInputForm extends Component {
                                         onSubmit={loanRepaymentAction}
 
                                         render={
-                                            props => <LoanRepayment handleSubmit={this.props.handleSubmit} {...props} {...selectProps}/>}
+                                            props => <LoanRepayment handleSubmit={this.props.handleSubmit}
+                                            onMFIChange={this.onMFIChange}
+                                            onMEChange={this.onMEChange}
+                                            {...props} {...this.props}/>}
                                     >
                                     </Formik>
                               </Grid> 
