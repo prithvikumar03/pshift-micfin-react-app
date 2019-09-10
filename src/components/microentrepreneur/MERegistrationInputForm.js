@@ -63,7 +63,7 @@ class MERegistrationInputForm extends Component {
                                         onSubmit={registerME}
 
                                         render={
-                                            props => <MERegistration handleSubmit={this.props.handleSubmit} {...props} />}
+                                            props => <MERegistration handleSubmit={this.props.handleSubmit} {...props} {...this.props}/>}
                                     >
                                     </Formik>
                             </Grid>

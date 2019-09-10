@@ -19,9 +19,9 @@ class MFIHome extends Component {
           <SideNavBar currentPath={currentPath} />
           <div>
             <Grid container justify="center">
-              <Grid spacing={2} direction="row" alignItems="center" justify="center" container className={classes.grid} xs={12}>
+              <Grid spacing={10} direction="row" alignItems="center" justify="center" container className={classes.grid} xs={12}>
 
-                <Grid item xs={12}>
+                <Grid item xs={9}>
                   <MFIMenuTab {...this.props}/>
 
                 </Grid>

@@ -5,15 +5,7 @@ import withStyles from '@material-ui/styles/withStyles';
 import MEMenuTab from './MEMenuTab';
 
 const styles = theme => ({
-    grid: {
-    width: '100%'
-  },
-  /* card: {
-    maxWidth: 1000,
-  },
-  media: {
-    height: 500,
-  },  */
+    
 })
 
 class MEHome extends Component {

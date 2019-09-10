@@ -22,7 +22,7 @@ export default function Address(props) {
     return (
 
 
-        <Card className={classes.card}>
+        <Card className={classes.cardNoSpacing}>
             <CardContent>
                 <Typography className={classes.title} gutterBottom>
                     Address
