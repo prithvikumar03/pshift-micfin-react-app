@@ -12,7 +12,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { RegistrationIcon } from '../../styles/icons';
 import Grid from '@material-ui/core/Grid';
 import LoanGrid from './LoanGrid';
-import SpanningTable from './SpanningTable';
 import { red,grey } from '@material-ui/core/colors'
 
 const styles = theme => ({

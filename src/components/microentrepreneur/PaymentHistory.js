@@ -6,22 +6,16 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
+  
 }));
 
 
-function createRow(productName, loanId,loanAmount,payment,interestRate,date) {
-  return {productName, loanId,loanAmount,payment,interestRate,date};
+function createRow(loanId,date,paymentDelayedInMonths,interestRate,loanAmount,payment) {
+  return {loanId,date,paymentDelayedInMonths,interestRate,loanAmount,payment};
 }
 
 function remaining(items) {
@@ -42,42 +36,58 @@ function subtotal(items) {
 const getRows=(data,header)=>{
   var finalRows=[];
   data.forEach(e => {
-    finalRows[0]=createRow(e.productName,e.loanId,e.loanAmount,e.payment,e.interestRate,e.date)
-    finalRows[1]=createRow(e.productName,e.loanId,e.loanAmount,e.payment,e.interestRate,e.date)
-    
-  });
+    finalRows.push(createRow(e.loanId,e.date,e.paymentDelayedInMonths,e.interestRate,e.loanAmount,e.payment))
+     });
   return finalRows;
 }
 
-export default function SpanningTable(props) {
+export default function PaymentHistory(props) {
   const classes = useStyles();
   console.log('props'+JSON.stringify(props));
-  let trows=getRows(props.loanRepayments);
+  let tpropsData=[];
+  if(props.data){
+    tpropsData=props.data;
+   
+  }else{
+    tpropsData.push({loanId:"0",date:"",paymentDelayedInMonths:0,interestRate:0,loanAmount:0,payment:0,});
+    //tpropsData.push({loanId:"2",loanAmount:20,payment:20,date:"",interestRate:20,paymentDelayedInMonths:0});
+  }
+  let trows=getRows(tpropsData);
   return (
     <Paper className={classes.root}>
+       <Typography variant="body" noWrap >
+           Payment History
+        </Typography>
       <Table className={classes.table} size="small">
         <TableHead>
           <TableRow>
-            <TableCell align="left">Product Name</TableCell>
+         
             <TableCell align="right">Loan Id</TableCell>
             <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Interest Rate (%)</TableCell>
-            <TableCell align="right">Loan Amount ($)</TableCell>
-            <TableCell align="right">Payment ($)</TableCell>
+            <TableCell align="right">Payment Delay</TableCell>
+            <TableCell align="right">InterestRate</TableCell>
+            <TableCell align="right">Loan Amount</TableCell>
+            <TableCell align="right">Payment</TableCell>
+         
+         
           </TableRow>
         </TableHead>
+
+        
         <TableBody>
           {trows.map(row => (
             <TableRow key={row.desc}>
-              <TableCell align="left">{row.productName}</TableCell>
+             
               <TableCell align="right">{row.loanId}</TableCell>
               <TableCell align="right">{row.date}</TableCell>
+              <TableCell align="right">{row.paymentDelayedInMonths}</TableCell>
               <TableCell align="right">{row.interestRate}</TableCell>
               <TableCell align="right">{row.loanAmount}</TableCell>
               <TableCell align="right">{row.payment}</TableCell>
+                           
             </TableRow>
           ))}
-
+ 
           <TableRow>
             <TableCell rowSpan={2} />
             <TableCell colSpan={4}><b>Total Repayment</b></TableCell>
@@ -88,7 +98,7 @@ export default function SpanningTable(props) {
             <TableCell colSpan={2}><b>Remaining Amount</b></TableCell>
             <TableCell align="right">{`${avg(trows)} %`}</TableCell>
             <TableCell align="right"><b>{`$${remaining(trows)} `}</b></TableCell>
-          </TableRow>
+          </TableRow> 
         </TableBody>
       </Table>
     </Paper>

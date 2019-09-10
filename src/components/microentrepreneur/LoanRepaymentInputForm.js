@@ -48,8 +48,7 @@ class LoanRepaymentInputForm extends Component {
         }
 
     render() {
-        //const currentPath = this.props.location.pathname
-        
+               
         const {
             loanRepayment,
             loanRepaymentAction,
@@ -61,15 +60,18 @@ class LoanRepaymentInputForm extends Component {
         
         return (
             <React.Fragment>
-                {/* <SideNavBar currentPath={currentPath} /> */}
                     <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                             <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                        <Formik
-                                        initialValues={loanRepayment}
-                                        enableReinitialize
-                                        validationSchema={validationSchema}
-                                        onSubmit={loanRepaymentAction}
+                                        //initialValues={loanRepayment}
+                                        //enableReinitialize
+                                        //validationSchema={validationSchema}
+                                        //onSubmit={loanRepaymentAction}
+                                        onSubmit={(values, { setSubmitting }) => {
+                                            loanRepaymentAction(values);
+                                        }}
+
 
                                         render={
                                             props => <LoanRepayment handleSubmit={this.props.handleSubmit}

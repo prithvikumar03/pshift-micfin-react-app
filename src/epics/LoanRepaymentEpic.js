@@ -24,15 +24,31 @@ export function saveLoanRepayment(action$) {
             let observable = of(fake.saveLoanRepayment);
             let loanId = action$.payload.loanId;
             //const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment/${loanId}`;
-            const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment`;
+            const saveLoanRepaymentURL = getMicfinServiceURL() + '/micfin/transaction/repayment';
+
+           /*  let dummy={
+                "date": "2019-09-10T04:12:57.870Z",
+                "id": "string",
+                "interestRate": 10,
+                "loanAmount": 110,
+                "loanId": "L200",
+                "mfiId": "MFI1",
+                "microEntrepreneurId": "ME101",
+                "payment": 28,
+                "paymentDelayedInMonths": 0,
+                "productId": "string",
+                "productName": "string",
+                "tenure": 0
+              }; */
 
             if (isProd()) {
                 console.log("Calling saveLoanRepayment API "+saveLoanRepaymentURL+" with payload "+JSON.stringify(action$.payload));
                 observable = ajax.post(saveLoanRepaymentURL, action$.payload, { 'Content-Type': 'application/json' });
+               //observable = ajax.post(saveLoanRepaymentURL, dummy, { 'Content-Type': 'application/json' });
             }
 
             return (observable.pipe(
-                map(data => data),
+                //map(data => data),
                 map(response => {
                     console.log('Response in saveLoanRepayment  ------------------>' + JSON.stringify(response.response));
                     return loanRepaymentSuccess(response.response)

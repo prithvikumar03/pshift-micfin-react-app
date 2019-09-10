@@ -15,7 +15,7 @@ import DisplayCard2 from './../login/DisplayCard2';
 import DisplayCard3 from './../login/DisplayCard3';
 
 const styles = theme => ({
- 
+
 })
 
 class Home extends Component {
@@ -28,31 +28,39 @@ class Home extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
 
-          <div className={classes.adjustedRoot}> 
-          <Grid container alignItems="center" justify="center">
+          <div className={classes.adjustedRoot}>
+            <Grid container alignItems="center" justify="center">
 
-            <Grid xs={12} spacing={10} alignItems="center" justify="center" container className={classes.grid}>
-              
-              <Grid item xs={12}>
-                <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
-                  <Grid item xs={3}>
-                    <DisplayCard1 {...this.props} />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <DisplayCard2 {...this.props} />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <DisplayCard {...this.props} />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <DisplayCard3 {...this.props} />
+              <Grid xs={12} spacing={10} alignItems="center" justify="center" container className={classes.grid}>
+
+               {/*  <Grid item xs={12}>
+                  <Typography variant="body2" component="p">
+                    <div className={classes.div}>
+                     Welcome {this.props.user.userId}
+                     
+                    </div>
+                  </Typography>
+                </Grid> */}
+                <Grid item xs={12}>
+                  <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
+                    <Grid item xs={3}>
+                      <DisplayCard1 {...this.props} />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <DisplayCard2 {...this.props} />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <DisplayCard {...this.props} />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <DisplayCard3 {...this.props} />
+                    </Grid>
                   </Grid>
                 </Grid>
+
               </Grid>
 
             </Grid>
-             
-          </Grid>
           </div>
         </React.Fragment>
       </div>
