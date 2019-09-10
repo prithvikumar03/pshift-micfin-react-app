@@ -10,22 +10,19 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import FileViewer from 'react-file-viewer';
-import { CustomErrorComponent } from 'custom-error'; 
+import { CustomErrorComponent } from 'custom-error';
+import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
-  grid: {
-    width: 1000
-},
-card: {
-  maxWidth: 1000,
-},
-media: {
-  height: 500,
-},
+
 })
 
 const file = './../../training/MicroFinancing Dealer Platform_v4.pptx'
+//const file = './../../training/MicroFinance.docx'
+
 const type = 'ppt'
+//const type = 'docx'
+
 class Training extends Component {
 
   onError(e) {
@@ -37,21 +34,42 @@ class Training extends Component {
     return (
       <div>
         <React.Fragment>
-           <SideNavBar currentPath={currentPath} /> 
+          <SideNavBar currentPath={currentPath} />
           <div>
-            {/* <div className={classes.root}> */}
-            <Grid container justify="center">
-              <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                <Grid item xs={12}>
-                 <FileViewer
-                    fileType={type}
-                    filePath={file}
-                    errorComponent={CustomErrorComponent}
-                    onError={this.onError}/> 
+            <div className={classes.adjustedRoot}>
+              <Grid container justify="center">
+              <Box
+                                            /* bgcolor="background.secondary" */
+                                            boxShadow={2}
+                                            
+                                          className={classes.Box}
+                                        >
+                <Grid spacing={1} alignItems="center" justify="center" container className={classes.grid} xs={12}>
+                  <Grid item xs={12}>
+                  
+                      <Typography variant="h6" component="p">
+                     
+                          Training Documents
+                        
+                      </Typography>
+                    
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <div>
+                      <FileViewer
+                        fileType={type}
+                        filePath={file}
+                        errorComponent={CustomErrorComponent}
+                        onError={this.onError} />
+                    </div>
+                  </Grid>
+
                 </Grid>
+
+                </Box>
               </Grid>
-            </Grid>
-            {/* </div> */}
+            </div>
           </div>
         </React.Fragment>
       </div>

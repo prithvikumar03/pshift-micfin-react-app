@@ -1,5 +1,6 @@
 import {red, blue, grey,indigo, cyan} from '@material-ui/core/colors'
 import backgroundImage from './../images/background4.jpg'; // Import using relative path
+import menuButtonImage from './../images/MenuIcon2.png'; // Import using relative path
 const drawerWidth = 260;
 
 export const styles = theme => ({
@@ -43,6 +44,11 @@ export const styles = theme => ({
     },
     menuButton: {
         marginRight: 36,
+        color:"#263238"
+    },
+    menuButtonImage: {
+        marginRight: 36,
+        backgroundImage: `url(${menuButtonImage})`,
     },
     hide: {
         display: 'none',
@@ -206,7 +212,7 @@ export const styles = theme => ({
       },
       adjustedRoot: {
         flexGrow: 1,
-        backgroundColor: theme.palette.background.main,
+        //backgroundColor: theme.palette.background.main,
         marginTop: '10%'
       }, 
 

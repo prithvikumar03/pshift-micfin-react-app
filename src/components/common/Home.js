@@ -9,65 +9,50 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import DisplayCard from './../login/DisplayCard';
+import DisplayCard1 from './../login/DisplayCard1';
+import DisplayCard2 from './../login/DisplayCard2';
+import DisplayCard3 from './../login/DisplayCard3';
 
 const styles = theme => ({
-  grid: {
-    width: 1000
-},
- card: {
-  maxWidth: 1000,
-},
-media: {
-  height: 600,
-}
+ 
 })
 
 class Home extends Component {
 
   render() {
-    const currentPath = this.props.location.pathname 
+    const currentPath = this.props.location.pathname
     const { classes } = this.props;
     return (
       <div>
         <React.Fragment>
-          <SideNavBar currentPath={currentPath} />  
-          <div>
-            {/* <div className={classes.root}> */}
-            <Grid container alignItems="center" justify="center"> 
-            
-              <Grid xs={12} spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                <Grid item xs={12}>
-                  <Card classNam={classes.card}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image={require("./../../images/exitIcon.png")}
-                        /* title="" */
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h6" component="h2"> 
-                        
-                            <Typography gutterBottom variant="body" component="h2">
-                              MICFIN - Digitalizing microfinancing in developing nations!
-                           </Typography>
-                        </Typography>
-                         
-                        <Typography variant="body2" component="p">
-                          Creating digital engagement that empowers customers to get the banking services they need
-                          while doing good for the environment and society.
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button size="small" color="secondary">
-                        Learn More ->
-                      </Button>
-                    </CardActions>
-                  </Card>
+          <SideNavBar currentPath={currentPath} />
+
+          <div className={classes.adjustedRoot}> 
+          <Grid container alignItems="center" justify="center">
+
+            <Grid xs={12} spacing={10} alignItems="center" justify="center" container className={classes.grid}>
+              
+              <Grid item xs={12}>
+                <Grid container direction="row" alignItems="center" justify="center" className={classes.headerGrid}>
+                  <Grid item xs={3}>
+                    <DisplayCard1 {...this.props} />
+                  </Grid>
+                  <Grid item xs={3}>
+                    <DisplayCard2 {...this.props} />
+                  </Grid>
+                  <Grid item xs={3}>
+                    <DisplayCard {...this.props} />
+                  </Grid>
+                  <Grid item xs={3}>
+                    <DisplayCard3 {...this.props} />
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid> 
-            {/* </div> */}
+
+            </Grid>
+             
+          </Grid>
           </div>
         </React.Fragment>
       </div>

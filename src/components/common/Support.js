@@ -15,7 +15,7 @@ const styles = theme => ({
   grid: {
     width: 1000
   },
-  div:{
+  div: {
     padding: theme.spacing(2),
   },
   /* card: {
@@ -36,42 +36,42 @@ class Support extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
           <div>
-            {/* <div className={classes.root}> */}
-            <Grid container justify="center">
-              <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                <Grid item xs={12}>
-                  <Card classNam={classes.card}>
-                    <CardActionArea>
-                      <CardMedia
-                        title="Contact Us"
-                      />
-                      <CardContent>
-                      <Typography gutterBottom variant="h6" component="h2"> 
-                        Support
-                    </Typography>
-                    <Divider/>
-                    
-                        <Typography variant="body2" component="p">
-                          <div className={classes.div}> 
-                          Your feedback is important to us. Please write to us  - greenpark@dbsparadigmshift.com
+            <div className={classes.adjustedRoot}>
+              <Grid container justify="center">
+                <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
+                  <Grid item xs={9}>
+                    <Card classNam={classes.card}>
+                      <CardActionArea>
+
+                        <CardContent>
+                          <Typography gutterBottom variant="h6" component="h2">
+                            Support
+                         </Typography>
+                          <Divider />
+
+                          <Typography variant="body2" component="p">
+                            <div className={classes.div}>
+                              Your feedback is important to us. Please write to us  - greenpark@dbsparadigmshift.com
                           </div>
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <div>
-                        <TextField   multiline
-        rowsMax="10" fullWidth id="feedback" type="text" name="feedback" label="Feedback" className={classes.textField} margin="dense" />
-                      </div>
-                      <Button size="large" color="primary">
-                        Send
-                      </Button>
-                    </CardActions>
-                  </Card>
+                          </Typography>
+                          <div>
+                            <TextField multiline
+                              rowsMax="10" fullWidth id="feedback" type="text" name="feedback" label="Feedback" className={classes.textField} margin="dense" />
+                          </div>
+                          <Button variant="contained"
+                            color="primary"
+                            margin="dense">
+                            Send
+                            </Button>
+
+                        </CardContent>
+                      </CardActionArea>
+
+                    </Card>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            {/* </div> */}
+            </div>
           </div>
         </React.Fragment>
       </div>

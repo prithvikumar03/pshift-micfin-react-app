@@ -15,7 +15,10 @@ export const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     grid: {
-        width: 1000
+       // display: 'flex-center',
+       // width: 1000,
+        //p: 4,
+        flexGrow: 1,
     },
     spacer: {
         padding: 8,
@@ -35,6 +38,10 @@ export const useStyles = makeStyles(theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+    },
+    menu: {
+        display:'flex',
+        wrap:'nowrap'
     },
     menuButton: {
         marginRight: 36,
@@ -83,6 +90,10 @@ export const useStyles = makeStyles(theme => ({
         border-image-width={1},
         border-image-repeat="stretch", */
     },
+    divider:{
+        color: theme.palette.primary,
+        light:false,
+    },
     toolbarImage: {
         display: 'flex',
         alignItems: 'center',
@@ -113,8 +124,8 @@ export const useStyles = makeStyles(theme => ({
     icon: {
         margin: theme.spacing(0),
         //color: theme.palette.secondary,
-        color: "#000000",
-        
+        color:'#000000' //black
+       
     },
     sideBar: {
         margin: theme.spacing(0),
@@ -126,11 +137,25 @@ export const useStyles = makeStyles(theme => ({
             color: red[800],
         },
     },
-    card: {
-        //maxWidth: 345,
+    headerGrid: {
+        color:grey[900],
+        background: theme.palette.secondary,
         padding: theme.spacing(3),
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
+    },
+    card: {
+        //maxWidth: 345,
+        padding: theme.spacing(3),
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+    },
+    cardNoSpacing: {
+        //maxWidth: 345,
+        padding: theme.spacing(0),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
+        
     },
    /*  media: {
         height: 140,
@@ -141,12 +166,22 @@ export const useStyles = makeStyles(theme => ({
         p: 2,
         m: 1,
     },
+    box2: {
+        bgcolor: "text.hint",
+        color: "background.tertiary",
+        p: 2,
+        m: 1,
+    },
     textField: {
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
         //minWidth: 300,
-        padding: 3,
-        color: grey[900]
+        padding: 4,
+        color: grey[900],
+        display:'flex',
+        wrap:'nowrap'
+
+
     },
     dense: {
         marginTop: 16,
@@ -169,11 +204,24 @@ export const useStyles = makeStyles(theme => ({
     typography:{
         color: theme.palette.secondary,
     },
+    paperHeader:{
+        bgcolor: "text.hint",
+        color: "background.tertiary",
+        p: 2,
+        m: 1,
+    },
     footer: {
         position: 'fixed',
         bottom: 0,
         width: '100%',
         minHeight: '24px',
         background: theme.palette.background.secondary,
+      },
+      adjustedRoot: {
+        flexGrow: 1,
+       //backgroundColor: theme.palette.background.main,
+        marginTop: '10%'
       }
-}));
+
+
+  }))
