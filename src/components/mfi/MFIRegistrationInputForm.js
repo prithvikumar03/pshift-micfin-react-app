@@ -74,7 +74,7 @@ class MFIRegistrationInputForm extends Component {
                 <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
                 {/*     <div className={classes.root}> */}
                         <Grid container justify="center">
-                            <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
+                            <Grid spacing={12} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                     <Formik
                                         initialValues={mfi}

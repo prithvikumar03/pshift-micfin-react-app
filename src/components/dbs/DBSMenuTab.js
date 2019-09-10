@@ -89,33 +89,33 @@ class DBSMenuTab extends Component {
             </Tabs>
           </AppBar>
           <TabPanel value={value} index={0}>
-            <div className={classes.div}>
+           {/*  <div className={classes.div}> */}
               <MFIRegistrationInputForm {...this.props} />
-            </div>
+          {/*   </div> */}
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-            <div className={classes.div}>
+           {/*  <div className={classes.div}> */}
               To be Added
-          </div>
+         {/*  </div> */}
           </TabPanel>
 
           <TabPanel value={value} index={2}>
-            <div className={classes.div}>
+           {/*  <div className={classes.div}> */}
               <SearchEntrepreneurs {...this.props} />
-            </div>
+           {/*  </div> */}
           </TabPanel>
 
           <TabPanel value={value} index={3}>
-            <div className={classes.div}>
+           {/*  <div className={classes.div}> */}
               <LoanRepaymentInputForm {...this.props} />
-            </div>
+           {/*  </div> */}
           </TabPanel>
 
           <TabPanel value={value} index={4}>
-            <div className={classes.div}>
+           {/*  <div className={classes.div}> */}
               <LedgerInputForm {...this.props} />
-            </div>
+          {/*   </div> */}
           </TabPanel>
 
         </div>

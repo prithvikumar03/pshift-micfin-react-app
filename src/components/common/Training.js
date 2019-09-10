@@ -36,7 +36,7 @@ class Training extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
           <div>
-            <div className={classes.adjustedRoot}>
+            <div className={classes.adjustedRoot2}>
               <Grid container justify="center">
               <Box
                                             /* bgcolor="background.secondary" */

@@ -61,7 +61,7 @@ class LoanRepaymentInputForm extends Component {
         return (
             <React.Fragment>
                     <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
-                            <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
+                            <Grid spacing={12} alignItems="center" justify="center" container className={classes.grid}>
                                  <Grid item xs={12}> 
                                        <Formik
                                         //initialValues={loanRepayment}

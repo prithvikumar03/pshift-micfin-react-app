@@ -28,7 +28,7 @@ class Home extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
 
-          <div className={classes.adjustedRoot}>
+          <div className={classes.adjustedRoot2}>
             <Grid container alignItems="center" justify="center">
 
               <Grid xs={12} spacing={10} alignItems="center" justify="center" container className={classes.grid}>

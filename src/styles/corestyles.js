@@ -169,7 +169,7 @@ export const styles = theme => ({
         marginLeft: theme.spacing(0),
         marginRight: theme.spacing(0),
         //minWidth: 300,
-        padding: 4,
+        padding: 5,
         color: grey[900],
         display:'flex',
         wrap:'nowrap'
@@ -212,9 +212,13 @@ export const styles = theme => ({
       },
       adjustedRoot: {
         flexGrow: 1,
+        backgroundColor: theme.palette.background.main,
+        marginTop: '10%'
+      }, 
+      adjustedRoot2: {
+        flexGrow: 1,
         //backgroundColor: theme.palette.background.main,
         marginTop: '10%'
       }, 
-
 
   })

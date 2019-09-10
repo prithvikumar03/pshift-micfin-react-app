@@ -36,7 +36,7 @@ class Support extends Component {
         <React.Fragment>
           <SideNavBar currentPath={currentPath} />
           <div>
-            <div className={classes.adjustedRoot}>
+            <div className={classes.adjustedRoot2}>
               <Grid container justify="center">
                 <Grid spacing={10} alignItems="center" justify="center" container className={classes.grid}>
                   <Grid item xs={9}>
