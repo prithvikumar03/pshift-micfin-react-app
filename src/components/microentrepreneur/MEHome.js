@@ -19,8 +19,8 @@ class MEHome extends Component {
         <SideNavBar currentPath={currentPath} />
         <div>
           <Grid container justify="center">
-            <Grid spacing={24} direction="column" alignItems="center" justify="center" container className={classes.grid} xs={12}>
-              <Grid item xs={12}>
+            <Grid spacing={10} direction="row" alignItems="center" justify="center" container className={classes.grid} xs={12}>
+              <Grid item xs={8}>
                 <MEMenuTab {...this.props}/>
               </Grid>
             </Grid>
