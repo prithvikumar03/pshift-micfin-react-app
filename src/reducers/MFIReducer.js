@@ -36,14 +36,14 @@ export default function mfiReducer(state = initialState, action) {
         case FETCH_MFI_SUCCESS:
             return {
                 ...state,
-                mfi: action.payload,
+                MFIs: action.payload,
                 isLoading: false,
                 error: null
             };
         case FETCH_MFI_FAILURE:
             return {
                 ...state,
-                mfi: null,
+                MFIs: null,
                 isLoading: false,
                 error: action.payload
             };

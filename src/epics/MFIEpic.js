@@ -27,10 +27,10 @@ export default function mfiEpic(action$) {
                 observable = ajax.getJSON(fetchMFIsUrl);
             }
             return (observable.pipe(
-                map(data => data),
+                //map(data => data),
                 map(response => {
-                    console.log('payload in fetch mfiEpic ->' + JSON.stringify(response.response));
-                    return fetchMFISuccess(response.response)
+                    console.log('payload in fetch mfiEpic ->' + JSON.stringify(response));
+                    return fetchMFISuccess(response)
                 }),
                 catchError(error => of(fetchMFIFailure(error.message))) 
             )

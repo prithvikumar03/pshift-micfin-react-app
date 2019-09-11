@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import withStyles from '@material-ui/styles/withStyles';
 import MFIRegistrationInputForm from './../mfi/MFIRegistrationInputForm'
-import SearchEntrepreneurs from './../microentrepreneur/SearchEntrepreneurs';
+import SearchMFIs from './../mfi/SearchMFIs';
 import LoanRepaymentInputForm from './../microentrepreneur/LoanRepaymentInputForm';
 
 
@@ -83,7 +83,7 @@ class DBSMenuTab extends Component {
             <Tabs value={value} onChange={this.handleChange} >
               <Tab label="MFI Registration" component={Link} to="/mfi" />
               <Tab label="Loans" component={Link} to="/loanDisbursement" />
-              <Tab label="Search" component={Link} to="/searchEntrepreneurs" />
+              <Tab label="Search" component={Link} to="/searchMFIs" />
               <Tab label="Payments" component={Link} to="/loanRepayment" />
               <Tab label="Ledger" component={Link} to="/ledger" />
             </Tabs>
@@ -102,7 +102,7 @@ class DBSMenuTab extends Component {
 
           <TabPanel value={value} index={2}>
            {/*  <div className={classes.div}> */}
-              <SearchEntrepreneurs {...this.props} />
+              <SearchMFIs {...this.props} />
            {/*  </div> */}
           </TabPanel>
 
