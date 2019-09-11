@@ -21,9 +21,23 @@ export function fetchTransactionsEpic(action$) {
     return action$.pipe(
         ofType(TRANSACTIONS_FETCH),
         switchMap((action$) => {
+            var fetchTransactionsUrl=''
+            let dbsId=action$.payload.dbsId;
             let mfiId=action$.payload.mfiId;
+            let microEntrepreneurId=action$.payload.microEntrepreneurId;
+            if(dbsId){
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/loans`;
+            }
+            else if (mfiId) {
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/loans`;
+            }
+            else if (microEntrepreneurId){
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/micro-entrepreneur/${microEntrepreneurId}/loans`;
+            }
+            
             /* const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/api/loans/${mfiId}`; */
-            const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/loans`;
+          
+
             let observable=of(fake.fetchLoans);
             if(isProd()){
                 observable = ajax.getJSON(fetchTransactionsUrl);

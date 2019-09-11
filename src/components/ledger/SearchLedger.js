@@ -15,22 +15,7 @@ import LoanGrid from './LoanGrid';
 import { red,grey } from '@material-ui/core/colors'
 
 const styles = theme => ({
-     textField: {
-        /* marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1), */
-    },
-    card: {
-        //maxWidth: 345,
-        padding: theme.spacing(0),
-        marginLeft: theme.spacing(0),
-        marginRight: theme.spacing(0),
-    },
-    div:{
-        padding: theme.spacing(2),
-    },
-    extradiv:{
-        padding: theme.spacing(4),
-    }
+     
 })
 
 
@@ -137,6 +122,7 @@ class SearchLedger extends Component {
         
         //alert('mfiid-'+event.target.elements.mfiId.value); 
         let values={
+            dbsId:`${event.target.elements.dbsId.value}`,
             mfiId:`${event.target.elements.mfiId.value}`,
             microEntrepreneurId:`${event.target.elements.microEntrepreneurId.value}`,
             loanId:`${event.target.elements.loanId.value}`
@@ -197,7 +183,7 @@ class SearchLedger extends Component {
                                         <Grid container item xs={12} spacing={1} className={classes.grid} direction="row">
                                             <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="dbsId" type="text" name="dbsId" label="DBS Id" value={values.dbsId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -215,7 +201,7 @@ class SearchLedger extends Component {
                                             </Grid>
                                             <Grid item xs={4} >
                                                 <div>
-                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="Microentrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                     <TextField id="mfiId" type="text" name="mfiId" label="MFI Id" value={values.mfiId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -233,8 +219,8 @@ class SearchLedger extends Component {
                                             </Grid>
 
                                             <Grid item xs={4} >
-                                                <div>
-                                                    <TextField id="microEntrepreneurName" type="text" name="microEntrepreneurName" label="Microentrepreneur Name" value='' className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                            <div>
+                                                    <TextField id="microEntrepreneurId" type="text" name="microEntrepreneurId" label="Microentrepreneur Id" value={values.microEntrepreneurId} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true

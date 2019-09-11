@@ -12,6 +12,7 @@ const initialState ={
     }, */
 
     searchCriteria:{
+        dbsId:'',
         mfiId:'',
         microEntrepreneurId:'',
         loanId:'',

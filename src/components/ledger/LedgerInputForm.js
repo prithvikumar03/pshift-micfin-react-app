@@ -68,6 +68,7 @@ class LedgerInputForm extends Component {
 
         searchCriteria.mfiId = user.mfiId;
         searchCriteria.microEntrepreneurId = user.microEntrepreneurId
+        searchCriteria.dbsId = user.dbsId
 
         let renderloans = <div></div>;
         if (transactions && transactions.length > 0) {

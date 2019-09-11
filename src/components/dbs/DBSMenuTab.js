@@ -84,7 +84,6 @@ class DBSMenuTab extends Component {
               <Tab label="MFI Registration" component={Link} to="/mfi" />
               <Tab label="Loans" component={Link} to="/loanDisbursement" />
               <Tab label="Search" component={Link} to="/searchMFIs" />
-              <Tab label="Payments" component={Link} to="/loanRepayment" />
               <Tab label="Ledger" component={Link} to="/ledger" />
             </Tabs>
           </AppBar>
@@ -106,13 +105,8 @@ class DBSMenuTab extends Component {
            {/*  </div> */}
           </TabPanel>
 
+          
           <TabPanel value={value} index={3}>
-           {/*  <div className={classes.div}> */}
-              <LoanRepaymentInputForm {...this.props} />
-           {/*  </div> */}
-          </TabPanel>
-
-          <TabPanel value={value} index={4}>
            {/*  <div className={classes.div}> */}
               <LedgerInputForm {...this.props} />
           {/*   </div> */}
