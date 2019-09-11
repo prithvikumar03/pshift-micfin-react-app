@@ -22,6 +22,7 @@ export function saveLoanRepayment(action$) {
         ofType(LOAN_REPAYMENT),
         switchMap((action$) => {
             let observable = of(fake.saveLoanRepayment);
+            
             let loanId = action$.payload.loanId;
             //const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment/${loanId}`;
             const saveLoanRepaymentURL = getMicfinServiceURL() + '/micfin/transaction/repayment';

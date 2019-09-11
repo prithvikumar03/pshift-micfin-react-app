@@ -25,7 +25,7 @@ export function microEntrepreneurEpic(action$) {
     return action$.pipe(
         ofType(FETCH_ALL_ENTREPRENEURS),
         switchMap((action$) => {
-            let mfiId=action$.payload.mfiId;
+            let mfiId=action$.payload;
             const fetchMicroentrepreneursUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/micro-entrepreneurs`;
             console.log('Calling fetch microEntrepreneurs url '+fetchMicroentrepreneursUrl+'for MFI ID ' + mfiId );
             let observable=of(fake.getAllMicroEntrepreneursResponse);

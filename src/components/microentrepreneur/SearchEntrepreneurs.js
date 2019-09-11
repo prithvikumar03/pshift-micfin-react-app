@@ -109,8 +109,8 @@ class SearchEntrepreneurs extends Component {
     }
 
     componentWillMount() {
-        //alert('mfiID'+this.props.mfiId);
-        //this.props.fetchAllEntrepreneurs(this.props.mfiId);
+        alert('mfiID'+this.props.user.mfiId);
+        this.props.fetchAllEntrepreneurs(this.props.user.mfiId);
         //this.props.fetchAllEntrepreneurs({"mfiId":"MFI123"});
     }
 
@@ -159,7 +159,8 @@ const mapStateToProps = state => ({
     mfiId:state.me.mfiId,
     microentrepreneurs: state.me.microentrepreneurs,
     isLoading: state.me.isLoading,
-    error: state.me.error
+    error: state.me.error,
+    user:state.login.user,
 });
 
 const mapDispatchToProps = dispatch =>

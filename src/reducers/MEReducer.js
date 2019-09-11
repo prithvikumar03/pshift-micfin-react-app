@@ -37,7 +37,6 @@ const initialState ={
     "highestEducation": "",
     "householExp": "",
     "householdIncome": "",
-    "id": "",
     "incomeFromOtherSources": "",
     "lastName": "",
     "maritialStatus": "",

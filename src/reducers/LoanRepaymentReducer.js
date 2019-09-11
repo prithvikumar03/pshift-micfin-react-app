@@ -44,7 +44,6 @@ export function loanRepaymentReducer(state = initialState, action) {
         case LOAN_REPAYMENT_FAILURE:
             return {
                 ...state,
-                loanRepayment: null,
                 isLoading: false,
                 error: action.payload,
                 message: action.message,

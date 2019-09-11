@@ -11,24 +11,24 @@ import { useStyles } from './../../styles/index';
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export const yesNoOptions = [
+export const drinkerOptions = [
     {
-        value: 'YES',
+        value: 'true',
         label: 'YES',
     },
     {
-        value: 'NO',
+        value: 'false',
         label: 'NO',
     },
 ];
 
 export const smokerOptions = [
     {
-        value: 'YES',
+        value: 'true',
         label: 'YES',
     },
     {
-        value: 'NO',
+        value: 'false',
         label: 'NO',
     },
 ];
@@ -109,7 +109,7 @@ export default function PersonalDetails(props) {
                             </div>
 
                             <div>
-                                <TextField id="filled-select-yesNoOption" select label="Smoker" className={classes.textField} value={values.smokerOptions} onChange={handleChange('smokerOptions')} margin="dense"
+                                <TextField id="filled-select-yesNoOption" select label="Smoker" className={classes.textField} value={values.smoker} onChange={handleChange('smoker')} margin="dense"
                                     variant="outlined" InputLabelProps={{
                                         shrink: true,
                                     }} SelectProps={{
@@ -152,7 +152,7 @@ export default function PersonalDetails(props) {
                             
 
                             <div>
-                                <TextField id="filled-select-yesNoOption" select label="Marital Status" className={classes.textField} value={values.maritalStatusOptions} onChange={handleChange('maritalStatusOptions')} margin="dense"
+                                <TextField id="filled-select-yesNoOption" select label="Marital Status" className={classes.textField} value={values.maritialStatus} onChange={handleChange('maritialStatus')} margin="dense"
                                     variant="outlined" InputLabelProps={{
                                         shrink: true,
                                     }} SelectProps={{
@@ -180,7 +180,7 @@ export default function PersonalDetails(props) {
                             </div>
 
                             <div>
-                                <TextField id="filled-select-genderOptions" select label="Gender" default="MALE" className={classes.textField} value={values.genderOptions} onChange={handleChange('genderOptions')} margin="dense"
+                                <TextField id="filled-select-genderOptions" select label="Gender" default="MALE" className={classes.textField} value={values.gender} onChange={handleChange('gender')} margin="dense"
                                     variant="outlined" InputLabelProps={{
                                         shrink: true,
                                     }} SelectProps={{
@@ -267,7 +267,7 @@ export default function PersonalDetails(props) {
                             
                         <Grid item xs={4}>
                             <div>
-                                <TextField id="filled-select-yesNoOption" select label="Drinker" className={classes.textField} value={values.yesNoOptions} onChange={handleChange('yesNoOptions')} margin="dense"
+                                <TextField id="filled-select-yesNoOption" select label="Drinker" className={classes.textField} value={values.drinker} onChange={handleChange('drinker')} margin="dense"
                                     variant="outlined" InputLabelProps={{
                                         shrink: true,
                                     }} SelectProps={{
@@ -276,7 +276,7 @@ export default function PersonalDetails(props) {
                                         },
                                     }}
                                 >
-                                    {yesNoOptions.map(option => (
+                                    {drinkerOptions.map(option => (
                                         <MenuItem key={option.value} value={option.value}>
                                             {option.label}
                                         </MenuItem>
