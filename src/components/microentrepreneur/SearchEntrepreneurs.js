@@ -10,7 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
-//import { useStyles } from '../styles/index';
+import Button from "@material-ui/core/Button";
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
@@ -130,6 +130,10 @@ class SearchEntrepreneurs extends Component {
         //this.props.fetchAllEntrepreneurs({"mfiId":"MFI123"});
     }
 
+    onRefreshClick=()=>{
+        this.props.fetchAllEntrepreneurs(this.props.user.mfiId);
+    }
+
     render() {
         //const currentPath = this.props.location.pathname
         const { classes } = this.props;
@@ -146,7 +150,7 @@ class SearchEntrepreneurs extends Component {
                 <div>
                     <Grid container justify="center">
                         <Grid spacing={24} alignItems="center" justify="center" container className={classes.grid}>
-                            
+                            <Grid xs={12}>
                             <Typography component="div" variant="body1">    
                              <Box bgcolor="background.main">
                                
@@ -160,6 +164,37 @@ class SearchEntrepreneurs extends Component {
                                 
                             </Box>   
                             </Typography>
+                            </Grid>
+                            <Grid xs={12}>
+                                <div className={classes.extradiv}>
+                                    <Grid container item xs={12} spacing={1} align="center" justify="center" direction="row">
+                                    <Grid item xs={6}>
+                                        <Button
+                                        type="submit"
+                                        variant="contained"
+                                        color="primary"
+                                        margin="dense"
+                                        onClick={this.onRefreshClick}
+                                        >
+                                        Refresh
+                                    </Button>
+                                    </Grid>
+
+                                    <Grid item xs={6}>
+
+                                        <Button
+                                        variant="contained"
+                                        color="primary"
+                                        margin="dense"
+                                        >
+                                        Reset
+                                    </Button>
+                                    </Grid>
+                                    </Grid>
+                                </div>
+
+                            </Grid>    
+                            
                         </Grid>
                     </Grid>
                 </div>

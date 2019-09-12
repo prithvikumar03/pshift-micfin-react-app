@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { registerME } from '../../actions/MEActions';
 import {notificationOff} from '../../actions/NotificationActions';
-//import Snackbar from '@material-ui/core/Snackbar';
 import CustomizedSnackbars from './../../utils/SnackBar';
 
 
