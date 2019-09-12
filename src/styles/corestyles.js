@@ -181,8 +181,9 @@ export const styles = theme => ({
     },
     error: {
         color: 'red',
-        /* height: 48,
-        padding: '0 30px', */
+        height: '20px',
+        background: theme.palette.secondary,
+        //padding: '0 30px', */
     },
     container: {
         display: 'flex',

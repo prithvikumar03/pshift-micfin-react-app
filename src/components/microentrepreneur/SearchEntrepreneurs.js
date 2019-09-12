@@ -109,7 +109,7 @@ class SearchEntrepreneurs extends Component {
     }
 
     componentWillMount() {
-        alert('mfiID'+this.props.user.mfiId);
+        //alert('mfiID'+this.props.user.mfiId);
         this.props.fetchAllEntrepreneurs(this.props.user.mfiId);
         //this.props.fetchAllEntrepreneurs({"mfiId":"MFI123"});
     }

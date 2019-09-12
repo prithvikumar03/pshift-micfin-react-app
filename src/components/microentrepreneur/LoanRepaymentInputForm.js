@@ -11,11 +11,12 @@ import { loanRepaymentAction } from '../../actions/LoanRepaymentActions';
 import { fetchAllEntrepreneurs } from '../../actions/MEActions';
 import { fetchTransactions } from '../../actions/TransactionsActions';
 import CustomizedSnackbars from './../../utils/SnackBar';
-import {populateSelect} from './../../utils/Common';
+import { populateSelect } from './../../utils/Common';
+import Errors from './../../utils/Errors';
 
 
 const styles = theme => ({
-  
+
 })
 
 
@@ -31,58 +32,63 @@ class LoanRepaymentInputForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mfiOptions:[],
-            meOptions:[]
+            mfiOptions: [],
+            meOptions: []
         };
     }
 
-    onMFIChange=(event)=>{
-        this.props.fetchAllEntrepreneurs({"mfiId":event.target.value});
+    onMFIChange = (event) => {
+        this.props.fetchAllEntrepreneurs(this.props.user.mfiId);
     }
 
-    onMEChange=(event)=>{
+    onMEChange = (event) => {
         //TODO change it later to use MEID instead of MFI ID
-        this.props.fetchTransactions({"mfiId":this.props.user.mfiId});
+        this.props.fetchTransactions({ "mfiId": this.props.user.mfiId });
     }
-    componentWillMount(){
-        }
+    componentWillMount() {
+    }
 
     render() {
-               
+
         const {
             loanRepayment,
             loanRepaymentAction,
             isLoading,
             error,
-            
+
         } = this.props;
-        const { classes } = this.props; 
-        
+        const { classes } = this.props;
+
         return (
             <React.Fragment>
-                    <CustomizedSnackbars {...this.props} handleClose={this.handleClose} />
-                            <Grid spacing={12} alignItems="center" justify="center" container className={classes.grid}>
-                                 <Grid item xs={12}> 
-                                       <Formik
-                                        //initialValues={loanRepayment}
-                                        //enableReinitialize
-                                        //validationSchema={validationSchema}
-                                        //onSubmit={loanRepaymentAction}
-                                        onSubmit={(values, { setSubmitting }) => {
-                                            loanRepaymentAction(values);
-                                        }}
+
+               {/*  <CustomizedSnackbars {...this.props} handleClose={this.handleClose} /> */}
+                <Grid spacing={12} alignItems="center" justify="center" container className={classes.grid}>
+                   {/*  <Grid item xs={12}>
+                        <Errors {...this.props} />
+                    </Grid> */}
+                    <Grid item xs={12}>
+
+                        <Formik
+                            //initialValues={loanRepayment}
+                            //enableReinitialize
+                            //validationSchema={validationSchema}
+                            //onSubmit={loanRepaymentAction}
+                            onSubmit={(values, { setSubmitting }) => {
+                                loanRepaymentAction(values);
+                            }}
 
 
-                                        render={
-                                            props => <LoanRepayment handleSubmit={this.props.handleSubmit}
-                                            onMFIChange={this.onMFIChange}
-                                            onMEChange={this.onMEChange}
-                                            {...props} {...this.props}/>}
-                                    >
-                                    </Formik>
-                              </Grid> 
-                            </Grid>                     
-                
+                            render={
+                                props => <LoanRepayment handleSubmit={this.props.handleSubmit}
+                                    onMFIChange={this.onMFIChange}
+                                    onMEChange={this.onMEChange}
+                                    {...props} {...this.props} />}
+                        >
+                        </Formik>
+                    </Grid>
+                </Grid>
+
             </React.Fragment>
         );
     }
@@ -94,16 +100,16 @@ const mapStateToProps = state => ({
     loanRepayment: state.lr.loanRepayment,
     isLoading: state.lr.isLoading,
     error: state.lr.error,
-    user:state.login.user,
-    microentrepreneurs:state.me.microentrepreneurs,
+    user: state.login.user,
+    microentrepreneurs: state.me.microentrepreneurs,
     transactions: state.tr.transactions,
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-       loanRepaymentAction,
-       fetchAllEntrepreneurs,
-       fetchTransactions
+        loanRepaymentAction,
+        fetchAllEntrepreneurs,
+        fetchTransactions
     }, dispatch);
 
 

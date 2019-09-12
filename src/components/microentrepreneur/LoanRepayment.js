@@ -58,17 +58,17 @@ class LoanRepayment extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.user !== this.props.user) {
+        if (nextProps.user && (nextProps.user !== this.props.user)) {
             let mfiValues = [];
             mfiValues.push(this.props.user.mfiId);
             this.setState({ mfiOptions: populateSelect(mfiValues) })
         }
-        if (nextProps.microentrepreneurs !== this.props.microentrepreneurs) {
+        if (nextProps.microentrepreneurs && (nextProps.microentrepreneurs !== this.props.microentrepreneurs)) {
             let meValues = [];
             meValues.push(nextProps.microentrepreneurs.map(x => x.microEntrepreneurId));
             this.setState({ meOptions: populateSelect(meValues[0]) })
         }
-        if (nextProps.transactions !== this.props.transactions) {
+        if (nextProps.transactions && (nextProps.transactions !== this.props.transactions)) {
             this.setState({ loanOptions: populateSelect(nextProps.transactions.map(x => x.loanId)) })
         }
     }
