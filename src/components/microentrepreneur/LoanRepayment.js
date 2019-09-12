@@ -149,7 +149,7 @@ class LoanRepayment extends Component {
     }
 
     onSubmit = () => {
-        alert('values' + JSON.stringify(this.state.values));
+       // alert('values' + JSON.stringify(this.state.values));
         // let valuesNew={...this.state.Values,payment:this.props.values.payment,date:this.props.values.date}
         let { values } = this.props
         values = {
@@ -173,7 +173,7 @@ class LoanRepayment extends Component {
           values.mfiId=this.state.values.mfiId[0]
           values.microentrepreneurs=this.state.values.microEntrepreneurId[0]
           values.loanId=this.state.values.loanId[0] */
-        alert('values2' + JSON.stringify(this.props.values));
+      // alert('values2' + JSON.stringify(this.props.values));
 
         this.props.handleSubmit();
     }
@@ -298,7 +298,7 @@ class LoanRepayment extends Component {
                                                 </div>
 
                                                 <div>
-                                                    <TextField id="meName" required type="meName" name="date" label="MicroEntrepreneur Name" value={this.state.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="meName"  type="meName" name="date" label="MicroEntrepreneur Name" value={this.state.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -379,10 +379,10 @@ class LoanRepayment extends Component {
 
                                             <div>
                                                 <Button
-                                                    type="submit"
                                                     variant="contained"
                                                     color="primary"
                                                     margin="dense"
+                                                    onClick={this.onSubmitClick}
                                                 >
                                                     Submit
                                                 </Button>

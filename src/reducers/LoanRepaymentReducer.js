@@ -4,6 +4,11 @@ import {
     LOAN_REPAYMENT_FAILURE,
 } from './../actions/LoanRepaymentActions';
 
+import {
+    NOTIFICATION_ON,
+    NOTIFICATION_OFF,
+} from './../actions/NotificationActions';
+
 const initialState = {
     loanRepayment: {
         "loanId": "",
@@ -49,6 +54,17 @@ export function loanRepaymentReducer(state = initialState, action) {
                 message: action.message,
                 open: true
             };
+        case NOTIFICATION_ON:
+                return {
+                    ...state,
+                    open:true
+                };
+        case NOTIFICATION_OFF:
+                return {
+                    ...state,
+                    error: "",
+                    open:false
+                };     
         default:
             return state;
     }

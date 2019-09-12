@@ -13,6 +13,8 @@ import { fetchTransactions } from '../../actions/TransactionsActions';
 import CustomizedSnackbars from './../../utils/SnackBar';
 import { populateSelect } from './../../utils/Common';
 import Errors from './../../utils/Errors';
+import Popper from './../../utils/Popper';
+import {notificationOn,notificationOff} from './../../actions/NotificationActions';
 
 
 const styles = theme => ({
@@ -26,6 +28,7 @@ const validationSchema = Yup.object({
     directorName: Yup.string("")
         .min(8, "Director Name must contain at least 8 characters"), */
 });
+
 
 class LoanRepaymentInputForm extends Component {
 
@@ -48,6 +51,15 @@ class LoanRepaymentInputForm extends Component {
     componentWillMount() {
     }
 
+    handleClose=()=>{
+        this.props.notificationOff();
+    }
+    
+onSubmit=()=>{
+    //alert('Payment Successful');
+    this.props.loanRepaymentAction();
+
+}
     render() {
 
         const {
@@ -62,7 +74,7 @@ class LoanRepaymentInputForm extends Component {
         return (
             <React.Fragment>
 
-               {/*  <CustomizedSnackbars {...this.props} handleClose={this.handleClose} /> */}
+                <CustomizedSnackbars {...this.props} handleClose={this.handleClose} /> 
                 <Grid spacing={12} alignItems="center" justify="center" container className={classes.grid}>
                    {/*  <Grid item xs={12}>
                         <Errors {...this.props} />
@@ -75,7 +87,8 @@ class LoanRepaymentInputForm extends Component {
                             //validationSchema={validationSchema}
                             //onSubmit={loanRepaymentAction}
                             onSubmit={(values, { setSubmitting }) => {
-                                loanRepaymentAction(values);
+                                //loanRepaymentAction(values);
+                                this.onSubmit();
                             }}
 
 
@@ -103,13 +116,18 @@ const mapStateToProps = state => ({
     user: state.login.user,
     microentrepreneurs: state.me.microentrepreneurs,
     transactions: state.tr.transactions,
+    open:state.lr.open,
+    message: state.lr.message
+
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         loanRepaymentAction,
         fetchAllEntrepreneurs,
-        fetchTransactions
+        fetchTransactions,
+        notificationOn,
+        notificationOff
     }, dispatch);
 
 

@@ -86,25 +86,15 @@ const useStyles2 = makeStyles(theme => ({
 
 export default function CustomizedSnackbars(props) {
   const classes = useStyles2();
-  //const [open, setOpen] = React.useState(false);
+  let variant =(props.error)?"error":"success"
+ 
 
-  /* function handleClick() {
-    setOpen(true);
-  }
-
-  function handleClose(event, reason) {
-     if (reason === 'clickaway') {
-      return;
-    } 
-    setOpen(false);
-  }
- */
   return (
     <div>
       
       <Snackbar
         anchorOrigin={{
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'right',
         }}
         open={props.open}
@@ -113,7 +103,7 @@ export default function CustomizedSnackbars(props) {
       >
         <MySnackbarContentWrapper
           onClose={props.handleClose}
-          variant="success"
+          variant={variant}
           className={classes.margin}
           message={props.message}
         />

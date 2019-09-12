@@ -16,5 +16,6 @@ export const loanRepaymentSuccess = (microentrepreneur) => ({
 
 export const loanRepaymentFailure = (error) => ({
     type:  LOAN_REPAYMENT_FAILURE,
-    payload: error
+    payload: error,
+    message:"Loan repayment failed."
 });
