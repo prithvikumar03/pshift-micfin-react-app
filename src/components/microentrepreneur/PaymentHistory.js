@@ -43,7 +43,7 @@ const getRows=(data,header)=>{
 
 export default function PaymentHistory(props) {
   const classes = useStyles();
-  console.log('props'+JSON.stringify(props));
+  //console.log('props'+JSON.stringify(props));
   let tpropsData=[];
   if(props.data){
     tpropsData=props.data;

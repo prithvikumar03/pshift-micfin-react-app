@@ -55,9 +55,9 @@ class LoanRepaymentInputForm extends Component {
         this.props.notificationOff();
     }
     
-onSubmit=()=>{
-    //alert('Payment Successful');
-    this.props.loanRepaymentAction();
+onSubmit=(values)=>{
+  
+    this.props.loanRepaymentAction(values);
 
 }
     render() {
@@ -81,14 +81,14 @@ onSubmit=()=>{
                     </Grid> */}
                     <Grid item xs={12}>
 
-                        <Formik
+                        {/* <Formik
                             //initialValues={loanRepayment}
                             //enableReinitialize
                             //validationSchema={validationSchema}
                             //onSubmit={loanRepaymentAction}
                             onSubmit={(values, { setSubmitting }) => {
                                 //loanRepaymentAction(values);
-                                this.onSubmit();
+                                this.onSubmit(values);
                             }}
 
 
@@ -98,7 +98,15 @@ onSubmit=()=>{
                                     onMEChange={this.onMEChange}
                                     {...props} {...this.props} />}
                         >
-                        </Formik>
+                        </Formik> */}
+
+                        <LoanRepayment handleSubmit={this.props.handleSubmit}
+                                    onMFIChange={this.onMFIChange}
+                                    onMEChange={this.onMEChange}
+                                    onSubmit={this.onSubmit}
+                                     {...this.props} />
+
+                        
                     </Grid>
                 </Grid>
 

@@ -43,9 +43,9 @@ export function saveLoanRepayment(action$) {
               }; 
 
             if (isProd()) {
-                console.log("Calling saveLoanRepayment API "+saveLoanRepaymentURL+" with payload "+JSON.stringify(dummy));
+                console.log("Calling saveLoanRepayment API "+saveLoanRepaymentURL+" with payload "+JSON.stringify(action$.payload));
                // observable = ajax.post(saveLoanRepaymentURL, action$.payload, { 'Content-Type': 'application/json' });
-               observable = ajax.post(saveLoanRepaymentURL, dummy, { 'Content-Type': 'application/json' });
+               observable = ajax.post(saveLoanRepaymentURL, action$.payload, { 'Content-Type': 'application/json' });
             }
 
             return (observable.pipe(

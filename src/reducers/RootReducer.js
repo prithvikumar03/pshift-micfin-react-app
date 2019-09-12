@@ -4,6 +4,7 @@ import { microEntrepreneurReducer } from './MEReducer'
 import { loanRepaymentReducer  } from './LoanRepaymentReducer'
 import { transactionsReducer  } from './TransactionsReducer'
 import loginReducer from './LoginReducer'
+import {loanReducer} from './LoanReducer'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     me: microEntrepreneurReducer,
     lr: loanRepaymentReducer,
     tr: transactionsReducer,
-    login:loginReducer
+    login:loginReducer,
+    loan:loanReducer
 }) 

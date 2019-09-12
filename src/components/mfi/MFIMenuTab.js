@@ -14,6 +14,7 @@ import MERegistrationInputForm from './../microentrepreneur/MERegistrationInputF
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import withStyles from '@material-ui/styles/withStyles';
+import LoanInputForm from '../microentrepreneur/LoanInputForm';
 
 
 
@@ -70,6 +71,7 @@ class MFIMenuTab extends Component {
             
             <Tab label="Registration" component={Link} to="/microEntrepreneur" />
             <Tab label="Search Entrepreneurs" component={Link} to="/searchEntrepreneurs" />
+            <Tab label="Loans" component={Link} to="/loan" />
             <Tab label="Payments" component={Link} to="/loanRepayment" />
             <Tab label="Ledger" component={Link} to="/ledger" />
           </Tabs>
@@ -82,12 +84,15 @@ class MFIMenuTab extends Component {
           <SearchEntrepreneurs {...this.props}/> 
         </TabPanel>
 
-
         <TabPanel value={value} index={2}>
-          <LoanRepaymentInputForm {...this.props}/> 
+          <LoanInputForm {...this.props}/> 
         </TabPanel>
 
         <TabPanel value={value} index={3}>
+          <LoanRepaymentInputForm {...this.props}/> 
+        </TabPanel>
+
+        <TabPanel value={value} index={4}>
           <LedgerInputForm {...this.props}/> 
         </TabPanel>
       </div>

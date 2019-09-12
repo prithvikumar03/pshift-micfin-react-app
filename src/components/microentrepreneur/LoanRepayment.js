@@ -46,17 +46,9 @@ class LoanRepayment extends Component {
             loanOptions: []
         };
     }
-    onSubmitClick = (values) => {
-        //alert('handle submit in parent class ! Hurray');
-        this.props.handleSubmit();
-    }
+   
 
-    handleChange = (event) => {
-        alert('handlechange');
-        //   handleChange('mfiOptions')
-
-    }
-
+ 
     componentWillReceiveProps(nextProps) {
         if (nextProps.user && (nextProps.user !== this.props.user)) {
             let mfiValues = [];
@@ -126,7 +118,21 @@ class LoanRepayment extends Component {
 
     }
 
+    handleValueChange = (event) => {
+        event.persist();
+        const name = event.target.name;
+        const value = event.target.value;
+      
+            this.setState(prevState => ({
+                ...prevState,
+                values: {
+                    ...prevState.values,
+                    [name]: value
+                }
 
+            }))
+        
+    }
 
     populateOtherInfo = (loanId) => {
         let { transactions } = this.props;
@@ -149,33 +155,22 @@ class LoanRepayment extends Component {
     }
 
     onSubmit = () => {
-       // alert('values' + JSON.stringify(this.state.values));
-        // let valuesNew={...this.state.Values,payment:this.props.values.payment,date:this.props.values.date}
-        let { values } = this.props
-        values = {
-            "date": "2019-09-10T04:12:57.870Z",
-            "id": "string",
-            "interestRate": 10,
-            "loanAmount": 110,
-            "loanId": "L200",
-            "mfiId": "MFI1",
-            "microEntrepreneurId": "ME101",
-            "payment": 28,
-            "paymentDelayedInMonths": 0,
-            "productId": "string",
-            "productName": "string",
-            "tenure": 0
-        }
+       
 
+        let values = {};
 
-        /*   values.payment= '12'
-          values.date=this.state.values.date
-          values.mfiId=this.state.values.mfiId[0]
-          values.microentrepreneurs=this.state.values.microEntrepreneurId[0]
-          values.loanId=this.state.values.loanId[0] */
-      // alert('values2' + JSON.stringify(this.props.values));
-
-        this.props.handleSubmit();
+        values.payment = this.state.values.payment
+        values.date = this.state.values.date
+        values.mfiId = this.state.values.mfiId[0]
+        values.microEntrepreneurId = this.state.values.microEntrepreneurId[0]
+        values.loanId = this.state.values.loanId[0]
+        values.productId=this.state.values.productId
+        values.productName=this.state.values.productName
+        values.tenure=this.state.values.tenure
+        values.interestRate=this.state.values.interestRate
+        values.paymentDelayedInMonths=this.state.values.paymentDelayedInMonths
+    
+        this.props.onSubmit(values);
     }
     render() {
         const {
@@ -192,11 +187,11 @@ class LoanRepayment extends Component {
         let renderPaymentHistory = <div></div>;
         /* if (this.state.displayPaymentHistory) {
             if(this.state.selectedTransaction){ */
-            renderPaymentHistory = <PaymentHistory 
-            data={this.state.selectedTransaction ? this.state.selectedTransaction[0].repaymentInfoList:null}
-             {...this.props} />
-          /*   }
-        } */
+        renderPaymentHistory = <PaymentHistory
+            data={this.state.selectedTransaction ? this.state.selectedTransaction[0].repaymentInfoList : null}
+            {...this.props} />
+        /*   }
+      } */
 
         const { classes } = this.props;
         return (
@@ -232,7 +227,7 @@ class LoanRepayment extends Component {
                                                 <div>
                                                     <TextField id="filled-select-mfiOptions" select name="mfiId" label="MFI Id" className={classes.textField} value={this.state.values.mfiId} onChange={this.handleMFIChange} margin="dense"
                                                         variant="outlined"
-                                                       // helperText="Please select  MFI ID"
+                                                        // helperText="Please select  MFI ID"
                                                         InputLabelProps={{
                                                             shrink: true,
                                                         }} SelectProps={{
@@ -253,7 +248,7 @@ class LoanRepayment extends Component {
                                                 <div>
                                                     <TextField id="filled-select-meOptions" select name='microEntrepreneurId' label="MicroEntrepreneur Id" className={classes.textField} value={this.state.values.microEntrepreneurId} onChange={this.handleMEChange} margin="dense"
                                                         variant="outlined"
-                                                       // helperText="Please select  ME ID"
+                                                        // helperText="Please select  ME ID"
                                                         InputLabelProps={{
                                                             shrink: true,
                                                         }} SelectProps={{
@@ -298,7 +293,7 @@ class LoanRepayment extends Component {
                                                 </div>
 
                                                 <div>
-                                                    <TextField id="meName"  type="meName" name="date" label="MicroEntrepreneur Name" value={this.state.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                                                    <TextField id="meName" type="meName" name="date" label="MicroEntrepreneur Name" value={this.state.meName} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
                                                         variant="outlined"
                                                         InputLabelProps={{
                                                             shrink: true
@@ -361,63 +356,75 @@ class LoanRepayment extends Component {
 
                             {/* Loan  Amount */}
                             <div className={classes.div}>
-                            <Card className={classes.cardNoSpacing}>
-                                <CardContent>
-                                    <Typography className={classes.title} gutterBottom>
-                                        Make Payment
+                                <Card className={classes.cardNoSpacing}>
+                                    <CardContent>
+                                        <Typography className={classes.title} gutterBottom>
+                                            Make Payment
                                         </Typography>
-                                    <Grid container item xs={12} spacing={2} direction="row">
-                                        <Grid item xs={6} >
-                                            <div>
-                                                <TextField id="payment" required type="text" name="payment" label="Amount ($)" value={values.payment} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                                    variant="outlined"
-                                                    InputLabelProps={{
-                                                        shrink: true
-                                                    }}
-                                                />
-                                            </div>
+                                        <Grid container item xs={12} spacing={2} direction="row">
+                                            <Grid item xs={4} >
+                                                <div>
+                                                    <TextField id="payment" required type="text" name="payment" label="Amount ($)" value={this.state.values.payment} className={classes.textField} onChange={this.handleValueChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
 
-                                            <div>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    margin="dense"
-                                                    onClick={this.onSubmitClick}
-                                                >
-                                                    Submit
+                                                <div>
+                                                    <Button
+                                                        variant="contained"
+                                                        color="primary"
+                                                        margin="dense"
+                                                        onClick={this.onSubmit}
+                                                    >
+                                                        Submit
                                                 </Button>
-                                            </div>
+                                                </div>
+                                            </Grid>
+
+                                            <Grid item xs={4}>
+                                                <div>
+                                                    <TextField id="paymentDelayedInMonths" required type="text" name="paymentDelayedInMonths" label="Payment Delayed (months)" value={this.state.values.paymentDelayedInMonths} className={classes.textField} onChange={this.handleValueChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
+
+
+                                                <div>
+
+                                                    <Button
+                                                        variant="contained"
+                                                        color="primary"
+                                                        margin="dense"
+                                                    >
+                                                        Reset
+                                                </Button>
+                                                </div>
+                                            </Grid>
+
+                                            <Grid item xs={4}>
+                                                <div>
+                                                    <TextField id="date" required type="date" name="date" label="Today's Date" value={this.state.values.date} className={classes.textField} onChange={this.handleValueChange} onBlur={handleBlur} margin="dense"
+                                                        variant="outlined"
+                                                        InputLabelProps={{
+                                                            shrink: true
+                                                        }}
+                                                    />
+                                                </div>
+
+                                            </Grid>
+
                                         </Grid>
 
-                                        <Grid item xs={6}>
-                                            <div>
-                                                <TextField id="date" required type="date" name="date" label="Today's Date" value={values.date} className={classes.textField} onChange={handleChange} onBlur={handleBlur} margin="dense"
-                                                    variant="outlined"
-                                                    InputLabelProps={{
-                                                        shrink: true
-                                                    }}
-                                                />
-                                            </div>
 
-
-                                            <div>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    margin="dense"
-                                                >
-                                                    Reset
-                                                </Button>
-                                            </div>
-                                        </Grid>
-
-                                    </Grid>
-
-
-                                </CardContent>
-                            </Card>
-                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
 
 
 

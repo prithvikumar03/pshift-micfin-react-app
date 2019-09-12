@@ -32,13 +32,29 @@ const styles = theme => ({
 
 const columns = [
     {
+        name: "mfiId",
+        label: "MFI Id",
+        options: {
+            filter: true,
+            sort: true,
+        }
+    },
+    {
+        name: "microEntrepreneurId",
+        label: "Microentrepreneur Id",
+        options: {
+            filter: true,
+            sort: true,
+        }
+    },
+   /*  {
         name: "aadhar",
         label: "Aadhar",
         options: {
             filter: true,
             sort: true,
         }
-    },
+    }, */
     {
         name: "firstName",
         label: "First Name",
@@ -72,8 +88,8 @@ const columns = [
         }
     },
     {
-        name: "noOfEmployees",
-        label: "Num of Employees",
+        name: "creditScore",
+        label: "Credit Score",
         options: {
             filter: true,
             sort: false,
