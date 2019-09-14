@@ -13,6 +13,10 @@ export default class Login extends PureComponent {
         this.state = {};
     }
 
+    onReset=()=>{
+        document.forms[0].reset(); 
+    }
+
     render() {
 
         const {
@@ -25,52 +29,69 @@ export default class Login extends PureComponent {
             classes,
         } = this.props;
 
-
+        
         return (
             <div>
 
                 <React.Fragment>
-                    <form onSubmit={handleSubmit}>
+                    <form name="LoginForm" onSubmit={handleSubmit}>
                         <Grid alignItems="center" justify="flex-end" container>
                             <Grid item>
-                            <Card className={classes.card}>
-                                <Typography variant="h6">
-                                    Login
+                                <Card className={classes.card}>
+                                    <Typography variant="h6">
+                                        <Grid container alignItems="center" justify="left" direction="row">
+                                            <Grid item xs={6}>
+                                               
+                                       {/*  </Grid>
+                                            <Grid item xs={6}> */}
+                                                <img src={require('./../../images/LoginIcon.png')} alt="Login" />
+                                                &nbsp;&nbsp;Login
+                                            </Grid>
+                                        </Grid>
                                         <Divider variant="fullWidth" className={classes.divider} />
-                                </Typography>
-                                <CardContent>
-                                    <div>
-                                        <TextField id="userId"  type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField } 
-                                        InputLabelProps={{
-                                            shrink: true
-                                          }}
-                                        />
-                                    </div>
-                                    <div>
-                                        <TextField id="password"  type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
-                                        InputLabelProps={{
-                                            shrink: true
-                                          }} />
-                                    </div>
-                                  {/*   <div>
+                                    </Typography>
+                                    <CardContent>
+                                        <div>
+                                            <TextField id="userId" required type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField}
+                                                InputLabelProps={{
+                                                    shrink: true
+                                                }}
+                                            />
+                                        </div>
+                                        <div>
+                                            <TextField id="password" required type="password" name="password" label="Password" variant="outlined" margin="dense" value={values.password} onChange={handleChange} onBlur={handleBlur} className={classes.textField}
+                                                InputLabelProps={{
+                                                    shrink: true
+                                                }} />
+                                        </div>
+                                        {/*   <div>
                                         <TextField id="email" type="email" name="email" label="Email" variant="outlined" margin="dense" value={values.email} onChange={handleChange} onBlur={handleBlur} className = { classes.textField }
                                         InputLabelProps={{
                                             shrink: true
                                           }} />
                                     </div>  */}
-                                    <div></div>
-                                    <div>
-                                        <Button
-                                            type="submit"
-                                            variant="contained"
-                                            color="primary"
-                                            margin="dense"
-                                        >
-                                            Submit
-                                        </Button>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                        <div></div>
+                                        <div>
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                margin="dense"
+                                            >
+                                                Submit
+                                            </Button>
+                                            &nbsp;&nbsp;
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                margin="dense"
+                                                onClick={this.onReset}
+                                            >
+                                                Reset
+                                            </Button>
+                                        </div>
+                                    </CardContent>
+                                </Card>
                             </Grid>
                         </Grid>
 

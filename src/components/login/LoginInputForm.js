@@ -189,8 +189,6 @@ const mapDispatchToProps = dispatch =>
     }, dispatch);
 
 
-//export default withAuthenticator(withStyles(styles)(LoginInputForm));
-//export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginInputForm));
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(LoginInputForm));
 
 
