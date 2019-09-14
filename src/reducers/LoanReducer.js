@@ -12,13 +12,10 @@ import {
 const initialState = {
     loan: {
         "date": "",
-        "emi":'' ,
-        "interestRate": '',
-        "listLoanSchedule": [
-        
-        ],
-        "loanAmount": '',
-        "loanBalance": '',
+        "emi":0 ,
+        "interestRate": 0,
+        "loanAmount": 0,
+        "loanBalance": 0,
         "loanId": "",
         "mfiId": "",
         "mfiName": "",
@@ -26,12 +23,8 @@ const initialState = {
         "microEntrepreneurName": "",
         "productId": "",
         "productName": "",
-        "repaymentInfoList": [
-        
-        ],
-        "tenure": '',
-        "totalInterestPaid": '',
-        "totalPrincipalPaid": ''
+        "tenure": 0
+    
             },
     isLoading: false,
     error: null
