@@ -48,7 +48,8 @@ const theme = createMuiTheme({
         main: grey[200],
         /* secondary: grey[300] */
         secondary: grey[200], 
-        tertiary: blue[100]
+        tertiary: blue[100],
+        errors:blue[50]
         
       }
     },

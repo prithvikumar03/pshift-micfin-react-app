@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useReducer } from 'react';
 import { Redirect } from 'react-router-dom'
 import { Formik } from 'formik';
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -6,7 +6,7 @@ import Login from './Login';
 import * as Yup from 'yup'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginUser } from '../../actions/LoginActions';
+import { loginUser,logoutUser } from '../../actions/LoginActions';
 import { notificationOff } from '../../actions/NotificationActions';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -29,6 +29,7 @@ const validationSchema = Yup.object({
     password: Yup.string("")
         .min(8, "Password must contain at least 8 characters")
         .required("Enter your password")
+
 });
 
 const styles = theme => ({
@@ -61,7 +62,17 @@ class LoginInputForm extends Component {
         } = this.props;
 
         let redirect = <div></div>;
-        if (message === 'SUCCESS') {
+
+        if(this.props.match.path=='/logout' && user.userId!==""){
+            let tuser={
+                userId:"",
+                userGroup:"",
+                entitlementLevel:""
+            }
+            this.props.logoutUser(tuser);
+        }
+
+        if (message === 'LOGIN SUCCESS' && user.userId!=="") {
             redirect = <Redirect to="/main" />;
         }
 
@@ -82,15 +93,18 @@ class LoginInputForm extends Component {
                                                 <img src={require('./../../images/addon8.png')} alt="Micfin logo" />
                                             </Grid>
                                             <Grid item xs={9}>
-
-
+                                                <Grid spacing={0} alignItems="center" justify="flex-end" container xs={12}>
+                                                    <Grid item xs={12}>
+                                                      {/*   <a href="">Signup</a> */}
+                                                    </Grid>
+                                                </Grid>
                                             </Grid>
 
                                         </Toolbar>
                                     </AppBar>
                                 </Grid>
                             </Grid>
-                            
+
 
 
                             <Grid item xs={12}>
@@ -113,17 +127,17 @@ class LoginInputForm extends Component {
                                         >
 
                                             <div>
-                                            <Formik
-                                                initialValues={user}
-                                                enableReinitialize
-                                                //validationSchema={validationSchema} 
-                                                onSubmit={(values, { setSubmitting }) => {
-                                                    loginUser(values);
-                                                }}
+                                                <Formik
+                                                    initialValues={user}
+                                                    enableReinitialize
+                                                    //validationSchema={validationSchema} 
+                                                    onSubmit={(values, { setSubmitting }) => {
+                                                        loginUser(values);
+                                                    }}
 
-                                                render={
-                                                    props => <Login handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
-                                            />
+                                                    render={
+                                                        props => <Login handleSubmit={this.props.handleSubmit} {...props} {...this.props} />}
+                                                />
                                             </div>
                                         </Box>
 
@@ -185,6 +199,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         loginUser,
+        logoutUser,
         notificationOff
     }, dispatch);
 

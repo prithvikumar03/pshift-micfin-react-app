@@ -6,15 +6,30 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
+import FormDialog from '../../utils/FormDialog';
 export default class Login extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            openDialog: false,
+        };
     }
 
-    onReset=()=>{
-        document.forms[0].reset(); 
+    onReset = () => {
+        document.forms[0].reset();
+    }
+
+    onSignup = () => {
+        this.setState({
+            openDialog: true,
+        })
+    }
+
+    onCloseDialog = () => {
+        this.setState({
+            openDialog: false,
+        })
     }
 
     render() {
@@ -29,27 +44,38 @@ export default class Login extends PureComponent {
             classes,
         } = this.props;
 
-        
+        let renderSignUp = (this.state.openDialog === true) ? <FormDialog {...this.props} open={this.state.openDialog} onCloseDialog={this.onCloseDialog} /> : <div></div>
         return (
             <div>
 
                 <React.Fragment>
+                    <div>
+                        {renderSignUp}
+                    </div>
                     <form name="LoginForm" onSubmit={handleSubmit}>
                         <Grid alignItems="center" justify="flex-end" container>
                             <Grid item>
                                 <Card className={classes.card}>
-                                    <Typography variant="h6">
-                                        <Grid container alignItems="center" justify="left" direction="row">
+
+                                    <Grid container alignItems="center" justify="left" direction="row">
+                                        <Grid item xs={6}>
+                                            <Typography variant="h6">
+                                                 {/* <img src={require('./../../images/LoginIcon.png')} alt="Login" />
+                                                &nbsp;&nbsp;Login  */}
+                                                Login
+                                            </Typography>
+                                        </Grid>
+                                   
+                                    <Grid item xs={6}>
+                                        <Grid container alignItems="center" justify="flex-end" direction="row">
                                             <Grid item xs={6}>
-                                               
-                                       {/*  </Grid>
-                                            <Grid item xs={6}> */}
-                                                <img src={require('./../../images/LoginIcon.png')} alt="Login" />
-                                                &nbsp;&nbsp;Login
+                                                <a onClick={this.onSignup}>Signup</a>
                                             </Grid>
                                         </Grid>
-                                        <Divider variant="fullWidth" className={classes.divider} />
-                                    </Typography>
+                                    </Grid>
+                                    </Grid>
+                                    <Divider variant="fullWidth" className={classes.divider} />
+
                                     <CardContent>
                                         <div>
                                             <TextField id="userId" required type="text" name="userId" label="User name" variant="outlined" margin="dense" value={values.userID} onChange={handleChange} onBlur={handleBlur} className={classes.textField}
@@ -70,7 +96,7 @@ export default class Login extends PureComponent {
                                             shrink: true
                                           }} />
                                     </div>  */}
-                                        <div></div>
+
                                         <div>
                                             <Button
                                                 type="submit"
@@ -90,6 +116,13 @@ export default class Login extends PureComponent {
                                                 Reset
                                             </Button>
                                         </div>
+
+                                        {/*  <div className={classes.div}>
+                                            <Typography variant="body2" component="h2">
+                                            Forgot credentials ?
+                                            </Typography>
+                                          
+                                        </div> */}
                                     </CardContent>
                                 </Card>
                             </Grid>

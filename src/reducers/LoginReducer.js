@@ -1,6 +1,7 @@
 
 import {
     LOGIN_USER,
+    LOGOUT_USER,
     LOGIN_USER_SUCCESS,
     LOGIN_USER_FAILURE
 } from '../actions/LoginActions';
@@ -30,6 +31,13 @@ export default function loginReducer(state = initialState, action) {
         case LOGIN_USER:
             return {
                 ...state,
+                isLoading: true,
+                error: null
+            };
+        case LOGOUT_USER:
+            return {
+                ...state,
+                user:action.payload,
                 isLoading: true,
                 error: null
             };
