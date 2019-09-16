@@ -62,7 +62,7 @@ class LoginInputForm extends Component {
         } = this.props;
 
         let redirect = <div></div>;
-
+/* 
         if(this.props.match.path=='/logout' && user.userId!==""){
             let tuser={
                 userId:"",
@@ -70,7 +70,7 @@ class LoginInputForm extends Component {
                 entitlementLevel:""
             }
             this.props.logoutUser(tuser);
-        }
+        } */
 
         if (message === 'LOGIN SUCCESS' && user.userId!=="") {
             redirect = <Redirect to="/main" />;
