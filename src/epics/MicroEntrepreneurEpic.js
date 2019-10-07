@@ -26,7 +26,7 @@ export function microEntrepreneurEpic(action$) {
         ofType(FETCH_ALL_ENTREPRENEURS),
         switchMap((action$) => {
             let mfiId=action$.payload;
-            const fetchMicroentrepreneursUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/micro-entrepreneurs`;
+            const fetchMicroentrepreneursUrl = getMicfinServiceURL()+`/micfinreactive/api/mfi/${mfiId}/micro-entrepreneurs`;
             console.log('Calling fetch microEntrepreneurs url '+fetchMicroentrepreneursUrl+'for MFI ID ' + mfiId );
             let observable=of(fake.getAllMicroEntrepreneursResponse);
             if(isProd()){
@@ -51,7 +51,7 @@ export function registerMEEpic(action$) {
         ofType(REGISTER_ME),
         switchMap((action$) => {
             let mfiId=action$.payload.mfiId;
-            const saveMEUrl = getMicfinServiceURL()+`/micfin/api/mfi/${mfiId}/micro-entrepreneur`;
+            const saveMEUrl = getMicfinServiceURL()+`/micfinreactive/api/mfi/${mfiId}/micro-entrepreneur`;
              let observable=of(fake.registerMEResponse);
              if(isProd()){
                 observable = ajax.post(saveMEUrl,action$.payload, { 'Content-Type': 'application/json' });

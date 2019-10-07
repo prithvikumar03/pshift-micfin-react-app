@@ -124,6 +124,14 @@ class Loan extends Component {
                   }}
                 />
               </div>
+
+              <div>
+                <TextField id="date" type="date" name="date" label="Start Date" className={classes.textField} value={values.date} onChange={handleChange} onBlur={handleBlur} margin="dense"
+                  variant="outlined" InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </div>
               <tr></tr>
              
               </Grid>

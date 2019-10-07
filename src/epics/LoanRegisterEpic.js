@@ -24,7 +24,7 @@ export function saveLoan(action$) {
             let observable = of(fake.saveLoanRepayment);
             
           
-            const saveLoanURL = getMicfinServiceURL() + '/micfin/transaction/loan';
+            const saveLoanURL = getMicfinServiceURL() + '/micfinreactive/transaction/loan';
 
              
             if (isProd()) {

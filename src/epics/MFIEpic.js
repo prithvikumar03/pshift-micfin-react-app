@@ -16,7 +16,7 @@ import {
 } from "./../actions/MFIActions";
 
 
-const fetchMFIsUrl = getMicfinServiceURL()+'/micfin/api/mfis'; 
+const fetchMFIsUrl = getMicfinServiceURL()+'/micfinreactive/api/mfis'; 
 export default function mfiEpic(action$) { 
     return action$.pipe(
         ofType(FETCH_ALL_MFIS), 
@@ -40,7 +40,7 @@ export default function mfiEpic(action$) {
 }   
 
 
-const saveMFIUrl = getMicfinServiceURL()+'/micfin/api/mfi'; 
+const saveMFIUrl = getMicfinServiceURL()+'/micfinreactive/api/mfi'; 
 export function registerMFIEpic(action$) { 
      return action$.pipe(
         ofType(REGISTER_MFI) ,

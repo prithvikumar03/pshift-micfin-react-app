@@ -26,13 +26,13 @@ export function fetchTransactionsEpic(action$) {
             let mfiId=action$.payload.mfiId;
             let microEntrepreneurId=action$.payload.microEntrepreneurId;
             if(dbsId){
-                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/loans`;
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfinreactive/transaction/loans`;
             }
             else if (mfiId) {
-                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/loans`;
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfinreactive/transaction/mfi/${mfiId}/loans`;
             }
             else if (microEntrepreneurId){
-                fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/transaction/mfi/${mfiId}/micro-entrepreneur/${microEntrepreneurId}/loans`;
+                fetchTransactionsUrl = getMicfinServiceURL()+`/micfinreactive/transaction/mfi/${mfiId}/micro-entrepreneur/${microEntrepreneurId}/loans`;
             }
             
             /* const fetchTransactionsUrl = getMicfinServiceURL()+`/micfin/api/loans/${mfiId}`; */

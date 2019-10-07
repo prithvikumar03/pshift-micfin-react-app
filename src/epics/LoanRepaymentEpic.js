@@ -25,7 +25,7 @@ export function saveLoanRepayment(action$) {
             
             //let loanId = action$.payload.loanId;
             //const saveLoanRepaymentURL = getMicfinServiceURL() + `/micfin/transaction/repayment/${loanId}`;
-            const saveLoanRepaymentURL = getMicfinServiceURL() + '/micfin/transaction/repayment';
+            const saveLoanRepaymentURL = getMicfinServiceURL() + '/micfinreactive/transaction/repayment';
 
              let dummy={
                 "date": "2019-09-10T04:12:57.870Z",
