@@ -55,6 +55,31 @@
       "last 1 safari version"
     ]
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "component-identification",
+      "@babel/plugin-proposal-class-properties",
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
+        }
+      ]
+    ]
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.7.6",
     "redux-devtools-extension": "^2.13.8"
